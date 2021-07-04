@@ -1,0 +1,31 @@
+{
+  "name": "github-oauth-server",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "start": "nodemon ./bin/www",
+    "prisma:studio": "yarn prisma studio",
+    "prisma:migrate:dev": "yarn prisma migrate dev",
+    "prisma:migrate:reset": "yarn prisma migrate reset",
+    "prisma:db:push": "yarn prisma db push",
+    "prisma:db:seed": "yarn prisma db seed --preview-feature"
+  },
+  "dependencies": {
+    "@prisma/client": "^2.24.1",
+    "cors": "^2.8.5",
+    "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
+    "express": "~4.16.1",
+    "helmet": "^4.6.0",
+    "http-errors": "~1.6.3",
+    "jsonwebtoken": "^8.5.1",
+    "morgan": "~1.9.1",
+    "passport": "^0.4.1",
+    "passport-github2": "^0.1.12"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9",
+    "prisma": "^2.24.1"
+  }
+}
