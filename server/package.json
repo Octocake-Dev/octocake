@@ -1,5 +1,5 @@
 {
-  "name": "github-oauth-server",
+  "name": "octocake-server",
   "version": "0.0.0",
   "private": true,
   "type": "module",
