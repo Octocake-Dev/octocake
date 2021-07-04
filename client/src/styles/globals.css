@@ -25,3 +25,18 @@
   --color-primary-800: #14746f;
   --color-primary-900: #036666;
 }
+
+#nprogress {
+  position: relative;
+  z-index: 9999999;
+}
+
+#nprogress .bar {
+  background: var(--color-primary-500) !important;
+  height: 2.5px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--color-primary-500),
+    0 0 5px var(--color-primary-500) !important;
+}
