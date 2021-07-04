@@ -12,3 +12,16 @@
     U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215,
     U+FEFF, U+FFFD;
 }
+
+:root {
+  --color-primary-50: #99e2b4;
+  --color-primary-100: #88d4ab;
+  --color-primary-200: #78c6a3;
+  --color-primary-300: #67b99a;
+  --color-primary-400: #56ab91;
+  --color-primary-500: #469d89;
+  --color-primary-600: #358f80;
+  --color-primary-700: #248277;
+  --color-primary-800: #14746f;
+  --color-primary-900: #036666;
+}
