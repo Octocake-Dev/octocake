@@ -1,9 +1,13 @@
 import React from "react";
 import PropTypes from "prop-types";
 
+import { NextSeo } from "next-seo";
+
 const User = ({ user }) => {
   return (
     <>
+      <NextSeo title={user.githubName} />
+
       <section>
         <div>
           <code>
@@ -15,11 +19,11 @@ const User = ({ user }) => {
   );
 };
 
-export const getServerSideProps = async ({ params }) => {
+export const getStaticProps = async ({ params }) => {
   const res = await fetch(`http://localhost:1337/user/${params.username}`);
   const user = await res.json();
 
-  return { props: { user } };
+  return { props: { user }, revalidate: 1 };
 };
 
 User.propTypes = {
