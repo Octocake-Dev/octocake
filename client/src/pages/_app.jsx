@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import Router from "next/router";
 
 import { ThemeProvider } from "next-themes";
 import { DefaultSeo } from "next-seo";
+import { QueryClient, QueryClientProvider } from "react-query";
+import { ReactQueryDevtools } from "react-query/devtools";
+import { Hydrate } from "react-query/hydration";
 import NProgress from "nprogress";
 
 import { useUser } from "@/stores/useUser";
@@ -22,23 +25,32 @@ Router.events.on("routeChangeError", () => NProgress.done());
 NProgress.configure({ showSpinner: false });
 
 const MyApp = ({ Component, pageProps }) => {
+  const [queryClient] = useState(() => new QueryClient());
+
   const signIn = useUser((state) => state.signIn);
 
   useEffect(() => {
     signIn();
-  }, [signIn]);
+  });
 
   return (
     <>
-      <ThemeProvider
-        attribute="class"
-        forcedTheme={Component.theme || undefined}
-      >
-        <DefaultSeo {...SEO} />
-        <Global>
-          <Component {...pageProps} />
-        </Global>
-      </ThemeProvider>
+      <DefaultSeo {...SEO} />
+
+      <QueryClientProvider client={queryClient}>
+        <Hydrate state={pageProps.dehydratedState}>
+          <ThemeProvider
+            attribute="class"
+            forcedTheme={Component.theme || undefined}
+          >
+            <Global>
+              <Component {...pageProps} />
+            </Global>
+          </ThemeProvider>
+        </Hydrate>
+
+        <ReactQueryDevtools />
+      </QueryClientProvider>
     </>
   );
 };
