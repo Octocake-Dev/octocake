@@ -1,12 +1,17 @@
 import React from "react";
 import PropTypes from "prop-types";
+import { useRouter } from "next/router";
 
 import { NextSeo } from "next-seo";
 
 const User = ({ user }) => {
+  const { isFallback } = useRouter();
+
+  if (isFallback) return <div>loading...</div>;
+
   return (
     <>
-      <NextSeo title={user.githubName} />
+      <NextSeo title={`${user.githubName} - Octocake`} />
 
       <section>
         <div>
@@ -19,6 +24,10 @@ const User = ({ user }) => {
   );
 };
 
+export const getStaticPaths = async () => {
+  return { paths: [], fallback: true };
+};
+
 export const getStaticProps = async ({ params }) => {
   const res = await fetch(`http://localhost:1337/user/${params.username}`);
   const user = await res.json();
@@ -27,7 +36,7 @@ export const getStaticProps = async ({ params }) => {
 };
 
 User.propTypes = {
-  user: PropTypes.object.isRequired,
+  user: PropTypes.object,
 };
 
 export default User;
