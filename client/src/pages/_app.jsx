@@ -27,10 +27,10 @@ NProgress.configure({ showSpinner: false });
 const MyApp = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => new QueryClient());
 
-  const signIn = useUser((state) => state.signIn);
+  const fetchUser = useUser((state) => state.fetchUser);
 
   useEffect(() => {
-    signIn();
+    fetchUser();
   });
 
   return (

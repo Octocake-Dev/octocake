@@ -5,7 +5,7 @@ export const useUser = create((set) => ({
   user: null,
   logged_in: false,
   token: null,
-  signIn: async () => {
+  fetchUser: async () => {
     const { gh_token } = parseCookies();
 
     const res = await fetch("http://localhost:1337/me", {
