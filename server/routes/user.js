@@ -1,11 +1,11 @@
 import express from "express";
 
 import { prisma } from "../config/prisma.js";
-import getCurrentUser from "../middlewares/isLoggedIn.js";
+import verifyToken from "../middlewares/verifyToken.js";
 
 const router = express();
 
-router.get("/", getCurrentUser, async (req, res) => {
+router.get("/", verifyToken, async (req, res) => {
   try {
     const user = await prisma.user.findUnique({
       where: { githubId: Number(req.user.id) },

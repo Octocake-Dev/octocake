@@ -2,7 +2,7 @@ import jwt from "jsonwebtoken";
 
 import { jwt_key } from "../config/credentials.js";
 
-const isLoggedIn = (req, res, next) => {
+const verifyToken = (req, res, next) => {
   const token = req.headers["token"];
 
   jwt.verify(token, jwt_key, (err, data) => {
@@ -15,4 +15,4 @@ const isLoggedIn = (req, res, next) => {
   });
 };
 
-export default isLoggedIn;
+export default verifyToken;
