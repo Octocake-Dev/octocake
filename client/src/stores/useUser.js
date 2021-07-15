@@ -1,20 +1,24 @@
-import { parseCookies } from "nookies";
 import create from "zustand";
+
+import { instance } from "@/utils/axios";
 
 export const useUser = create((set) => ({
   user: null,
   logged_in: false,
-  token: null,
+  gh_token: null,
   fetchUser: async () => {
-    const { gh_token } = parseCookies();
-
-    const res = await fetch("http://localhost:1337/me", {
-      headers: { token: gh_token },
+    const { data: gh_token } = await instance.get("/gh_token", {
+      withCredentials: true,
     });
-    const user = await res.json();
 
-    if (!user.error) {
-      set({ user, logged_in: true, token: gh_token });
+    try {
+      const { data: user } = await instance.get("/current_user", {
+        headers: { gh_token },
+      });
+
+      set({ user, logged_in: true, gh_token });
+    } catch (err) {
+      throw new Error(err);
     }
   },
 }));
