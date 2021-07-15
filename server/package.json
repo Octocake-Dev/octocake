@@ -12,7 +12,7 @@
     "prisma:db:seed": "yarn prisma db seed --preview-feature"
   },
   "dependencies": {
-    "@prisma/client": "^2.24.1",
+    "@prisma/client": "^2.27.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "debug": "~2.6.9",
