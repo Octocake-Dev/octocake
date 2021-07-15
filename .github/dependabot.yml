@@ -1,8 +1,24 @@
 version: 2
 updates:
-  # Fetch and update latest `npm` packages
+  # Client folder
   - package-ecosystem: npm
     directory: "/client"
+    schedule:
+      interval: daily
+      time: "00:00"
+    open-pull-requests-limit: 10
+    reviewers:
+      - imadatyatalah
+    assignees:
+      - imadatyatalah
+    commit-message:
+      prefix: fix
+      prefix-development: chore
+      include: scope
+
+  # Server folder
+  - package-ecosystem: npm
+    directory: "/server"
     schedule:
       interval: daily
       time: "00:00"
