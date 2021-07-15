@@ -5,7 +5,11 @@ import Link from "next/link";
 
 import { Menu, Transition } from "@headlessui/react";
 import { BsPerson } from "react-icons/bs";
-import { IoLogOutOutline, IoSettingsOutline } from "react-icons/io5";
+import {
+  IoLogOutOutline,
+  IoSettingsOutline,
+  IoHelpBuoyOutline,
+} from "react-icons/io5";
 
 const ProfileMenu = ({ user }) => {
   return (
@@ -18,6 +22,7 @@ const ProfileMenu = ({ user }) => {
               width="50"
               height="50"
               alt={user.githubName}
+              title={user.githubName}
               className="rounded-[10px]"
             />
           </Menu.Button>
@@ -45,6 +50,19 @@ const ProfileMenu = ({ user }) => {
             </div>
 
             <div className="px-1 py-1">
+              <Link href={`/help`}>
+                <a>
+                  <MenuItem>
+                    <IoHelpBuoyOutline
+                      className="w-5 h-5 mr-1"
+                      aria-hidden="true"
+                      opacity="85%"
+                    />
+                    Help
+                  </MenuItem>
+                </a>
+              </Link>
+
               <Link href={`/settings`}>
                 <a>
                   <MenuItem>
