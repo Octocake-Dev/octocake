@@ -1,11 +1,20 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 import { useRouter } from "next/router";
 
 import { NextSeo } from "next-seo";
+import { QueryClient } from "react-query";
+import { dehydrate } from "react-query/hydration";
 
-const User = ({ user }) => {
-  const { isFallback } = useRouter();
+import { getUser, useGetUser } from "@/api/user/getUser";
+
+const User = () => {
+  const {
+    isFallback,
+    query: { username },
+  } = useRouter();
+
+  const { data: user } = useGetUser(username);
 
   if (isFallback) return <div>loading...</div>;
 
@@ -15,9 +24,7 @@ const User = ({ user }) => {
 
       <section>
         <div>
-          <code>
-            <pre>{JSON.stringify(user, null, 2)}</pre>
-          </code>
+          <h1 className="text-3xl font-bold">{user.githubName}</h1>
         </div>
       </section>
     </>
@@ -29,14 +36,15 @@ export const getStaticPaths = async () => {
 };
 
 export const getStaticProps = async ({ params }) => {
-  const res = await fetch(`http://localhost:1337/user/${params.username}`);
-  const user = await res.json();
+  const queryClient = new QueryClient();
 
-  return { props: { user }, revalidate: 1 };
+  const { username } = params;
+
+  await queryClient.prefetchQuery(["user", username], () => getUser(username));
+
+  return { props: { dehydratedState: dehydrate(queryClient) }, revalidate: 1 };
 };
 
-User.propTypes = {
-  user: PropTypes.object,
-};
+// User.propTypes = {};
 
 export default User;
