@@ -10,6 +10,7 @@ import { Hydrate } from "react-query/hydration";
 import NProgress from "nprogress";
 
 import { useUser } from "@/stores/useUser";
+import { QueryClientOptions } from "@/lib/queryClient";
 import Global from "@/layouts/global";
 import SEO from "next-seo.config";
 
@@ -23,14 +24,6 @@ Router.events.on("routeChangeComplete", () => NProgress.done());
 Router.events.on("routeChangeError", () => NProgress.done());
 
 NProgress.configure({ showSpinner: false });
-
-const QueryClientOptions = {
-  defaultOptions: {
-    queries: {
-      refetchOnWindowFocus: false,
-    },
-  },
-};
 
 const MyApp = ({ Component, pageProps }) => {
   const [queryClient] = useState(() => new QueryClient(QueryClientOptions));
