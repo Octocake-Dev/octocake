@@ -24,8 +24,16 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 NProgress.configure({ showSpinner: false });
 
+const QueryClientOptions = {
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+    },
+  },
+};
+
 const MyApp = ({ Component, pageProps }) => {
-  const [queryClient] = useState(() => new QueryClient());
+  const [queryClient] = useState(() => new QueryClient(QueryClientOptions));
 
   const fetchUser = useUser((state) => state.fetchUser);
 
