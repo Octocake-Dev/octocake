@@ -16,7 +16,7 @@ router.get(
       expiresIn: 60 * 60 * 24 * 1000,
     });
 
-    res.cookie("gh_token", token, {
+    res.cookie("oc_token", token, {
       secure: true,
       httpOnly: true,
       maxAge: 60 * 60 * 24 * 1000,
@@ -31,7 +31,7 @@ router.get(
 );
 
 router.get("/logout", (req, res) => {
-  res.clearCookie("gh_token");
+  res.clearCookie("oc_token");
   req.logout();
   res.redirect("http://localhost:3000");
 });
