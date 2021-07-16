@@ -40,3 +40,7 @@
   box-shadow: 0 0 10px var(--color-primary-500),
     0 0 5px var(--color-primary-500) !important;
 }
+
+.custom_max_width {
+  @apply mx-auto max-w-[1440px];
+}

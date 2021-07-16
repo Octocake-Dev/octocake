@@ -8,7 +8,7 @@ const Global = ({ children }) => {
   return (
     <>
       <Header />
-      <main>{children}</main>
+      <main className="custom_max_width">{children}</main>
       <Footer />
     </>
   );

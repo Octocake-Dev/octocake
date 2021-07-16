@@ -3,7 +3,7 @@ import React from "react";
 const Footer = () => {
   return (
     <>
-      <footer></footer>
+      <footer className="custom_max_width"></footer>
     </>
   );
 };

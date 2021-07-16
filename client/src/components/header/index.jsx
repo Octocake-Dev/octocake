@@ -13,7 +13,7 @@ const Header = () => {
 
   return (
     <>
-      <header className="flex items-center justify-between shadow-lg h-[70px] px-5 sm:px-8 md:px-16 xl:px-28">
+      <header className="flex items-center justify-between shadow-lg h-[70px] px-5 sm:px-8 md:px-16 xl:px-28 custom_max_width">
         <div>
           <Link href="/">
             <a>
