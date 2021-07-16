@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+// import PropTypes from "prop-types";
 
 import { NextSeo } from "next-seo";
 
@@ -21,6 +21,6 @@ export const getStaticProps = async () => {
   return { props: {}, revalidate: 1 };
 };
 
-Following.propTypes = {};
+// Following.propTypes = {};
 
 export default Following;

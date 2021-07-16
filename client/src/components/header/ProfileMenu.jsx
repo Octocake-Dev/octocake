@@ -50,7 +50,7 @@ const ProfileMenu = ({ user }) => {
             </div>
 
             <div className="px-1 py-1">
-              <Link href={`/help`}>
+              <Link href="/help">
                 <a>
                   <MenuItem>
                     <IoHelpBuoyOutline
@@ -63,7 +63,7 @@ const ProfileMenu = ({ user }) => {
                 </a>
               </Link>
 
-              <Link href={`/settings`}>
+              <Link href="/settings">
                 <a>
                   <MenuItem>
                     <IoSettingsOutline
