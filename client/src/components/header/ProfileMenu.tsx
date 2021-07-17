@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import PropTypes from "prop-types";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -11,7 +10,9 @@ import {
   IoHelpBuoyOutline,
 } from "react-icons/io5";
 
-const ProfileMenu = ({ user }) => {
+import { User } from "@/types/user";
+
+const ProfileMenu = ({ user }: { user: User }) => {
   return (
     <>
       <Menu as="div" className="relative inline-block text-left">
@@ -94,7 +95,11 @@ const ProfileMenu = ({ user }) => {
   );
 };
 
-const MenuItem = ({ children }) => {
+type MenuItemProps = {
+  children: React.ReactNode;
+};
+
+const MenuItem = ({ children }: MenuItemProps) => {
   return (
     <>
       <Menu.Item>
@@ -110,14 +115,6 @@ const MenuItem = ({ children }) => {
       </Menu.Item>
     </>
   );
-};
-
-ProfileMenu.propTypes = {
-  user: PropTypes.object.isRequired,
-};
-
-MenuItem.propTypes = {
-  children: PropTypes.node.isRequired,
 };
 
 export default ProfileMenu;

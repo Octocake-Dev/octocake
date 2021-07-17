@@ -1,10 +1,13 @@
 import React from "react";
-import PropTypes from "prop-types";
 
 import Header from "@/components/header";
 import Footer from "@/components/footer";
 
-const Global = ({ children }) => {
+type Props = {
+  children: React.ReactNode;
+};
+
+const Global = ({ children }: Props) => {
   return (
     <>
       <Header />
@@ -12,10 +15,6 @@ const Global = ({ children }) => {
       <Footer />
     </>
   );
-};
-
-Global.propTypes = {
-  children: PropTypes.node,
 };
 
 export default Global;

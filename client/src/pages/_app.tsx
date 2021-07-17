@@ -1,5 +1,6 @@
-/* eslint-disable react/prop-types */
 import React, { useEffect, useState } from "react";
+import type { AppProps } from "next/app";
+
 import Router from "next/router";
 
 import { ThemeProvider } from "next-themes";
@@ -25,7 +26,7 @@ Router.events.on("routeChangeError", () => NProgress.done());
 
 NProgress.configure({ showSpinner: false });
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps }: AppProps) => {
   const [queryClient] = useState(() => new QueryClient(QueryClientOptions));
 
   const fetchUser = useUser((state) => state.fetchUser);
@@ -42,7 +43,8 @@ const MyApp = ({ Component, pageProps }) => {
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider
             attribute="class"
-            forcedTheme={Component.theme || undefined}
+            // @ts-ignore
+            forcedTheme={Component.theme || null}
           >
             <Global>
               <Component {...pageProps} />
