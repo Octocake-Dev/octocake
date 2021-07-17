@@ -1,5 +1,5 @@
 import React from "react";
-// import PropTypes from "prop-types";
+import { GetStaticProps, GetStaticPaths } from "next";
 
 import { NextSeo } from "next-seo";
 
@@ -13,14 +13,12 @@ const Followers = () => {
   );
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return { paths: [], fallback: true };
 };
 
-export const getStaticProps = async () => {
+export const getStaticProps: GetStaticProps = async () => {
   return { props: {}, revalidate: 1 };
 };
-
-// Followers.propTypes = {};
 
 export default Followers;

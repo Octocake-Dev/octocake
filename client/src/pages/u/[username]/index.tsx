@@ -1,6 +1,6 @@
 import React from "react";
-// import PropTypes from "prop-types";
 import { useRouter } from "next/router";
+import { GetStaticProps, GetStaticPropsContext, GetStaticPaths } from "next";
 
 import { NextSeo } from "next-seo";
 import { QueryClient } from "react-query";
@@ -9,12 +9,9 @@ import { dehydrate } from "react-query/hydration";
 import { getUser, useGetUser } from "@/api/user/getUser";
 
 const User = () => {
-  const {
-    isFallback,
-    query: { username },
-  } = useRouter();
+  const { isFallback, query } = useRouter();
 
-  const { data: user } = useGetUser(username);
+  const { data: user } = useGetUser(query.username);
 
   if (isFallback) return <div>loading...</div>;
 
@@ -31,20 +28,20 @@ const User = () => {
   );
 };
 
-export const getStaticPaths = async () => {
+export const getStaticPaths: GetStaticPaths = async () => {
   return { paths: [], fallback: true };
 };
 
-export const getStaticProps = async ({ params }) => {
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}: GetStaticPropsContext) => {
   const queryClient = new QueryClient();
 
-  const { username } = params;
+  const { username }: any = params;
 
   await queryClient.prefetchQuery(["user", username], () => getUser(username));
 
   return { props: { dehydratedState: dehydrate(queryClient) }, revalidate: 1 };
 };
-
-// User.propTypes = {};
 
 export default User;
