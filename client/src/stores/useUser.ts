@@ -16,9 +16,7 @@ export const useUser = create(
         });
 
         set({ user, logged_in: true, oc_token });
-      } catch (err) {
-        throw new Error(err);
-      }
+      } catch (err) {}
     },
   }))
 );
