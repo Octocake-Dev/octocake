@@ -11,7 +11,7 @@ import { getUser, useGetUser } from "@/api/user/getUser";
 const User = () => {
   const { isFallback, query } = useRouter();
 
-  const { data: user } = useGetUser(query.username);
+  const { data: user } = useGetUser(query.username as string);
 
   if (isFallback) return <div>loading...</div>;
 
@@ -37,9 +37,11 @@ export const getStaticProps: GetStaticProps = async ({
 }: GetStaticPropsContext) => {
   const queryClient = new QueryClient();
 
-  const { username }: any = params;
+  const { username } = params!;
 
-  await queryClient.prefetchQuery(["user", username], () => getUser(username));
+  await queryClient.prefetchQuery(["user", username], () =>
+    getUser(username as string)
+  );
 
   return { props: { dehydratedState: dehydrate(queryClient) }, revalidate: 1 };
 };
