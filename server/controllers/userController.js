@@ -6,7 +6,7 @@ export const getUser = async (req, res) => {
       where: { githubUsername: req.params.username },
     });
 
-    res.send(user);
+    res.status(200).send(user);
   } catch (err) {
     res.send(err);
   }
