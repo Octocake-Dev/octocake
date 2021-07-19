@@ -1,6 +1,6 @@
 import { useQuery } from "react-query";
 
-import { instance } from "@/utils/axios";
+import { instance } from "@/lib/axios";
 
 export const getUser = async (username: string) => {
   const { data } = await instance.get(`/user/${username}`);

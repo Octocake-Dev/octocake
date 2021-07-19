@@ -1,7 +1,7 @@
 import { combine } from "zustand/middleware";
 import create from "zustand";
 
-import { instance } from "@/utils/axios";
+import { instance } from "@/lib/axios";
 
 export const useUser = create(
   combine({ user: null, logged_in: false, oc_token: null }, (set) => ({
