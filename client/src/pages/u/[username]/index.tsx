@@ -39,11 +39,15 @@ export const getStaticProps: GetStaticProps = async ({
 
   const { username } = params!;
 
-  await queryClient.prefetchQuery(["user", username], () =>
+  const user = await queryClient.fetchQuery(["user", username], () =>
     getUser(username as string)
   );
 
-  return { props: { dehydratedState: dehydrate(queryClient) }, revalidate: 1 };
+  return {
+    props: { dehydratedState: dehydrate(queryClient) },
+    notFound: user.name === "NotFoundError",
+    revalidate: 1,
+  };
 };
 
 export default User;
