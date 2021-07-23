@@ -44,7 +44,7 @@ const Footer = () => {
             by{" "}
             <a
               href="https://github.com/imadatyatalah/"
-              className="text-primary-500 font-medium md:hover:underline"
+              className="text-primary-900 font-medium md:hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
