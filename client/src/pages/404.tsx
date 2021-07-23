@@ -1,10 +1,19 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
 const Custom404 = () => {
+  const [deviceInnerHeight, setDeviceInnerHeight] = useState<number>();
+
+  useEffect(() => {
+    setDeviceInnerHeight(window.innerHeight);
+  }, [deviceInnerHeight]);
+
   return (
     <>
-      <section className="min-h-screen flex flex-col justify-center items-center space-y-5">
+      <section
+        className="flex flex-col justify-center items-center space-y-5"
+        style={{ minHeight: deviceInnerHeight }}
+      >
         <div>
           <h1 className="text-3xl font-bold">404 - Page Not Found</h1>
         </div>
