@@ -5,7 +5,7 @@ import Link from "next/link";
 import { useUser } from "@/stores/useUser";
 import ProfileMenu from "./ProfileMenu";
 
-import desktopLogo from "../../../public/desktop-logo.svg";
+import Logo from "@/public/desktop-logo.svg";
 
 const Header = () => {
   const user = useUser((state) => state.user);
@@ -17,7 +17,7 @@ const Header = () => {
         <div>
           <Link href="/">
             <a className="flex">
-              <Image src={desktopLogo} alt="octocake logo" />
+              <Image src={Logo} alt="octocake logo" />
             </a>
           </Link>
         </div>

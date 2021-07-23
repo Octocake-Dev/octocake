@@ -2,7 +2,7 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
-import Logo from "../../../public/logo.svg";
+import Logo from "@/public/logo.svg";
 
 const LINKS = [
   { title: "About", href: "/#" },
