@@ -23,7 +23,7 @@ const Custom404 = () => {
         <div>
           <Link href="/">
             <a>
-              <Button>Back home</Button>
+              <Button type="button">Back home</Button>
             </a>
           </Link>
         </div>
