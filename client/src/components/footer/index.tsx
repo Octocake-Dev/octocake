@@ -24,10 +24,10 @@ const Footer = () => {
           </Link>
         </div>
 
-        <div className="py-4 flex items-center flex-col space-y-2 md:flex-row md:space-y-0 md:space-x-4 md:justify-center">
+        <div className="py-4 flex items-center flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-center">
           {LINKS.map((link, index) => (
             <Link href={link.href} key={index}>
-              <a className="font-medium md:opacity-75 md:hover:opacity-100 md:hover:underline">
+              <a className="font-medium sm:opacity-75 sm:hover:opacity-100 sm:hover:underline">
                 {link.title}
               </a>
             </Link>
@@ -44,7 +44,7 @@ const Footer = () => {
             by{" "}
             <a
               href="https://github.com/imadatyatalah/"
-              className="text-primary-900 font-medium md:hover:underline"
+              className="text-primary-900 font-medium sm:hover:underline"
               target="_blank"
               rel="noopener noreferrer"
             >
