@@ -7,6 +7,7 @@ import { DefaultSeo } from "next-seo";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Hydrate } from "react-query/hydration";
+import { OctocakeProvider } from "octocake-ui";
 import NProgress from "nprogress";
 
 import { useUser } from "@/stores/useUser";
@@ -45,9 +46,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             // @ts-ignore
             forcedTheme={Component.theme || null}
           >
-            <Global>
-              <Component {...pageProps} />
-            </Global>
+            <OctocakeProvider>
+              <Global>
+                <Component {...pageProps} />
+              </Global>
+            </OctocakeProvider>
           </ThemeProvider>
         </Hydrate>
 

@@ -2,6 +2,8 @@ import React from "react";
 import Image from "next/image";
 import Link from "next/link";
 
+import { Button } from "octocake-ui";
+
 import { useUser } from "@/stores/useUser";
 import ProfileMenu from "./ProfileMenu";
 
@@ -30,9 +32,7 @@ const Header = () => {
           ) : (
             <>
               <a href="http://localhost:1337/auth/github">
-                <button className="text-white font-semibold bg-primary-400 rounded-[10px] py-2 px-4">
-                  Sign in
-                </button>
+                <Button type="button">Sign in</Button>
               </a>
             </>
           )}

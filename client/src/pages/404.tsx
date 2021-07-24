@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
+import { Button } from "octocake-ui";
+
 const Custom404 = () => {
   const [deviceInnerHeight, setDeviceInnerHeight] = useState<number>();
 
@@ -21,9 +23,7 @@ const Custom404 = () => {
         <div>
           <Link href="/">
             <a>
-              <button className="text-white font-semibold bg-primary-400 rounded-[10px] py-2 px-4">
-                Back home
-              </button>
+              <Button type="button">Back home</Button>
             </a>
           </Link>
         </div>
