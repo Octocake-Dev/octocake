@@ -10,7 +10,8 @@
       "@/styles/*": ["src/styles/*"],
       "@/stores/*": ["src/stores/*"],
       "@/layouts/*": ["src/layouts/*"],
-      "@/components/*": ["src/components/*"]
+      "@/components/*": ["src/components/*"],
+      "@/validations/*": ["src/validations/*"]
     },
     "target": "es5",
     "lib": ["dom", "dom.iterable", "esnext"],
