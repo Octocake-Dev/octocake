@@ -32,7 +32,9 @@ const Header = () => {
           ) : (
             <>
               <a href="http://localhost:1337/auth/github">
-                <Button type="button">Sign in</Button>
+                <Button size="sm" type="button">
+                  Sign in
+                </Button>
               </a>
             </>
           )}
