@@ -22,7 +22,7 @@ export const createPost = async (req, res) => {
       },
     });
 
-    res.status(200).send(post);
+    res.status(201).send(post);
   } catch (err) {
     res.send(err);
   }
