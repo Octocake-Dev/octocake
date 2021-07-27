@@ -2,9 +2,11 @@ import { prisma } from "../config/prisma.js";
 
 export const getUser = async (req, res) => {
   try {
-    const user = await prisma.user.findUnique({
-      where: { githubUsername: req.params.username },
-    });
+    const user = await prisma.user
+      .findUnique({
+        where: { githubUsername: req.params.username },
+      })
+      .posts();
 
     res.status(200).send(user);
   } catch (err) {
