@@ -28,6 +28,29 @@ export const createPost = async (req, res) => {
   }
 };
 
+export const deletePost = async (req, res) => {
+  const { slug } = req.params;
+
+  const post = await prisma.post.findUnique({
+    where: { slug },
+    include: { owner: true },
+  });
+
+  if (post.owner.githubId === Number(req.user.id)) {
+    try {
+      const deletedPost = await prisma.post.delete({
+        where: { slug },
+      });
+
+      res.status(200).send(deletedPost);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.status(403).send("Forbidden");
+  }
+};
+
 export const getPosts = async (req, res) => {
   try {
     const posts = await prisma.post.findMany({
@@ -43,8 +66,10 @@ export const getPosts = async (req, res) => {
 
 export const getPostBySlug = async (req, res) => {
   try {
+    const { slug } = req.params;
+
     const post = await prisma.post.findUnique({
-      where: { slug: req.params.slug },
+      where: { slug },
       include: { owner: true },
     });
 
