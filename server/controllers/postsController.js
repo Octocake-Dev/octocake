@@ -28,6 +28,37 @@ export const createPost = async (req, res) => {
   }
 };
 
+export const updatePost = async (req, res) => {
+  const { slug } = req.params;
+
+  const post = await prisma.post.findUnique({
+    where: { slug },
+    include: { owner: true },
+  });
+
+  if (post.owner.githubId === Number(req.user.id)) {
+    try {
+      const { title, description, published } = req.body;
+
+      const RANDOM_STRING_LENGTH = 10;
+      const generatedSlug = slugify(
+        `${title} ${randomString(RANDOM_STRING_LENGTH)}`
+      );
+
+      const updatedPost = await prisma.post.update({
+        where: { slug },
+        data: { title, description, published, slug: generatedSlug },
+      });
+
+      res.status(200).send(updatedPost);
+    } catch (err) {
+      res.send(err);
+    }
+  } else {
+    res.status(403).send("Forbidden");
+  }
+};
+
 export const deletePost = async (req, res) => {
   const { slug } = req.params;
 

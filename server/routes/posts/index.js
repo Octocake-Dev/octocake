@@ -5,6 +5,7 @@ import {
   getPosts,
   getPostBySlug,
   deletePost,
+  updatePost,
 } from "../../controllers/postsController.js";
 import verifyToken from "../../middlewares/verifyToken.js";
 
@@ -17,5 +18,7 @@ router.get("/", getPosts);
 router.get("/:slug", getPostBySlug);
 
 router.delete("/:slug", verifyToken, deletePost);
+
+router.put("/:slug", verifyToken, updatePost);
 
 export default router;
