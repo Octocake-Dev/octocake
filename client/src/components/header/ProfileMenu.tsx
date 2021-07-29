@@ -1,5 +1,4 @@
 import React, { Fragment } from "react";
-import Image from "next/image";
 import Link from "next/link";
 
 import { Menu, Transition } from "@headlessui/react";
@@ -11,6 +10,7 @@ import {
 } from "react-icons/io5";
 
 import { User } from "@/types/user";
+import StyledAvatar from "@/components/avatar";
 
 const ProfileMenu = ({ user }: { user: User }) => {
   return (
@@ -18,13 +18,12 @@ const ProfileMenu = ({ user }: { user: User }) => {
       <Menu as="div" className="relative inline-block text-left">
         <div>
           <Menu.Button className="flex">
-            <Image
+            <StyledAvatar
               src={user.githubAvatarUrl}
               width="50"
               height="50"
               alt={user.githubName}
               title={user.githubName}
-              className="rounded-[10px]"
             />
           </Menu.Button>
         </div>

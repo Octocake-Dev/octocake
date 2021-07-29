@@ -26,12 +26,14 @@
     "react-hook-form": "^7.12.1",
     "react-icons": "^4.2.0",
     "react-query": "^3.19.1",
+    "styled-components": "^5.3.0",
     "yup": "^0.32.9",
     "zustand": "^3.5.7"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.15",
+    "@types/styled-components": "^5.1.11",
     "autoprefixer": "^10.3.1",
     "eslint": "^7.31.0",
     "eslint-config-next": "^11.0.1",
