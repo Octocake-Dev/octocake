@@ -3,11 +3,12 @@ import slugify from "slugify";
 import { prisma } from "../config/prisma.js";
 import randomString from "../utils/randomString.js";
 
+const RANDOM_STRING_LENGTH = 10;
+
 export const createPost = async (req, res) => {
   try {
     const { title, description, published } = req.body;
 
-    const RANDOM_STRING_LENGTH = 10;
     const generatedSlug = slugify(
       `${title} ${randomString(RANDOM_STRING_LENGTH)}`
     );
@@ -40,7 +41,6 @@ export const updatePost = async (req, res) => {
     try {
       const { title, description, published } = req.body;
 
-      const RANDOM_STRING_LENGTH = 10;
       const generatedSlug = slugify(
         `${title} ${randomString(RANDOM_STRING_LENGTH)}`
       );
