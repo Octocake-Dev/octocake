@@ -3,7 +3,7 @@ import express from "express";
 import { prisma } from "../config/prisma.js";
 import verifyToken from "../middlewares/verifyToken.js";
 
-const router = express();
+const router = express.Router();
 
 router.get("/", verifyToken, async (req, res) => {
   try {
