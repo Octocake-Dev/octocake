@@ -11,7 +11,6 @@ import Logo from "@/public/desktop-logo.svg";
 
 const Header = () => {
   const user = useUser((state) => state.user);
-  const logged_in = useUser((state) => state.logged_in);
 
   return (
     <>
@@ -25,8 +24,16 @@ const Header = () => {
         </div>
 
         <div className="flex items-center">
-          {logged_in && user ? (
+          {user ? (
             <>
+              <Link href="/new-post">
+                <a className="mr-8">
+                  <Button size="sm" type="button">
+                    Create Post
+                  </Button>
+                </a>
+              </Link>
+
               <ProfileMenu user={user} />
             </>
           ) : (
