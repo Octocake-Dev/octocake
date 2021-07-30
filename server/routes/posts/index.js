@@ -6,7 +6,7 @@ import {
   getPostBySlug,
   deletePost,
   updatePost,
-} from "../../controllers/postsController.js";
+} from "../../controllers/posts.controller.js";
 import verifyToken from "../../middlewares/verifyToken.js";
 
 const router = express.Router();
