@@ -26,6 +26,11 @@
   --color-primary-900: #036666;
 }
 
+::selection {
+  color: white;
+  background: var(--color-primary-700);
+}
+
 #nprogress {
   position: relative;
   z-index: 9999999;
