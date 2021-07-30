@@ -2,8 +2,8 @@ import { useMutation } from "react-query";
 
 import { instance } from "@/lib/axios";
 
-const useDeletePost = (slug: string, oc_token: string) => {
-  const mutation = useMutation(
+const useDeletePost = (slug: string, oc_token: string) =>
+  useMutation(
     () => instance.delete(`/posts/${slug}`, { headers: { oc_token } }),
     {
       onSuccess: () => {
@@ -14,8 +14,5 @@ const useDeletePost = (slug: string, oc_token: string) => {
       },
     }
   );
-
-  return mutation;
-};
 
 export default useDeletePost;
