@@ -13,41 +13,39 @@ const Header = () => {
   const user = useUser((state) => state.user);
 
   return (
-    <>
-      <header className="flex items-center justify-between shadow-lg h-[70px] px-5 sm:px-8 md:px-16 xl:px-28 custom_max_width">
-        <div>
-          <Link href="/">
-            <a className="flex">
-              <Image src={Logo} alt="octocake logo" />
-            </a>
-          </Link>
-        </div>
+    <header className="flex items-center justify-between shadow-lg h-[70px] px-5 sm:px-8 md:px-16 xl:px-28 custom_max_width">
+      <div>
+        <Link href="/">
+          <a className="flex">
+            <Image src={Logo} alt="octocake logo" />
+          </a>
+        </Link>
+      </div>
 
-        <div className="flex items-center">
-          {user ? (
-            <>
-              <Link href="/new-post">
-                <a className="mr-8">
-                  <Button size="sm" type="button">
-                    Create Post
-                  </Button>
-                </a>
-              </Link>
-
-              <ProfileMenu user={user} />
-            </>
-          ) : (
-            <>
-              <a href="http://localhost:1337/auth/github">
+      <div className="flex items-center">
+        {user ? (
+          <>
+            <Link href="/new-post">
+              <a className="mr-8">
                 <Button size="sm" type="button">
-                  Sign in
+                  Create Post
                 </Button>
               </a>
-            </>
-          )}
-        </div>
-      </header>
-    </>
+            </Link>
+
+            <ProfileMenu user={user} />
+          </>
+        ) : (
+          <>
+            <a href="http://localhost:1337/auth/github">
+              <Button size="sm" type="button">
+                Sign in
+              </Button>
+            </a>
+          </>
+        )}
+      </div>
+    </header>
   );
 };
 
