@@ -41,11 +41,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ThemeProvider
-            attribute="class"
-            // @ts-ignore
-            forcedTheme={Component.theme || null}
-          >
+          <ThemeProvider defaultTheme="system" attribute="class">
             <OctocakeProvider>
               <Global>
                 <Component {...pageProps} />
