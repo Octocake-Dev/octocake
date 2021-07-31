@@ -7,6 +7,9 @@ import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
 import { getUser, useGetUser } from "@/api/user/getUser";
+import Post from "@/components/post";
+
+import { TPost } from "@/types/post";
 
 const User = () => {
   const { isFallback, query } = useRouter();
@@ -22,6 +25,16 @@ const User = () => {
       <section>
         <div>
           <h1 className="text-3xl font-bold">{user.githubName}</h1>
+
+          {user.posts.length ? (
+            <>
+              <h3>Posts</h3>
+
+              {user.posts.map((post: TPost) => (
+                <Post post={post} key={post.id} />
+              ))}
+            </>
+          ) : null}
         </div>
       </section>
     </>
