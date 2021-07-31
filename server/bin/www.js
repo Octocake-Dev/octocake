@@ -7,8 +7,8 @@
 import debug from "debug";
 import http from "http";
 
-import app from "../app.js";
-import { server_port } from "../config/credentials.js";
+import app from "../src/app.js";
+import { server_port } from "../src/config/credentials.js";
 
 /**
  * Get port from environment and store in Express.
