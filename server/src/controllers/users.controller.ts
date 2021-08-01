@@ -1,8 +1,10 @@
 import { Request, Response } from "express";
 
+import { User as UserModel } from "@prisma/client";
+
 import { prisma } from "../config/prisma";
 
-export const getUser = async (req: Request, res: Response) => {
+export const getUser = async (req: Request, res: Response<UserModel>) => {
   try {
     const user = await prisma.user.findUnique({
       where: { githubUsername: req.params.username },
