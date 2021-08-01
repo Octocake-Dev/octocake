@@ -6,16 +6,12 @@ client:
 
 ```bash
 cd client && npm i
-# or
-cd client && yarn
 ```
 
 server:
 
 ```bash
 cd server && npm i
-# or
-cd server && yarn
 ```
 
 ## Setup the server
@@ -40,17 +36,13 @@ Finally, run the development server:
 inside server folder:
 
 ```bash
-npm run start
-# or
-yarn start
+npm run dev
 ```
 
 Then inside client folder:
 
 ```bash
 npm run dev
-# or
-yarn dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
