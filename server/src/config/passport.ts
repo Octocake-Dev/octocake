@@ -4,15 +4,15 @@ import passport from "passport";
 import { github_client_id, github_client_secret } from "./credentials.js";
 import { prisma } from "./prisma";
 
-passport.serializeUser((user, done) => {
-  // @ts-ignore
+passport.serializeUser((user: any, done) => {
   done(null, user._json.id);
 });
 
 passport.deserializeUser(async (id, done) => {
   try {
-    // @ts-ignore
-    const user = await prisma.user.findUnique({ where: { githubId: id } });
+    const user = await prisma.user.findUnique({
+      where: { githubId: Number(id) },
+    });
     done(null, user);
   } catch (err) {
     done(err);
@@ -26,7 +26,12 @@ passport.use(
       clientSecret: github_client_secret,
       callbackURL: "/auth/github/callback",
     },
-    async (accessToken: any, refreshToken: any, profile: any, done: any) => {
+    async (
+      accessToken: string,
+      refreshToken: string,
+      profile: any,
+      done: any
+    ) => {
       const data = {
         githubId: profile._json.id,
         githubName: profile._json.name,
