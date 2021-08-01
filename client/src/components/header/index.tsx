@@ -36,13 +36,11 @@ const Header = () => {
             <ProfileMenu user={user} />
           </>
         ) : (
-          <>
-            <a href="http://localhost:1337/auth/github">
-              <Button size="sm" type="button">
-                Sign in
-              </Button>
-            </a>
-          </>
+          <a href="http://localhost:1337/auth/github">
+            <Button size="sm" type="button">
+              Sign in
+            </Button>
+          </a>
         )}
       </div>
     </header>
