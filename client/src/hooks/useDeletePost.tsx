@@ -1,18 +1,21 @@
-import { useMutation } from "react-query";
+import { useMutation, useQueryClient } from "react-query";
 
 import { instance } from "@/lib/axios";
 
-const useDeletePost = (slug: string, oc_token: string) =>
-  useMutation(
+const useDeletePost = (slug: string, oc_token: string) => {
+  const queryClient = useQueryClient();
+
+  return useMutation(
     () => instance.delete(`/posts/${slug}`, { headers: { oc_token } }),
     {
       onSuccess: () => {
-        // Do something
+        queryClient.invalidateQueries("user");
       },
       onError: () => {
         // Do something
       },
     }
   );
+};
 
 export default useDeletePost;
