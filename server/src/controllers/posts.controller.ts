@@ -34,16 +34,16 @@ export const createPost = async (req: Request, res: Response) => {
 };
 
 export const updatePost = async (req: Request, res: Response) => {
-  const { slug } = req.params;
+  try {
+    const { slug } = req.params;
 
-  const post = await prisma.post.findUnique({
-    where: { slug },
-    include: { owner: true },
-  });
+    const post = await prisma.post.findUnique({
+      where: { slug },
+      include: { owner: true },
+    });
 
-  // @ts-ignore
-  if (post.owner.githubId === Number(req.user.id)) {
-    try {
+    // @ts-ignore
+    if (post.owner.githubId === Number(req.user.id)) {
       const { title, description, published } = req.body;
 
       const generatedSlug = slugify(
@@ -56,36 +56,56 @@ export const updatePost = async (req: Request, res: Response) => {
       });
 
       res.status(200).send(updatedPost);
-    } catch (err) {
-      res.send(err);
+    } else {
+      res.status(403).send("Forbidden");
     }
-  } else {
-    res.status(403).send("Forbidden");
+  } catch (err) {
+    res.send(err);
   }
 };
 
 export const deletePost = async (req: Request, res: Response) => {
-  const { slug } = req.params;
+  try {
+    const { slug } = req.params;
 
-  const post = await prisma.post.findUnique({
-    where: { slug },
-    include: { owner: true },
-  });
+    const post = await prisma.post.findUnique({
+      where: { slug },
+      include: { owner: true },
+    });
 
-  // @ts-ignore
-  if (post.owner.githubId === Number(req.user.id)) {
-    try {
+    // @ts-ignore
+    if (post.owner.githubId === Number(req.user.id)) {
       const deletedPost = await prisma.post.delete({
         where: { slug },
       });
 
       res.status(200).send(deletedPost);
-    } catch (err) {
-      res.send(err);
+    } else {
+      res.status(403).send("Forbidden");
     }
-  } else {
-    res.status(403).send("Forbidden");
+  } catch (err) {
+    res.send(err);
   }
+
+  // const post = await prisma.post.findUnique({
+  //   where: { slug },
+  //   include: { owner: true },
+  // // });
+
+  // // @ts-ignore
+  // if (post.owner.githubId === Number(req.user.id)) {
+  //   try {
+  //     const deletedPost = await prisma.post.delete({
+  //       where: { slug },
+  //     });
+
+  //     res.status(200).send(deletedPost);
+  //   } catch (err) {
+  //     res.send(err);
+  //   }
+  // } else {
+  //   res.status(403).send("Forbidden");
+  // }
 };
 
 export const getPosts = async (req: Request, res: Response<PostModel[]>) => {
