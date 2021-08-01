@@ -31,7 +31,9 @@ GITHUB_ID=YOUR_GITHUB_CLIENT_ID
 GITHUB_SECRET=YOUR_GITHUB_CLIENT_SECRET
 ```
 
-Finally, run the development server:
+## Run the project
+
+Run the development server:
 
 inside server folder:
 
