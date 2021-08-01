@@ -1,6 +1,8 @@
-import { prisma } from "../config/prisma.js";
+import { Request, Response } from "express";
 
-export const getUser = async (req, res) => {
+import { prisma } from "../config/prisma";
+
+export const getUser = async (req: Request, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
       where: { githubUsername: req.params.username },

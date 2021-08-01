@@ -7,8 +7,8 @@
 import debug from "debug";
 import http from "http";
 
-import app from "../src/app.js";
-import { server_port } from "../src/config/credentials.js";
+import app from "../src/app";
+import { server_port } from "../src/config/credentials";
 
 /**
  * Get port from environment and store in Express.
@@ -35,7 +35,7 @@ server.on("listening", onListening);
  * Normalize a port into a number, string, or false.
  */
 
-function normalizePort(val) {
+function normalizePort(val: any) {
   var port = parseInt(val, 10);
 
   if (isNaN(port)) {
@@ -55,7 +55,7 @@ function normalizePort(val) {
  * Event listener for HTTP server "error" event.
  */
 
-function onError(error) {
+function onError(error: any) {
   if (error.syscall !== "listen") {
     throw error;
   }

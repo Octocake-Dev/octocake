@@ -1,7 +1,6 @@
 const characters = "abcdefghijklmnopqrstuvwxyz0123456789";
 
-// This func generates a random string
-const randomString = (length) => {
+const randomString = (length: number): string => {
   let result = "";
   const charactersLength = characters.length;
 

@@ -1,14 +1,14 @@
+import express, { Request, Response, NextFunction } from "express";
 import createError from "http-errors";
-import express from "express";
 import logger from "morgan";
 import passport from "passport";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
-import { corsOptions } from "./config/cors.js";
-import routes from "./routes.js";
-import "./config/passport.js";
+import { corsOptions } from "./config/cors";
+import routes from "./routes";
+import "./config/passport";
 
 const app = express();
 
@@ -25,12 +25,12 @@ app.use(passport.session());
 app.use("/", routes);
 
 // catch 404 and forward to error handler
-app.use(function (req, res, next) {
+app.use(function (req: Request, res: Response, next: NextFunction) {
   next(createError(404));
 });
 
 // error handler
-app.use(function (err, req, res, next) {
+app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -38,4 +38,6 @@ app.use(function (err, req, res, next) {
   res.status(err.status || 500).send(err);
 });
 
-export default app;
+app.listen(1337, () => console.log(`Running on port 1337`));
+
+// export default app;
