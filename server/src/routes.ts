@@ -1,11 +1,11 @@
 import express from "express";
 
-import currentUser from "./routes/user.js";
-import githubOAuth from "./routes/auth/github.js";
-import users from "./routes/users/index.js";
-import ocToken from "./routes/oc_token.js";
+import currentUser from "./routes/user";
+import githubOAuth from "./routes/auth/github";
+import users from "./routes/users/index";
+import ocToken from "./routes/oc_token";
 
-import posts from "./routes/posts/index.js";
+import posts from "./routes/posts/index";
 
 const routes = express.Router();
 

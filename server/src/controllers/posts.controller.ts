@@ -1,11 +1,14 @@
+import { Request, Response } from "express";
+
+import { Post as PostModel } from "@prisma/client";
 import slugify from "slugify";
 
-import { prisma } from "../config/prisma.js";
-import randomString from "../utils/randomString.js";
+import { prisma } from "../config/prisma";
+import randomString from "../utils/randomString";
 
 const RANDOM_STRING_LENGTH = 10;
 
-export const createPost = async (req, res) => {
+export const createPost = async (req: Request, res: Response) => {
   try {
     const { title, description, published } = req.body;
 
@@ -19,6 +22,7 @@ export const createPost = async (req, res) => {
         description,
         published,
         slug: generatedSlug,
+        // @ts-ignore
         owner: { connect: { githubId: Number(req.user.id) } },
       },
     });
@@ -29,7 +33,7 @@ export const createPost = async (req, res) => {
   }
 };
 
-export const updatePost = async (req, res) => {
+export const updatePost = async (req: Request, res: Response) => {
   const { slug } = req.params;
 
   const post = await prisma.post.findUnique({
@@ -37,6 +41,7 @@ export const updatePost = async (req, res) => {
     include: { owner: true },
   });
 
+  // @ts-ignore
   if (post.owner.githubId === Number(req.user.id)) {
     try {
       const { title, description, published } = req.body;
@@ -59,7 +64,7 @@ export const updatePost = async (req, res) => {
   }
 };
 
-export const deletePost = async (req, res) => {
+export const deletePost = async (req: Request, res: Response) => {
   const { slug } = req.params;
 
   const post = await prisma.post.findUnique({
@@ -67,6 +72,7 @@ export const deletePost = async (req, res) => {
     include: { owner: true },
   });
 
+  // @ts-ignore
   if (post.owner.githubId === Number(req.user.id)) {
     try {
       const deletedPost = await prisma.post.delete({
@@ -82,7 +88,7 @@ export const deletePost = async (req, res) => {
   }
 };
 
-export const getPosts = async (req, res) => {
+export const getPosts = async (req: Request, res: Response<PostModel[]>) => {
   try {
     const posts = await prisma.post.findMany({
       orderBy: { createdAt: "desc" },
@@ -95,7 +101,7 @@ export const getPosts = async (req, res) => {
   }
 };
 
-export const getPostBySlug = async (req, res) => {
+export const getPostBySlug = async (req: Request, res: Response<PostModel>) => {
   try {
     const { slug } = req.params;
 
