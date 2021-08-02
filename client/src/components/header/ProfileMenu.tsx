@@ -14,7 +14,7 @@ import MenuItem from "@/components/menuItem";
 
 import { User } from "@/types/user";
 
-const ProfileMenu = ({ user }: { user: User }): JSX.Element => (
+const ProfileMenu = ({ user }: { user: User }) => (
   <Menu as="div" className="relative inline-block text-left">
     <div>
       <Menu.Button className="flex">

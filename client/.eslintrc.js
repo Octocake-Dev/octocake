@@ -27,6 +27,7 @@ module.exports = {
   plugins: ["react", "react-hooks", "@typescript-eslint"],
   rules: {
     "react-hooks/rules-of-hooks": "error",
+    "@typescript-eslint/explicit-module-boundary-types": "off",
     "react-hooks/exhaustive-deps": [
       "warn",
       {

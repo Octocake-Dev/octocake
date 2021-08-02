@@ -5,7 +5,7 @@ import { useUser } from "@/stores/useUser";
 
 // TODO: Remove any
 const WithAuth = (WrappedComponent: any) => {
-  return function foo(props: any): JSX.Element {
+  return function foo(props: any) {
     const logged_in = useUser((state) => state.logged_in);
 
     return logged_in ? (

@@ -6,11 +6,7 @@ type MenuItemProps = {
   onClick?: () => void;
 };
 
-const MenuItem = ({
-  children,
-  className,
-  onClick,
-}: MenuItemProps): JSX.Element => (
+const MenuItem = ({ children, className, onClick }: MenuItemProps) => (
   <Menu.Item onClick={onClick}>
     {({ active }) => (
       <button
