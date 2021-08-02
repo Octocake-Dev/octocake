@@ -12,7 +12,7 @@
   },
   "dependencies": {
     "@headlessui/react": "^1.4.0",
-    "@hookform/resolvers": "^2.6.1",
+    "@hookform/resolvers": "^2.7.0",
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
     "next": "11.0.1",
