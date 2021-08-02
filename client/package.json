@@ -2,6 +2,13 @@
   "name": "octocake-client",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Imad Atyat-Alah"
+  },
+  "keywords": [
+    "octocake"
+  ],
   "scripts": {
     "dev": "next dev",
     "build": "next build",

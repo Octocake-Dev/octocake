@@ -2,6 +2,13 @@
   "name": "octocake-server",
   "version": "0.0.0",
   "private": true,
+  "license": "MIT",
+  "author": {
+    "name": "Imad Atyat-Alah"
+  },
+  "keywords": [
+    "octocake"
+  ],
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
