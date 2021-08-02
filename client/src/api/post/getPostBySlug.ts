@@ -1,6 +1,7 @@
 import { useQuery } from "react-query";
 
 import { instance } from "@/lib/axios";
+
 import { TPost } from "@/types/post";
 
 export const getPostBySlug = async (slug: string): Promise<TPost> => {

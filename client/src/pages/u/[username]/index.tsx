@@ -28,7 +28,7 @@ const User = () => {
 
           {user.posts.length ? (
             <>
-              <h3>Posts</h3>
+              <h4>Posts</h4>
 
               {user.posts.map((post: TPost) => (
                 <Post post={post} key={post.id} />

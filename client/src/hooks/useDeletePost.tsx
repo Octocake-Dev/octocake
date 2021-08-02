@@ -10,6 +10,7 @@ const useDeletePost = (slug: string, oc_token: string) => {
     {
       onSuccess: () => {
         queryClient.invalidateQueries("user");
+        queryClient.invalidateQueries("posts");
       },
       onError: () => {
         // Do something
