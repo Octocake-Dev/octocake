@@ -38,7 +38,6 @@ const PostMenu = ({ post }: { post: TPost }) => {
       >
         <Menu.Items className="z-50 absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1">
-            {/* FIXME: Fix TS error */}
             {post.owner.githubId === user?.githubId ? (
               <>
                 <Link href={`/p/${post.slug}/edit`}>
