@@ -2,11 +2,18 @@ import { useQuery } from "react-query";
 
 import { instance } from "@/lib/axios";
 
-export const getUser = async (username: string) => {
+import { User } from "@/types/user";
+import { TPost } from "@/types/post";
+
+interface IUser extends User {
+  posts: TPost[];
+}
+
+export const getUser = async (username: string): Promise<IUser> => {
   const { data } = await instance.get(`/users/${username}`);
 
   return data;
 };
 
 export const useGetUser = (username: string) =>
-  useQuery(["user", username], () => getUser(username));
+  useQuery<IUser>(["user", username], () => getUser(username));

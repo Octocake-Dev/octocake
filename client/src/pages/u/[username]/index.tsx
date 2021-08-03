@@ -20,13 +20,13 @@ const User = () => {
 
   return (
     <>
-      <NextSeo title={`${user.githubName} - Octocake`} />
+      <NextSeo title={`${user?.githubName} - Octocake`} />
 
       <section>
         <div>
-          <h1 className="text-3xl font-bold">{user.githubName}</h1>
+          <h1 className="text-3xl font-bold">{user?.githubName}</h1>
 
-          {user.posts.length ? (
+          {user?.posts.length ? (
             <>
               <h4>Posts</h4>
 
@@ -41,6 +41,7 @@ const User = () => {
   );
 };
 
+// eslint-disable-next-line arrow-body-style
 export const getStaticPaths: GetStaticPaths = async () => {
   return { paths: [], fallback: true };
 };
@@ -50,14 +51,13 @@ export const getStaticProps: GetStaticProps = async ({
 }: GetStaticPropsContext) => {
   const queryClient = new QueryClient();
 
-  const { username } = params!;
-
-  const user = await queryClient.fetchQuery(["user", username], () =>
-    getUser(username as string)
+  const user = await queryClient.fetchQuery(["user", params?.username], () =>
+    getUser(params?.username as string)
   );
 
   return {
     props: { dehydratedState: dehydrate(queryClient) },
+    // FIXME: Fix TS error
     notFound: user.name === "NotFoundError",
     revalidate: 1,
   };
