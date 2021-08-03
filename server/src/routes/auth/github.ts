@@ -1,8 +1,10 @@
-import express from "express";
+import express, { Request, Response, NextFunction } from "express";
 import passport from "passport";
 import jwt from "jsonwebtoken";
 
 import { jwt_key } from "../../config/credentials.js";
+
+import { CustomRequest } from "../../types/request";
 
 const router = express.Router();
 
@@ -11,8 +13,7 @@ router.get("/", passport.authenticate("github", { scope: ["user:email"] }));
 router.get(
   "/callback",
   passport.authenticate("github", { failureRedirect: "/login" }),
-  (req, res, next) => {
-    // @ts-ignore
+  (req: CustomRequest, res: Response, next: NextFunction) => {
     const token = jwt.sign({ id: req.user.id }, jwt_key, {
       expiresIn: 60 * 60 * 24 * 1000,
     });
@@ -31,7 +32,7 @@ router.get(
   }
 );
 
-router.get("/logout", (req, res) => {
+router.get("/logout", (req: Request, res: Response) => {
   res.clearCookie("oc_token");
   req.logout();
   res.redirect("http://localhost:3000");

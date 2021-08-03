@@ -6,9 +6,11 @@ import slugify from "slugify";
 import { prisma } from "../config/prisma";
 import randomString from "../utils/randomString";
 
+import { CustomRequest } from "../types/request";
+
 const RANDOM_STRING_LENGTH = 10;
 
-export const createPost = async (req: Request, res: Response) => {
+export const createPost = async (req: CustomRequest, res: Response) => {
   try {
     const { title, description, published } = req.body;
 
@@ -22,7 +24,6 @@ export const createPost = async (req: Request, res: Response) => {
         description,
         published,
         slug: generatedSlug,
-        // @ts-ignore
         owner: { connect: { githubId: Number(req.user.id) } },
       },
     });
@@ -33,7 +34,7 @@ export const createPost = async (req: Request, res: Response) => {
   }
 };
 
-export const updatePost = async (req: Request, res: Response) => {
+export const updatePost = async (req: CustomRequest, res: Response) => {
   try {
     const { slug } = req.params;
 
@@ -42,7 +43,6 @@ export const updatePost = async (req: Request, res: Response) => {
       include: { owner: true },
     });
 
-    // @ts-ignore
     if (post.owner.githubId === Number(req.user.id)) {
       const { title, description, published } = req.body;
 
@@ -64,7 +64,7 @@ export const updatePost = async (req: Request, res: Response) => {
   }
 };
 
-export const deletePost = async (req: Request, res: Response) => {
+export const deletePost = async (req: CustomRequest, res: Response) => {
   try {
     const { slug } = req.params;
 
@@ -73,7 +73,6 @@ export const deletePost = async (req: Request, res: Response) => {
       include: { owner: true },
     });
 
-    // @ts-ignore
     if (post.owner.githubId === Number(req.user.id)) {
       const deletedPost = await prisma.post.delete({
         where: { slug },
