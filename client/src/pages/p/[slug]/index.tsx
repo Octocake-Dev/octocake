@@ -17,7 +17,10 @@ const Post = () => {
 
   return (
     <>
-      <NextSeo title={post?.title} description={post?.description} />
+      <NextSeo
+        title={`${post?.title} - Octocake`}
+        description={post?.description}
+      />
 
       <section>
         <code>
@@ -28,6 +31,7 @@ const Post = () => {
   );
 };
 
+// eslint-disable-next-line arrow-body-style
 export const getStaticPaths: GetStaticPaths = async () => {
   return { paths: [], fallback: true };
 };
@@ -37,11 +41,8 @@ export const getStaticProps: GetStaticProps = async ({
 }: GetStaticPropsContext) => {
   const queryClient = new QueryClient();
 
-  // FIXME: Fix TS warning
-  const { slug } = params!;
-
-  const post = await queryClient.fetchQuery(["post", slug], () =>
-    getPostBySlug(slug as string)
+  const post = await queryClient.fetchQuery(["post", params?.slug], () =>
+    getPostBySlug(params?.slug as string)
   );
 
   return {
