@@ -25,12 +25,12 @@ app.use(passport.session());
 app.use("/", routes);
 
 // catch 404 and forward to error handler
-app.use(function (req: Request, res: Response, next: NextFunction) {
+app.use((req: Request, res: Response, next: NextFunction) => {
   next(createError(404));
 });
 
 // error handler
-app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
+app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   // set locals, only providing error in development
   res.locals.message = err.message;
   res.locals.error = req.app.get("env") === "development" ? err : {};
@@ -39,5 +39,3 @@ app.use(function (err: any, req: Request, res: Response, next: NextFunction) {
 });
 
 app.listen(1337, () => console.log(`Running on port 1337`));
-
-// export default app;

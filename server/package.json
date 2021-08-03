@@ -12,8 +12,8 @@
   "main": "dist/index.js",
   "scripts": {
     "build": "tsc",
-    "start": "tsc & node .",
-    "dev": "tsc -w & nodemon .",
+    "start": "tsc & node ./dist/server.js",
+    "dev": "tsc -w & nodemon ./dist/server.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier:format": "npx prettier --write .",
     "prettier:check": "npx prettier --check .",
