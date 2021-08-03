@@ -7,14 +7,12 @@ type Props = {
   children: React.ReactNode;
 };
 
-const Global = ({ children }: Props) => {
-  return (
-    <>
-      <Header />
-      <main className="custom_max_width">{children}</main>
-      <Footer />
-    </>
-  );
-};
+const Global = ({ children }: Props) => (
+  <>
+    <Header />
+    <main className="custom_max_width">{children}</main>
+    <Footer />
+  </>
+);
 
 export default Global;
