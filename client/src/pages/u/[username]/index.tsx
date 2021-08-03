@@ -22,13 +22,13 @@ const User = () => {
     <>
       <NextSeo title={`${user?.githubName} - Octocake`} />
 
-      <section>
+      <section className="px-5 py-2 bg-gray-100 sm:px-8 md:px-16 xl:px-28 custom_max_width">
         <div>
           <h1 className="text-3xl font-bold">{user?.githubName}</h1>
 
           {user?.posts.length ? (
             <>
-              <h4>Posts</h4>
+              <h4 className="text-xl font-bold leading-none">Posts</h4>
 
               {user.posts.map((post: TPost) => (
                 <Post post={post} key={post.id} />

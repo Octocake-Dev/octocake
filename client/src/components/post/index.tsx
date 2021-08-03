@@ -15,7 +15,7 @@ const Post = ({ post }: { post: TPost }) => {
   const { owner } = post;
 
   return (
-    <article className="relative p-[10px] my-4 rounded-[10px] shadow-md max-w-2xl">
+    <article className="bg-white relative p-[12px] my-5 rounded-[10px] shadow-lg max-w-2xl">
       <header className="flex justify-between">
         <div className="flex">
           <Link href={`/u/${owner.githubUsername}`}>
@@ -30,21 +30,23 @@ const Post = ({ post }: { post: TPost }) => {
             </a>
           </Link>
 
-          <div className="ml-2 space-y-1">
+          <div className="ml-3 space-y-1">
             <h3 className="font-medium">
               <Link href={`/u/${owner.githubUsername}`}>
                 <a>{owner.githubName}</a>
               </Link>
             </h3>
 
-            <p className="text-sm">{dayjs(post.createdAt).format("ll")}</p>
+            <p className="text-gray-800 text-sm">
+              {dayjs(post.createdAt).format("ll")}
+            </p>
           </div>
         </div>
 
         <PostMenu post={post} />
       </header>
 
-      <div className="ml-[58px] mt-2">
+      <div className="ml-[62px] mt-2">
         <h2 className="text-2xl font-bold">
           <Link href={`/p/${post.slug}`}>
             <a>{post.title}</a>
