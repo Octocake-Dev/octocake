@@ -6,15 +6,13 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "octocake-ui";
 
 import { schema } from "@/validations/post";
-import { useUser } from "@/stores/useUser";
 import withAuth from "@/hocs/withAuth";
 import useCreatePost from "@/hooks/useCreatePost";
 
 import { PostData } from "@/types/post";
 
 const NewPost = () => {
-  const oc_token = useUser((state) => state.oc_token);
-  const { mutate: createPost } = useCreatePost(String(oc_token));
+  const { mutate: createPost } = useCreatePost();
 
   const {
     register,

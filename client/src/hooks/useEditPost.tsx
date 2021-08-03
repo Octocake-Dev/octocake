@@ -6,10 +6,10 @@ import { instance } from "@/lib/axios";
 
 import { PostData } from "@/types/post";
 
-const useEditPost = (slug: string, oc_token: string) =>
+const useEditPost = (slug: string) =>
   useMutation(
     (data: PostData) =>
-      instance.put(`/posts/${slug}`, data, { headers: { oc_token } }),
+      instance.put(`/posts/${slug}`, data, { withCredentials: true }),
     {
       onSuccess: ({ data }) => {
         Router.push(`/p/${data.slug}`);

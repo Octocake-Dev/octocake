@@ -15,9 +15,8 @@ import { TPost } from "@/types/post";
 
 const PostMenu = ({ post }: { post: TPost }) => {
   const user = useUser((state) => state.user);
-  const oc_token = useUser((state) => state.oc_token);
 
-  const { mutate: deletePost } = useDeletePost(post.slug, String(oc_token));
+  const { mutate: deletePost } = useDeletePost(post.slug);
 
   return (
     <Menu as="div" className="relative inline-block text-left">

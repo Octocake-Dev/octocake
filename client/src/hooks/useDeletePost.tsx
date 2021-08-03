@@ -2,11 +2,11 @@ import { useMutation, useQueryClient } from "react-query";
 
 import { instance } from "@/lib/axios";
 
-const useDeletePost = (slug: string, oc_token: string) => {
+const useDeletePost = (slug: string) => {
   const queryClient = useQueryClient();
 
   return useMutation(
-    () => instance.delete(`/posts/${slug}`, { headers: { oc_token } }),
+    () => instance.delete(`/posts/${slug}`, { withCredentials: true }),
     {
       onSuccess: () => {
         queryClient.invalidateQueries("user");

@@ -18,12 +18,7 @@ const Edit = () => {
 
   const { data: post } = useGetPostBySlug(query.slug as string);
 
-  const oc_token = useUser((state) => state.oc_token);
-
-  const { mutate: editPost } = useEditPost(
-    String(query.slug),
-    String(oc_token)
-  );
+  const { mutate: editPost } = useEditPost(String(query.slug));
 
   const {
     register,
