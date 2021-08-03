@@ -86,26 +86,6 @@ export const deletePost = async (req: Request, res: Response) => {
   } catch (err) {
     res.send(err);
   }
-
-  // const post = await prisma.post.findUnique({
-  //   where: { slug },
-  //   include: { owner: true },
-  // // });
-
-  // // @ts-ignore
-  // if (post.owner.githubId === Number(req.user.id)) {
-  //   try {
-  //     const deletedPost = await prisma.post.delete({
-  //       where: { slug },
-  //     });
-
-  //     res.status(200).send(deletedPost);
-  //   } catch (err) {
-  //     res.send(err);
-  //   }
-  // } else {
-  //   res.status(403).send("Forbidden");
-  // }
 };
 
 export const getPosts = async (req: Request, res: Response<PostModel[]>) => {
