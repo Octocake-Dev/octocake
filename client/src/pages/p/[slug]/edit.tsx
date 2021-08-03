@@ -10,6 +10,8 @@ import { useGetPostBySlug } from "@/api/post/getPostBySlug";
 import { useUser } from "@/stores/useUser";
 import useEditPost from "@/hooks/useEditPost";
 
+import { PostData } from "@/types/post";
+
 // TODO: Make this route secure, Just post's owner should be able to access this route.
 const Edit = () => {
   const { query } = useRouter();
@@ -32,8 +34,7 @@ const Edit = () => {
     defaultValues: { title: post?.title, description: post?.description },
   });
 
-  // TODO: Remove any
-  const onSubmit = ({ title, description, published = true }: any): any => {
+  const onSubmit = ({ title, description, published = true }: PostData) => {
     editPost({ title, description, published });
   };
 

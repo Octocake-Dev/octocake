@@ -11,3 +11,9 @@ export type TPost = {
   updatedAt: string;
   owner: User;
 };
+
+export type PostData = {
+  title: string;
+  description: string;
+  published: boolean;
+};

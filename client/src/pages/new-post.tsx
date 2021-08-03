@@ -10,6 +10,8 @@ import { useUser } from "@/stores/useUser";
 import withAuth from "@/hocs/withAuth";
 import useCreatePost from "@/hooks/useCreatePost";
 
+import { PostData } from "@/types/post";
+
 const NewPost = () => {
   const oc_token = useUser((state) => state.oc_token);
   const { mutate: createPost } = useCreatePost(String(oc_token));
@@ -20,8 +22,7 @@ const NewPost = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  // TODO: Remove any
-  const onSubmit = ({ title, description, published = true }: any) => {
+  const onSubmit = ({ title, description, published = true }: PostData) => {
     createPost({ title, description, published });
   };
 
