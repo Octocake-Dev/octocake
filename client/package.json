@@ -13,7 +13,7 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint . --ext .js,.jsx",
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
     "prettier:format": "npx prettier --write .",
     "prettier:check": "npx prettier --check ."
   },
