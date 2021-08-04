@@ -1,10 +1,8 @@
-import Image from "next/image";
+/* eslint-disable jsx-a11y/alt-text */
+import Image, { ImageProps } from "next/image";
 
-import styled from "styled-components";
+const Avatar = (props: ImageProps) => (
+  <Image className="rounded-[10px] bg-primary-300" {...props} />
+);
 
-const StyledAvatar = styled(Image)`
-  border-radius: 10px;
-  background-color: var(--color-primary-300, gray);
-`;
-
-export default StyledAvatar;
+export default Avatar;
