@@ -1,7 +1,8 @@
 import express from "express";
 
-import currentUser from "./routes/user";
 import githubOAuth from "./routes/auth/github";
+
+import currentUser from "./routes/user";
 import users from "./routes/users/index";
 
 import posts from "./routes/posts/index";
