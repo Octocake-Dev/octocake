@@ -20,7 +20,7 @@ const Home = () => {
       <section className="px-5 py-2 bg-gray-100 sm:px-8 md:px-16 xl:px-28 custom_max_width">
         {posts?.length ? (
           <>
-            <h4 className="text-xl font-bold leading-none">Posts</h4>
+            <h4 className="text-2xl font-bold leading-none">Posts</h4>
 
             {posts.map((post: TPost) => (
               <Post post={post} key={post.id} />

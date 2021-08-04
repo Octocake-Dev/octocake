@@ -28,7 +28,7 @@ const User = () => {
 
           {user?.posts.length ? (
             <>
-              <h4 className="text-xl font-bold leading-none">Posts</h4>
+              <h4 className="text-2xl font-bold leading-none">Posts</h4>
 
               {user.posts.map((post: TPost) => (
                 <Post post={post} key={post.id} />
@@ -58,6 +58,8 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: { dehydratedState: dehydrate(queryClient) },
     // FIXME: Fix TS error
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
     notFound: user.name === "NotFoundError",
     revalidate: 1,
   };
