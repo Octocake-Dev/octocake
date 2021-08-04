@@ -13,6 +13,10 @@
     U+FEFF, U+FFFD;
 }
 
+body {
+  @apply tracking-wide;
+}
+
 :root {
   --color-primary-50: #99e2b4;
   --color-primary-100: #88d4ab;

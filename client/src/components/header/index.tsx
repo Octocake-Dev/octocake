@@ -27,7 +27,7 @@ const Header = () => {
           <>
             <Link href="/new-post">
               <a className="mr-8">
-                <Button size="sm" type="button">
+                <Button className="tracking-wide" size="sm" type="button">
                   Create Post
                 </Button>
               </a>
