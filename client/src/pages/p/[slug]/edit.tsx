@@ -7,7 +7,6 @@ import { Button } from "octocake-ui";
 
 import { schema } from "@/validations/post";
 import { useGetPostBySlug } from "@/api/post/getPostBySlug";
-import { useUser } from "@/stores/useUser";
 import useEditPost from "@/hooks/useEditPost";
 
 import { PostData } from "@/types/post";
