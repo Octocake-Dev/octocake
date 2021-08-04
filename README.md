@@ -28,6 +28,9 @@ The idea still not clear enough to talk about it.
 ### Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
+
+#### client
+
 - [Next.js](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Headless-UI](https://headlessui.dev/)
@@ -40,13 +43,19 @@ The idea still not clear enough to talk about it.
 - [React Hook Form](http://react-hook-form.com/)
 - [DayJS](https://day.js.org/)
 
+#### server
+
+- [Express](https://expressjs.com/)
+- [Prisma](https://www.prisma.io/)
+- [passport](https://www.passportjs.org/)
+
 ### Features
 
 The idea still not clear enough to talk about the features.
 
 ## Getting Started
 
-First, Install the client and server dependencies:
+First, Install client and server dependencies:
 
 client:
 
