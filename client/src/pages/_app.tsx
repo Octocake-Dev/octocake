@@ -41,7 +41,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ThemeProvider defaultTheme="system" attribute="class">
+          <ThemeProvider defaultTheme="light" attribute="class">
             <OctocakeProvider>
               <Global>
                 <Component {...pageProps} />
