@@ -2,7 +2,7 @@ import express, { Request, Response, NextFunction } from "express";
 import passport from "passport";
 import jwt from "jsonwebtoken";
 
-import { jwt_key } from "../../config/credentials.js";
+import { client_base_url, jwt_key } from "../../config/credentials.js";
 
 import { CustomRequest } from "../../types/request";
 
@@ -27,7 +27,7 @@ router.get(
 
     req.logIn(req.user, (err) => {
       if (err) return next(err);
-      res.redirect(`http://localhost:3000`);
+      res.redirect(client_base_url);
     });
   }
 );
@@ -35,7 +35,7 @@ router.get(
 router.get("/logout", (req: Request, res: Response) => {
   res.clearCookie("oc_token");
   req.logout();
-  res.redirect("http://localhost:3000");
+  res.redirect(client_base_url);
 });
 
 export default router;

@@ -9,6 +9,7 @@ import {
   IoHelpBuoyOutline,
 } from "react-icons/io5";
 
+import { apiBaseUrl } from "@/lib/constants";
 import StyledAvatar from "@/components/avatar";
 import MenuItem from "@/components/menuItem";
 
@@ -77,7 +78,7 @@ const ProfileMenu = ({ user }: { user: User }) => (
         </div>
 
         <div className="px-1 py-1">
-          <a href="http://localhost:1337/auth/github/logout">
+          <a href={`${apiBaseUrl}/auth/github/logout`}>
             <MenuItem>
               <IoLogOutOutline className="w-5 h-5 mr-1" aria-hidden="true" />
               Logout

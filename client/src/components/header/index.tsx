@@ -4,6 +4,7 @@ import Link from "next/link";
 
 import { Button } from "octocake-ui";
 
+import { apiBaseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import ProfileMenu from "./ProfileMenu";
 
@@ -36,7 +37,7 @@ const Header = () => {
             <ProfileMenu user={user} />
           </>
         ) : (
-          <a href="http://localhost:1337/auth/github">
+          <a href={`${apiBaseUrl}/auth/github`}>
             <Button size="sm" type="button">
               Sign in
             </Button>
