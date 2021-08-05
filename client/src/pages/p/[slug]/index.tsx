@@ -17,10 +17,7 @@ const Post = () => {
 
   return (
     <>
-      <NextSeo
-        title={`${post?.title} - Octocake`}
-        description={post?.description}
-      />
+      <NextSeo title={`${post?.title}`} description={post?.description} />
 
       <section>
         <code>

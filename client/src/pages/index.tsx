@@ -15,7 +15,7 @@ const Home = () => {
 
   return (
     <>
-      <NextSeo title="Home - Octocake" />
+      <NextSeo title="Home" />
 
       <section className="px-5 py-2 bg-gray-100 sm:px-8 md:px-16 xl:px-28 custom_max_width">
         {posts?.length ? (

@@ -26,7 +26,7 @@ const NewPost = () => {
 
   return (
     <>
-      <NextSeo title="New Post - Octocake" />
+      <NextSeo title="New Post" />
 
       <section className="flex justify-center">
         <form onSubmit={handleSubmit(onSubmit)}>
