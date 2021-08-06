@@ -13,7 +13,8 @@
     U+FEFF, U+FFFD;
 }
 
-body {
+body,
+button {
   @apply tracking-wide;
 }
 
