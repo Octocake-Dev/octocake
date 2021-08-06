@@ -1,7 +1,11 @@
 import { Strategy as GitHubStrategy } from "passport-github2";
 import passport from "passport";
 
-import { github_client_id, github_client_secret } from "./credentials.js";
+import {
+  api_base_url,
+  github_client_id,
+  github_client_secret,
+} from "./credentials.js";
 import { prisma } from "./prisma";
 
 passport.serializeUser((user: any, done) => {
@@ -24,7 +28,7 @@ passport.use(
     {
       clientID: github_client_id,
       clientSecret: github_client_secret,
-      callbackURL: "auth/github/callback",
+      callbackURL: `${api_base_url}/auth/github/callback`,
     },
     async (
       accessToken: string,
