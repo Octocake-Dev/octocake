@@ -1,5 +1,5 @@
 /* eslint-disable @typescript-eslint/no-var-requires */
-const { fontFamily } = require("tailwindcss/defaultTheme");
+const { fontFamily, borderRadius } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
@@ -29,6 +29,10 @@ module.exports = {
           900: "var(--color-primary-900)",
         },
       },
+    },
+    borderRadius: {
+      ...borderRadius,
+      custom: "10px",
     },
   },
   variants: {

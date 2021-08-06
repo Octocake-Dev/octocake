@@ -18,6 +18,8 @@ const PostMenu = ({ post }: { post: TPost }) => {
 
   const { mutate: deletePost } = useDeletePost(post.slug);
 
+  const redMenuItem = "bg-red-500 text-white";
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -51,19 +53,19 @@ const PostMenu = ({ post }: { post: TPost }) => {
                   </a>
                 </Link>
 
-                <MenuItem onClick={() => deletePost()}>
+                <MenuItem className={redMenuItem} onClick={() => deletePost()}>
                   <HiOutlineTrash className="w-5 h-5 mr-1" aria-hidden="true" />
                   Delete Post
                 </MenuItem>
               </>
             ) : (
               <>
-                <MenuItem>
+                <MenuItem className={redMenuItem}>
                   <BiBlock size="20" className="mr-2" />
                   Block @{post.owner.githubUsername}
                 </MenuItem>
 
-                <MenuItem>
+                <MenuItem className={redMenuItem}>
                   <MdReport size="20" className="mr-2" />
                   Report Post
                 </MenuItem>

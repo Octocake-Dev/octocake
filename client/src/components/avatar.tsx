@@ -2,7 +2,7 @@
 import Image, { ImageProps } from "next/image";
 
 const Avatar = (props: ImageProps) => (
-  <Image className="rounded-[10px] bg-primary-300" {...props} />
+  <Image className="rounded-custom bg-primary-300" {...props} />
 );
 
 export default Avatar;
