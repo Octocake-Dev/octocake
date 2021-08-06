@@ -22,7 +22,7 @@ router.get(
       secure: true,
       httpOnly: true,
       maxAge: 60 * 60 * 24 * 1000,
-      // sameSite: "lax",
+      sameSite: "lax",
     });
 
     req.logIn(req.user, (err) => {
