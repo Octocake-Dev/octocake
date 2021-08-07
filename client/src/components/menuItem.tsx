@@ -15,6 +15,8 @@ const MenuItem = ({ children, warning, onClick }: MenuItemProps) => (
             ? warning
               ? "bg-red-500 text-white"
               : "bg-primary-500 text-white"
+            : warning
+            ? "text-red-500"
             : "text-gray-900"
         } group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
       >
