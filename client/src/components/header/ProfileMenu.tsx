@@ -79,7 +79,7 @@ const ProfileMenu = ({ user }: { user: User }) => (
 
         <div className="px-1 py-1">
           <a href={`${apiBaseUrl}/auth/github/logout`}>
-            <MenuItem>
+            <MenuItem warning>
               <IoLogOutOutline className="w-5 h-5 mr-1" aria-hidden="true" />
               Logout
             </MenuItem>
