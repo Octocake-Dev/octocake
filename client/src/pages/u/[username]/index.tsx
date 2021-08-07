@@ -9,8 +9,6 @@ import { dehydrate } from "react-query/hydration";
 import { getUser, useGetUser } from "@/api/user/getUser";
 import Post from "@/components/post";
 
-import { TPost } from "@/types/post";
-
 const User = () => {
   const { isFallback, query } = useRouter();
 
@@ -30,7 +28,7 @@ const User = () => {
             <>
               <h4 className="text-2xl font-bold leading-none">Posts</h4>
 
-              {user.posts.map((post: TPost) => (
+              {user.posts.map((post) => (
                 <Post post={post} key={post.id} />
               ))}
             </>

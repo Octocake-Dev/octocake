@@ -8,8 +8,6 @@ import { NextSeo } from "next-seo";
 import { getPosts, useGetPosts } from "@/api/posts/getPosts";
 import Post from "@/components/post";
 
-import { TPost } from "@/types/post";
-
 const Home = () => {
   const { data: posts } = useGetPosts();
 
@@ -22,7 +20,7 @@ const Home = () => {
           <>
             <h4 className="text-2xl font-bold leading-none">Posts</h4>
 
-            {posts.map((post: TPost) => (
+            {posts.map((post) => (
               <Post post={post} key={post.id} />
             ))}
           </>
