@@ -23,7 +23,6 @@ router.get(
       httpOnly: true,
       maxAge: 60 * 60 * 24 * 1000,
       sameSite: "lax",
-      domain: ".octocake.",
     });
 
     req.logIn(req.user, (err) => {
