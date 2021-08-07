@@ -61,12 +61,12 @@ const PostMenu = ({ post }: { post: TPost }) => {
             ) : (
               <>
                 <MenuItem warning>
-                  <BiBlock size="20" className="mr-2" />
+                  <BiBlock className="w-5 h-5 mr-1" aria-hidden="true" />
                   Block @{owner.githubUsername}
                 </MenuItem>
 
                 <MenuItem warning>
-                  <MdReport size="20" className="mr-2" />
+                  <MdReport className="w-5 h-5 mr-1" aria-hidden="true" />
                   Report Post
                 </MenuItem>
               </>
