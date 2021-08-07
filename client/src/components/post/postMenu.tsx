@@ -16,7 +16,9 @@ import { TPost } from "@/types/post";
 const PostMenu = ({ post }: { post: TPost }) => {
   const user = useUser((state) => state.user);
 
-  const { mutate: deletePost } = useDeletePost(post.slug);
+  const { slug, owner } = post;
+
+  const { mutate: deletePost } = useDeletePost(slug);
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -37,9 +39,9 @@ const PostMenu = ({ post }: { post: TPost }) => {
       >
         <Menu.Items className="z-50 absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1">
-            {post.owner.githubId === user?.githubId ? (
+            {owner.githubId === user?.githubId ? (
               <>
-                <Link href={`/p/${post.slug}/edit`}>
+                <Link href={`/p/${slug}/edit`}>
                   <a>
                     <MenuItem>
                       <HiOutlinePencilAlt
@@ -60,7 +62,7 @@ const PostMenu = ({ post }: { post: TPost }) => {
               <>
                 <MenuItem warning>
                   <BiBlock size="20" className="mr-2" />
-                  Block @{post.owner.githubUsername}
+                  Block @{owner.githubUsername}
                 </MenuItem>
 
                 <MenuItem warning>
