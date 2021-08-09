@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 
-import { Post as PostModel } from "@prisma/client";
 import slugify from "slugify";
 
 import { prisma } from "../config/prisma";
@@ -87,7 +86,7 @@ export const deletePost = async (req: CustomRequest, res: Response) => {
   }
 };
 
-export const getPosts = async (req: Request, res: Response<PostModel[]>) => {
+export const getPosts = async (req: Request, res: Response) => {
   try {
     const posts = await prisma.post.findMany({
       orderBy: { createdAt: "desc" },
@@ -100,7 +99,7 @@ export const getPosts = async (req: Request, res: Response<PostModel[]>) => {
   }
 };
 
-export const getPostBySlug = async (req: Request, res: Response<PostModel>) => {
+export const getPostBySlug = async (req: Request, res: Response) => {
   try {
     const { slug } = req.params;
 
