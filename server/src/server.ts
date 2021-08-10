@@ -7,7 +7,7 @@ import helmet from "helmet";
 import cookieParser from "cookie-parser";
 
 import { corsOptions } from "./config/cors";
-import { server_port } from "./config/credentials";
+import { config } from "./config/credentials";
 import routes from "./routes";
 import "./config/passport";
 
@@ -39,4 +39,6 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
   res.status(err.status || 500).send(err);
 });
 
-app.listen(server_port, () => console.log(`Running on port ${server_port}`));
+app.listen(config.server_port, () =>
+  console.log(`Running on port ${config.server_port}`)
+);
