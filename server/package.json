@@ -24,7 +24,7 @@
     "prisma:db:seed": "npx prisma db seed --preview-feature"
   },
   "dependencies": {
-    "@prisma/client": "^2.28.0",
+    "@prisma/client": "^2.29.0",
     "cookie-parser": "^1.4.5",
     "cors": "^2.8.5",
     "debug": "^4.3.2",
