@@ -20,6 +20,9 @@ model User {
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
 
+  followedBy User[] @relation("UserFollows", references: [id])
+  following  User[] @relation("UserFollows", references: [id])
+
   posts Post[]
 
   @@map("users")
