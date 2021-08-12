@@ -8,16 +8,15 @@ import { BiBlock } from "react-icons/bi";
 import { MdReport, MdContentCopy } from "react-icons/md";
 import useClipboard from "react-use-clipboard";
 
-import { useUser } from "@/stores/useUser";
+import { baseUrl } from "@/lib/constants";
 import useDeletePost from "@/hooks/useDeletePost";
 import MenuItem from "@/components/menuItem";
+import WithUser from "@/hocs/withUser";
 
-import { baseUrl } from "@/lib/constants";
 import { TPost } from "@/types/post";
+import { User } from "@/types/user";
 
-const PostMenu = ({ post }: { post: TPost }) => {
-  const user = useUser((state) => state.user);
-
+const PostMenu = ({ post, user }: { post: TPost; user: User }) => {
   const { slug, owner } = post;
 
   const [isCopied, setCopied] = useClipboard(`${baseUrl}/p/${slug}`, {
@@ -93,4 +92,4 @@ const PostMenu = ({ post }: { post: TPost }) => {
   );
 };
 
-export default PostMenu;
+export default WithUser(PostMenu);
