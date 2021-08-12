@@ -1,11 +1,10 @@
-/* eslint-disable react-hooks/rules-of-hooks */
 import React from "react";
 
 import { useUser } from "@/stores/useUser";
 
 // TODO: Remove any
 const WithAuth = (WrappedComponent: any) =>
-  function foo(props: any) {
+  function WithAuthWrapper(props: any) {
     const logged_in = useUser((state) => state.logged_in);
 
     return logged_in ? (
