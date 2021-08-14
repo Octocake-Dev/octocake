@@ -12,7 +12,7 @@ import useCreatePost from "@/hooks/useCreatePost";
 import { PostData } from "@/types/post";
 
 const NewPost = () => {
-  const { mutate: createPost } = useCreatePost();
+  const { mutate: createPost, isLoading } = useCreatePost();
 
   const {
     register,
@@ -46,7 +46,9 @@ const NewPost = () => {
           />
           <p>{errors.description?.message}</p>
 
-          <Button type="submit">Submit</Button>
+          <Button disabled={isLoading} type="submit">
+            Submit
+          </Button>
         </form>
       </section>
     </>
