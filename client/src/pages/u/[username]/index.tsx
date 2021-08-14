@@ -10,8 +10,11 @@ import { Button } from "octocake-ui";
 import { getUser, useGetUser, useIsFollowed } from "@/api/user/getUser";
 import Post from "@/components/post";
 import useFollow from "@/hooks/useFollow";
+import WithUser from "@/hocs/withUser";
 
-const User = () => {
+import { User as TUser } from "@/types/user";
+
+const User = ({ user: currentUser }: { user: TUser }) => {
   const { isFallback, query } = useRouter();
 
   const { mutate: toggleFollow, isLoading } = useFollow(
@@ -21,6 +24,11 @@ const User = () => {
   const { data: isFollowed } = useIsFollowed(query.username as string);
 
   if (isFallback) return <div>loading...</div>;
+
+  // the user should be logged-in to see follow/unFollow button.
+  // the user should not be able to see follow/unFollow button on his profile.
+  const shouldShowFollowBtn =
+    currentUser?.githubId && user?.githubId !== currentUser?.githubId;
 
   return (
     <>
@@ -32,9 +40,11 @@ const User = () => {
           <p>Followers: {user?.followedBy.length}</p>
           <p>Following: {user?.following.length}</p>
 
-          <Button disabled={isLoading} onClick={() => toggleFollow()}>
-            {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
-          </Button>
+          {shouldShowFollowBtn && (
+            <Button disabled={isLoading} onClick={() => toggleFollow()}>
+              {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
+            </Button>
+          )}
 
           {user?.posts.length ? (
             <>
@@ -75,4 +85,4 @@ export const getStaticProps: GetStaticProps = async ({
   };
 };
 
-export default User;
+export default WithUser(User);
