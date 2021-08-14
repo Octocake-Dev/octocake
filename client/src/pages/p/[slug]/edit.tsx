@@ -17,7 +17,7 @@ const Edit = () => {
 
   const { data: post } = useGetPostBySlug(query.slug as string);
 
-  const { mutate: editPost } = useEditPost(String(query.slug));
+  const { mutate: editPost } = useEditPost(query.slug as string);
 
   const {
     register,
