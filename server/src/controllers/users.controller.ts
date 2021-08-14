@@ -20,6 +20,23 @@ export const getUser = async (req: Request, res: Response) => {
   }
 };
 
+export const isFollowed = async (req: CustomRequest, res: Response) => {
+  try {
+    const { username } = req.params;
+
+    const isFollowed = await prisma.user.findUnique({
+      where: { githubUsername: username },
+      select: {
+        followedBy: { where: { githubId: { equals: Number(req.user.id) } } },
+      },
+    });
+
+    res.status(200).send(isFollowed);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 export const toggleFollow = async (req: CustomRequest, res: Response) => {
   try {
     const { username } = req.params;
