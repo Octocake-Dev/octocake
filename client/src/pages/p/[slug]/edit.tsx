@@ -34,7 +34,7 @@ const Edit = () => {
 
   return (
     <>
-      <section className="flex justify-center">
+      <section className="flex flex-col justify-center items-center space-y-5 min-h-screen">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
