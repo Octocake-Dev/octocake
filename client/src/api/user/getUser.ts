@@ -22,9 +22,5 @@ export const useGetUser = (username: string) =>
 
 export const useIsFollowed = (username: string) =>
   useQuery(["user", username, "isFollowed"], () =>
-    instance
-      .get(`/users/${username}/isFollowed`, {
-        withCredentials: true,
-      })
-      .then((res) => res.data)
+    instance.get(`/users/${username}/isFollowed`).then((res) => res.data)
   );
