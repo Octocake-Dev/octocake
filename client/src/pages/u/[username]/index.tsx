@@ -28,7 +28,7 @@ const User = ({ user: currentUser }: { user: TUser }) => {
   // the user should be logged-in to see follow/unFollow button.
   // the user should not be able to see follow/unFollow button on his profile.
   const shouldShowFollowBtn =
-    currentUser?.githubId && user?.githubId !== currentUser?.githubId;
+    currentUser && user?.githubId !== currentUser?.githubId;
 
   return (
     <>
@@ -61,10 +61,10 @@ const User = ({ user: currentUser }: { user: TUser }) => {
   );
 };
 
-// eslint-disable-next-line arrow-body-style
-export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [], fallback: true };
-};
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: [],
+  fallback: true,
+});
 
 export const getStaticProps: GetStaticProps = async ({
   params,

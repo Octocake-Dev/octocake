@@ -19,19 +19,19 @@ const Post = () => {
     <>
       <NextSeo title={`${post?.title}`} description={post?.description} />
 
-      <section>
-        <code>
-          <pre>{JSON.stringify(post, null, 2)}</pre>
-        </code>
+      <section className="flex flex-col justify-center items-center space-y-5 min-h-screen">
+        <div>
+          <h1 className="text-3xl font-bold">Work In Progress!</h1>
+        </div>
       </section>
     </>
   );
 };
 
-// eslint-disable-next-line arrow-body-style
-export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [], fallback: true };
-};
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: [],
+  fallback: true,
+});
 
 export const getStaticProps: GetStaticProps = async ({
   params,

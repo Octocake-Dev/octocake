@@ -14,9 +14,10 @@ const Followers = () => {
   );
 };
 
-export const getStaticPaths: GetStaticPaths = async () => {
-  return { paths: [], fallback: true };
-};
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: [],
+  fallback: true,
+});
 
 export const getStaticProps: GetStaticProps = async () => {
   return { props: {}, revalidate: 1 };
