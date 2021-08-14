@@ -6,10 +6,13 @@ import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BiBlock } from "react-icons/bi";
 import { MdReport, MdContentCopy } from "react-icons/md";
+import { BsPersonPlus } from "react-icons/bs";
 import useClipboard from "react-use-clipboard";
 
 import { baseUrl } from "@/lib/constants";
+import { useIsFollowed } from "@/api/user/getUser";
 import useDeletePost from "@/hooks/useDeletePost";
+import useFollow from "@/hooks/useFollow";
 import MenuItem from "@/components/menuItem";
 import WithUser from "@/hocs/withUser";
 
@@ -24,6 +27,10 @@ const PostMenu = ({ post, user }: { post: TPost; user: User }) => {
   });
 
   const { mutate: deletePost } = useDeletePost(slug);
+  const { mutate: toggleFollow } = useFollow(owner.githubUsername);
+  const { data: isFollowed, isLoading } = useIsFollowed(
+    owner.githubUsername as string
+  );
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -74,6 +81,12 @@ const PostMenu = ({ post, user }: { post: TPost; user: User }) => {
                 </>
               ) : (
                 <>
+                  <MenuItem disabled={isLoading} onClick={() => toggleFollow()}>
+                    <BsPersonPlus className="w-5 h-5 mr-1" aria-hidden="true" />
+                    {isFollowed?.followedBy.length ? "UnFollow" : "Follow"} @
+                    {owner.githubUsername}
+                  </MenuItem>
+
                   <MenuItem warning>
                     <BiBlock className="w-5 h-5 mr-1" aria-hidden="true" />
                     Block @{owner.githubUsername}
