@@ -1,4 +1,4 @@
-import { useQuery } from "react-query";
+import { useQuery, useQueryClient } from "react-query";
 
 import { instance } from "@/lib/axios";
 
@@ -10,4 +10,15 @@ export const getPosts = async (): Promise<TPost[]> => {
   return data;
 };
 
-export const useGetPosts = () => useQuery<TPost[]>("posts", () => getPosts());
+export const useGetPosts = () => {
+  const queryClient = useQueryClient();
+
+  return useQuery<TPost[]>("posts", () => getPosts(), {
+    staleTime: 10000,
+    onSuccess: (posts) => {
+      posts.forEach((post) => {
+        queryClient.setQueryData(["post", post.slug], post);
+      });
+    },
+  });
+};
