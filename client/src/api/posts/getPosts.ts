@@ -14,7 +14,6 @@ export const useGetPosts = () => {
   const queryClient = useQueryClient();
 
   return useQuery<TPost[]>("posts", () => getPosts(), {
-    staleTime: 10000,
     onSuccess: (posts) => {
       posts.forEach((post) => {
         queryClient.setQueryData(["post", post.slug], post);

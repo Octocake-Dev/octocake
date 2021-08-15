@@ -11,6 +11,4 @@ export const getPostBySlug = async (slug: string): Promise<TPost> => {
 };
 
 export const useGetPostBySlug = (slug: string) =>
-  useQuery<TPost>(["post", slug], () => getPostBySlug(slug), {
-    staleTime: 10000,
-  });
+  useQuery<TPost>(["post", slug], () => getPostBySlug(slug));
