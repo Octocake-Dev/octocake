@@ -43,7 +43,7 @@ const Post = ({ post }: { post: TPost }) => {
               </Link>
             </h3>
 
-            <p className="text-gray-800 text-sm">
+            <p className="text-gray-700 text-sm">
               {dayjs(createdAt).format("ll")}
             </p>
           </div>
@@ -59,7 +59,7 @@ const Post = ({ post }: { post: TPost }) => {
           </Link>
         </h2>
 
-        <p>{description}</p>
+        <p className="text-gray-700">{description}</p>
       </div>
     </article>
   );

@@ -11,10 +11,10 @@ import useClipboard from "react-use-clipboard";
 
 import { baseUrl } from "@/lib/constants";
 import { useIsFollowed } from "@/api/user/getUser";
+import { useUser } from "@/stores/useUser";
 import useDeletePost from "@/hooks/useDeletePost";
 import useFollow from "@/hooks/useFollow";
 import MenuItem from "@/components/menuItem";
-import { useUser } from "@/stores/useUser";
 
 import { TPost } from "@/types/post";
 
@@ -50,7 +50,7 @@ const PostMenu = ({ post }: { post: TPost }) => {
         leaveFrom="transform opacity-100 scale-100"
         leaveTo="transform opacity-0 scale-95"
       >
-        <Menu.Items className="z-50 absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+        <Menu.Items className="z-50 absolute right-0 w-64 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1">
             <MenuItem disabled={isCopied} onClick={setCopied}>
               <MdContentCopy className="w-5 h-5 mr-1" aria-hidden="true" />
