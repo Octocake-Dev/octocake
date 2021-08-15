@@ -23,10 +23,10 @@ const Footer = () => (
     </div>
 
     <div className="py-4 flex items-center flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-center">
-      {LINKS.map((link, index) => (
-        <Link href={link.href} key={index}>
+      {LINKS.map(({ href, title }) => (
+        <Link href={href} key={title}>
           <a className="font-medium sm:opacity-75 sm:hover:opacity-100 sm:hover:underline">
-            {link.title}
+            {title}
           </a>
         </Link>
       ))}
