@@ -17,7 +17,7 @@ const Post = () => {
 
   return (
     <>
-      <NextSeo title={`${post?.title}`} description={post?.description} />
+      <NextSeo title={post?.title} description={post?.description} />
 
       <section className="flex flex-col justify-center items-center space-y-5 min-h-screen">
         <div>
