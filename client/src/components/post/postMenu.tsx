@@ -14,12 +14,13 @@ import { useIsFollowed } from "@/api/user/getUser";
 import useDeletePost from "@/hooks/useDeletePost";
 import useFollow from "@/hooks/useFollow";
 import MenuItem from "@/components/menuItem";
-import WithUser from "@/hocs/withUser";
+import { useUser } from "@/stores/useUser";
 
 import { TPost } from "@/types/post";
-import { User } from "@/types/user";
 
-const PostMenu = ({ post, user }: { post: TPost; user: User }) => {
+const PostMenu = ({ post }: { post: TPost }) => {
+  const user = useUser((state) => state.user);
+
   const { slug, owner } = post;
 
   const [isCopied, setCopied] = useClipboard(`${baseUrl}/p/${slug}`, {
@@ -105,4 +106,4 @@ const PostMenu = ({ post, user }: { post: TPost; user: User }) => {
   );
 };
 
-export default WithUser(PostMenu);
+export default PostMenu;

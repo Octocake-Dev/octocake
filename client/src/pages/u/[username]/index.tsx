@@ -10,12 +10,11 @@ import { Button } from "octocake-ui";
 import { getUser, useGetUser, useIsFollowed } from "@/api/user/getUser";
 import Post from "@/components/post";
 import useFollow from "@/hooks/useFollow";
-import WithUser from "@/hocs/withUser";
+import { useUser } from "@/stores/useUser";
 
-import { User as TUser } from "@/types/user";
-
-const User = ({ user: currentUser }: { user: TUser }) => {
+const User = () => {
   const { isFallback, query } = useRouter();
+  const currentUser = useUser((state) => state.user);
 
   const { mutate: toggleFollow, isLoading } = useFollow(
     query.username as string
@@ -85,4 +84,4 @@ export const getStaticProps: GetStaticProps = async ({
   };
 };
 
-export default WithUser(User);
+export default User;
