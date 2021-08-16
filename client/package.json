@@ -34,7 +34,7 @@
     "react-query": "^3.19.6",
     "react-use-clipboard": "1.0.7",
     "yup": "^0.32.9",
-    "zustand": "^3.5.7"
+    "zustand": "^3.5.8"
   },
   "devDependencies": {
     "@types/nprogress": "^0.2.0",
