@@ -13,11 +13,6 @@
     U+FEFF, U+FFFD;
 }
 
-body,
-button {
-  @apply tracking-wide;
-}
-
 :root {
   --color-primary-50: #99e2b4;
   --color-primary-100: #88d4ab;
@@ -31,13 +26,30 @@ button {
   --color-primary-900: #036666;
 }
 
-::selection {
-  color: white;
-  background: var(--color-primary-700);
+@layer base {
+  body,
+  button {
+    @apply tracking-wide;
+  }
+
+  ::selection {
+    color: white;
+    background: var(--color-primary-700);
+  }
 }
 
-:disabled {
-  @apply opacity-50 cursor-not-allowed;
+@layer components {
+  .custom_max_width {
+    @apply mx-auto max-w-[1440px];
+  }
+}
+
+@layer utilities {
+  @variants disabled {
+    .oc_disabled {
+      @apply opacity-50 cursor-not-allowed;
+    }
+  }
 }
 
 #nprogress {
@@ -53,8 +65,4 @@ button {
 #nprogress .peg {
   box-shadow: 0 0 10px var(--color-primary-500),
     0 0 5px var(--color-primary-500) !important;
-}
-
-.custom_max_width {
-  @apply mx-auto max-w-[1440px];
 }

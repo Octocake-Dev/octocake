@@ -20,7 +20,7 @@ const MenuItem = ({ children, warning, onClick, disabled }: MenuItemProps) => (
             : warning
             ? "text-red-500"
             : "text-gray-900"
-        } text-left group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium`}
+        } text-left group flex rounded-md items-center w-full px-2 py-2 text-sm font-medium disabled:oc_disabled`}
       >
         {children}
       </button>
