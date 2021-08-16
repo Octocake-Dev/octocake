@@ -27,9 +27,9 @@ const Header = () => {
         {user ? (
           <>
             <Link href="/new-post">
-              <a className="mr-8">
+              <a className="mr-8 hidden sm:block">
                 <Button size="sm" type="button">
-                  Create Post
+                  New Post
                 </Button>
               </a>
             </Link>

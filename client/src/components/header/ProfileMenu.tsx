@@ -3,6 +3,7 @@ import Link from "next/link";
 
 import { Menu, Transition } from "@headlessui/react";
 import { BsPerson } from "react-icons/bs";
+import { HiOutlinePencilAlt } from "react-icons/hi";
 import {
   IoLogOutOutline,
   IoSettingsOutline,
@@ -48,6 +49,19 @@ const ProfileMenu = ({ user }: { user: User }) => {
                 <MenuItem>
                   <BsPerson className="w-5 h-5 mr-1" aria-hidden="true" />
                   Profile
+                </MenuItem>
+              </a>
+            </Link>
+
+            <Link href="/new-post">
+              <a>
+                <MenuItem>
+                  <HiOutlinePencilAlt
+                    className="w-5 h-5 mr-1"
+                    aria-hidden="true"
+                    opacity="85%"
+                  />
+                  New Post
                 </MenuItem>
               </a>
             </Link>
