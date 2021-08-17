@@ -4,8 +4,8 @@ import {
   getUser,
   isFollowed,
   toggleFollow,
-} from "../../controllers/users.controller";
-import verifyToken from "../../middlewares/verifyToken";
+} from "../controllers/users.controller";
+import verifyToken from "../middlewares/verifyToken";
 
 const router = Router();
 

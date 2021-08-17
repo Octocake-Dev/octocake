@@ -2,10 +2,10 @@ import { Router } from "express";
 
 import githubOAuth from "./routes/auth/github";
 
-import currentUser from "./routes/user";
-import users from "./routes/users/index";
+import users from "./routes/users";
+import currentUser from "./routes/current_user";
 
-import posts from "./routes/posts/index";
+import posts from "./routes/posts";
 
 const routes = Router();
 
