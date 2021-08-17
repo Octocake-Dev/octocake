@@ -1,4 +1,4 @@
-import express from "express";
+import { Router } from "express";
 
 import githubOAuth from "./routes/auth/github";
 
@@ -7,7 +7,7 @@ import users from "./routes/users/index";
 
 import posts from "./routes/posts/index";
 
-const routes = express.Router();
+const routes = Router();
 
 // Auth
 routes.use("/auth/github", githubOAuth);

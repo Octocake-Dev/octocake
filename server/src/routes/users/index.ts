@@ -1,4 +1,4 @@
-import express from "express";
+import { Router } from "express";
 
 import {
   getUser,
@@ -7,7 +7,7 @@ import {
 } from "../../controllers/users.controller";
 import verifyToken from "../../middlewares/verifyToken";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/:username", getUser);
 

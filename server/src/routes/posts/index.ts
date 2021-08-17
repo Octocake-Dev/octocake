@@ -1,4 +1,4 @@
-import express from "express";
+import { Router } from "express";
 
 import {
   createPost,
@@ -9,7 +9,7 @@ import {
 } from "../../controllers/posts.controller";
 import verifyToken from "../../middlewares/verifyToken";
 
-const router = express.Router();
+const router = Router();
 
 router.post("/", verifyToken, createPost);
 

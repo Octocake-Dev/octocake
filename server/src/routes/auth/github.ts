@@ -1,4 +1,4 @@
-import express, { Request, Response, NextFunction } from "express";
+import { Request, Response, NextFunction, Router } from "express";
 import passport from "passport";
 import jwt from "jsonwebtoken";
 
@@ -6,7 +6,7 @@ import { config } from "../../config/credentials.js";
 
 import { CustomRequest } from "../../types/request";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", passport.authenticate("github", { scope: ["user:email"] }));
 

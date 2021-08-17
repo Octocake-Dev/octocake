@@ -1,10 +1,10 @@
-import express, { Response } from "express";
+import { Response, Router } from "express";
 
 import { CustomRequest } from "../types/request";
 import { prisma } from "../config/prisma";
 import verifyToken from "../middlewares/verifyToken";
 
-const router = express.Router();
+const router = Router();
 
 router.get("/", verifyToken, async (req: CustomRequest, res: Response) => {
   try {
