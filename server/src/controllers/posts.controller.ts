@@ -9,20 +9,19 @@ import { CustomRequest } from "../types/request";
 
 const RANDOM_STRING_LENGTH = 10;
 
+const generateSlug = (title: string) =>
+  slugify(`${title} ${randomString(RANDOM_STRING_LENGTH)}`);
+
 export const createPost = async (req: CustomRequest, res: Response) => {
   try {
     const { title, description, published } = req.body;
-
-    const generatedSlug = slugify(
-      `${title} ${randomString(RANDOM_STRING_LENGTH)}`
-    );
 
     const post = await prisma.post.create({
       data: {
         title,
         description,
         published,
-        slug: generatedSlug,
+        slug: generateSlug(title),
         owner: { connect: { githubId: Number(req.user.id) } },
       },
     });
@@ -45,13 +44,9 @@ export const updatePost = async (req: CustomRequest, res: Response) => {
     if (post.owner.githubId === Number(req.user.id)) {
       const { title, description, published } = req.body;
 
-      const generatedSlug = slugify(
-        `${title} ${randomString(RANDOM_STRING_LENGTH)}`
-      );
-
       const updatedPost = await prisma.post.update({
         where: { slug },
-        data: { title, description, published, slug: generatedSlug },
+        data: { title, description, published, slug: generateSlug(title) },
       });
 
       res.status(200).send(updatedPost);
