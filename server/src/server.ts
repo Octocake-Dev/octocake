@@ -40,5 +40,5 @@ app.use((err: any, req: Request, res: Response, next: NextFunction) => {
 });
 
 app.listen(config.server_port, () =>
-  console.log(`Running on port ${config.server_port}`)
+  console.log(`> Ready on http://localhost:${config.server_port}`)
 );

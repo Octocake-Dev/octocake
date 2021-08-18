@@ -3,6 +3,18 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
 import { CustomRequest } from "../types/request";
 
+export const getCurrentUser = async (req: CustomRequest, res: Response) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { githubId: Number(req.user.id) },
+    });
+
+    res.send(user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 export const getUser = async (req: Request, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
