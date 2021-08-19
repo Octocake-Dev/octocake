@@ -1,14 +1,21 @@
 import { Menu } from "@headlessui/react";
 
+type PropsOf<TTag = any> = TTag extends React.ElementType
+  ? React.ComponentProps<TTag>
+  : never;
+
 type MenuItemProps = {
-  children: React.ReactNode;
   warning?: boolean;
   disabled?: boolean;
-  onClick?: () => void;
 };
 
-const MenuItem = ({ children, warning, onClick, disabled }: MenuItemProps) => (
-  <Menu.Item onClick={onClick} disabled={disabled}>
+const MenuItem = ({
+  children,
+  warning,
+  disabled,
+  ...rest
+}: MenuItemProps & PropsOf<typeof Menu.Item>) => (
+  <Menu.Item disabled={disabled} {...rest}>
     {({ active }) => (
       <button
         disabled={disabled}
