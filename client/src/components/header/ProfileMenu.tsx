@@ -44,60 +44,55 @@ const ProfileMenu = ({ user }: { user: User }) => {
       >
         <Menu.Items className="z-50 absolute right-0 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1">
-            <Link href={`/u/${githubUsername}`}>
-              <a>
-                <MenuItem>
-                  <BsPerson className="w-5 h-5 mr-1" aria-hidden="true" />
-                  Profile
-                </MenuItem>
-              </a>
+            <Link href={`/u/${githubUsername}`} passHref>
+              <MenuItem as="a">
+                <BsPerson className="menu_item_icon" aria-hidden="true" />
+                Profile
+              </MenuItem>
             </Link>
 
-            <Link href="/new-post">
-              <a>
-                <MenuItem>
-                  <HiOutlinePencilAlt
-                    className="w-5 h-5 mr-1"
-                    aria-hidden="true"
-                    opacity="85%"
-                  />
-                  New Post
-                </MenuItem>
-              </a>
+            <Link href="/new-post" passHref>
+              <MenuItem as="a">
+                <HiOutlinePencilAlt
+                  className="menu_item_icon"
+                  aria-hidden="true"
+                  opacity="85%"
+                />
+                New Post
+              </MenuItem>
             </Link>
           </div>
 
           <div className="px-1 py-1">
-            <Link href="/help">
-              <a>
-                <MenuItem>
-                  <IoHelpBuoyOutline
-                    className="w-5 h-5 mr-1"
-                    aria-hidden="true"
-                    opacity="85%"
-                  />
-                  Help
-                </MenuItem>
-              </a>
+            <Link href="/help" passHref>
+              <MenuItem as="a">
+                <IoHelpBuoyOutline
+                  className="menu_item_icon"
+                  aria-hidden="true"
+                  opacity="85%"
+                />
+                Help
+              </MenuItem>
             </Link>
 
-            <Link href="/settings">
-              <a>
-                <MenuItem>
-                  <IoSettingsOutline
-                    className="w-5 h-5 mr-1"
-                    aria-hidden="true"
-                  />
-                  Settings
-                </MenuItem>
-              </a>
+            <Link href="/settings" passHref>
+              <MenuItem as="a">
+                <IoSettingsOutline
+                  className="menu_item_icon"
+                  aria-hidden="true"
+                />
+                Settings
+              </MenuItem>
             </Link>
           </div>
 
           <div className="px-1 py-1">
             <a href={`${apiBaseUrl}/auth/github/logout`}>
               <MenuItem warning>
-                <IoLogOutOutline className="w-5 h-5 mr-1" aria-hidden="true" />
+                <IoLogOutOutline
+                  className="menu_item_icon"
+                  aria-hidden="true"
+                />
                 Logout
               </MenuItem>
             </a>

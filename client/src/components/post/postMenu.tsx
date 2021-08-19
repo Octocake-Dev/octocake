@@ -37,7 +37,7 @@ const PostMenu = ({ post }: { post: TPost }) => {
     <Menu as="div" className="relative inline-block text-left">
       <div>
         <Menu.Button className="flex">
-          <FiMoreHorizontal className="w-5 h-5 mr-1" />
+          <FiMoreHorizontal className="w-5 h-5" />
         </Menu.Button>
       </div>
 
@@ -53,28 +53,26 @@ const PostMenu = ({ post }: { post: TPost }) => {
         <Menu.Items className="z-50 absolute right-0 w-64 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
           <div className="px-1 py-1">
             <MenuItem disabled={isCopied} onClick={setCopied}>
-              <MdContentCopy className="w-5 h-5 mr-1" aria-hidden="true" />
+              <MdContentCopy className="menu_item_icon" aria-hidden="true" />
               {isCopied ? "Copied to Clipboard" : "Copy post URL"}
             </MenuItem>
 
             {user &&
               (owner.githubId === user?.githubId ? (
                 <>
-                  <Link href={`/p/${slug}/edit`}>
-                    <a>
-                      <MenuItem>
-                        <HiOutlinePencilAlt
-                          className="w-5 h-5 mr-1"
-                          aria-hidden="true"
-                        />
-                        Edit post
-                      </MenuItem>
-                    </a>
+                  <Link href={`/p/${slug}/edit`} passHref>
+                    <MenuItem as="a">
+                      <HiOutlinePencilAlt
+                        className="menu_item_icon"
+                        aria-hidden="true"
+                      />
+                      Edit post
+                    </MenuItem>
                   </Link>
 
                   <MenuItem warning onClick={() => deletePost()}>
                     <HiOutlineTrash
-                      className="w-5 h-5 mr-1"
+                      className="menu_item_icon"
                       aria-hidden="true"
                     />
                     Delete Post
@@ -83,18 +81,21 @@ const PostMenu = ({ post }: { post: TPost }) => {
               ) : (
                 <>
                   <MenuItem disabled={isLoading} onClick={() => toggleFollow()}>
-                    <BsPersonPlus className="w-5 h-5 mr-1" aria-hidden="true" />
+                    <BsPersonPlus
+                      className="menu_item_icon"
+                      aria-hidden="true"
+                    />
                     {isFollowed?.followedBy.length ? "UnFollow" : "Follow"} @
                     {owner.githubUsername}
                   </MenuItem>
 
                   <MenuItem warning>
-                    <BiBlock className="w-5 h-5 mr-1" aria-hidden="true" />
+                    <BiBlock className="menu_item_icon" aria-hidden="true" />
                     Block @{owner.githubUsername}
                   </MenuItem>
 
                   <MenuItem warning>
-                    <MdReport className="w-5 h-5 mr-1" aria-hidden="true" />
+                    <MdReport className="menu_item_icon" aria-hidden="true" />
                     Report Post
                   </MenuItem>
                 </>
