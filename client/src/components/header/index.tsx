@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -8,10 +8,15 @@ import { apiBaseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import ProfileMenu from "./ProfileMenu";
 
+import { User } from "@/types/user";
+
 import Logo from "@/public/desktop-logo.svg";
 
 const Header = () => {
-  const user = useUser((state) => state.user);
+  const [user, setUser] = useState<null | User>(null);
+  const current_user = useUser((state) => state.user);
+
+  useEffect(() => setUser(current_user), [current_user]);
 
   return (
     <header className="flex items-center justify-between shadow-lg h-[70px] px-5 sm:px-8 md:px-16 xl:px-28 custom_max_width">
@@ -20,8 +25,8 @@ const Header = () => {
           <a className="flex items-end">
             <Image
               src={Logo}
-              placeholder="blur"
-              blurDataURL="LSGS}c*FHAt$pJaeaeWB?HR*IpoJ"
+              // placeholder="blur"
+              // blurDataURL="LSGS}c*FHAt$pJaeaeWB?HR*IpoJ"
               alt="octocake logo"
             />
             <sup className="font-semibold text-primary-900">Alpha</sup>
