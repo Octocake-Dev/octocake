@@ -14,12 +14,12 @@ import Logo from "@/public/desktop-logo.svg";
 
 const Header = () => {
   const [user, setUser] = useState<null | User>(null);
-  const current_user = useUser((state) => state.user);
+  const currentUser = useUser((state) => state.user);
 
-  useEffect(() => setUser(current_user), [current_user]);
+  useEffect(() => setUser(currentUser), [currentUser]);
 
   return (
-    <header className="flex items-center justify-between shadow-lg h-[70px] px-5 sm:px-8 md:px-16 xl:px-28 custom_max_width">
+    <header className="flex items-center justify-between h-[70px] px-5 sm:px-8 md:px-16 xl:px-28 custom_max_width">
       <div>
         <Link href="/">
           <a className="flex items-end">
