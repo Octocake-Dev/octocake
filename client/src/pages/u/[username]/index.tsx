@@ -8,9 +8,10 @@ import { dehydrate } from "react-query/hydration";
 import { Button } from "octocake-ui";
 
 import { getUser, useGetUser, useIsFollowed } from "@/api/user/getUser";
-import Post from "@/components/post";
-import useFollow from "@/hooks/useFollow";
+import { baseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
+import useFollow from "@/hooks/useFollow";
+import Post from "@/components/post";
 
 const User = () => {
   const { isFallback, query } = useRouter();
@@ -24,16 +25,29 @@ const User = () => {
 
   if (isFallback) return <div>loading...</div>;
 
-  // the user should be logged-in to see follow/unFollow button.
-  // the user should not be able to see follow/unFollow button on his profile.
+  /*
+    the user should be logged-in to see follow/unFollow button.
+    the user should not be able to see follow/unFollow button on his profile.
+  */
   const shouldShowFollowBtn =
     currentUser && user?.githubId !== currentUser?.githubId;
 
+  const url = `${baseUrl}/u/${user?.githubUsername}`;
+
   return (
     <>
-      <NextSeo title={user?.githubName} />
+      <NextSeo
+        title={user?.githubName}
+        description=""
+        canonical={url}
+        openGraph={{
+          title: user?.githubName,
+          description: "",
+          url,
+        }}
+      />
 
-      <section className="px-5 py-2 bg-gray-100 sm:px-8 md:px-16 xl:px-28 custom_max_width">
+      <section className="px-5 py-2 sm:px-8 md:px-16 xl:px-28 custom_max_width">
         <div>
           <h1 className="text-3xl font-bold">{user?.githubName}</h1>
           <p>Followers: {user?.followedBy.length}</p>

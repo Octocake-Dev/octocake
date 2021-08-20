@@ -7,6 +7,7 @@ import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
 import { getPostBySlug, useGetPostBySlug } from "@/api/post/getPostBySlug";
+import { baseUrl } from "@/lib/constants";
 
 const Post = () => {
   const { isFallback, query } = useRouter();
@@ -15,9 +16,17 @@ const Post = () => {
 
   if (isFallback) return <div>loading...</div>;
 
+  const { title, description, slug } = post || {};
+  const url = `${baseUrl}/p/${slug}`;
+
   return (
     <>
-      <NextSeo title={post?.title} description={post?.description} />
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={url}
+        openGraph={{ title, description, url }}
+      />
 
       <section className="flex flex-col justify-center items-center space-y-5 min-h-screen">
         <div>

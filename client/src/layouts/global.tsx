@@ -10,7 +10,7 @@ type Props = {
 const Global = ({ children }: Props) => (
   <>
     <Header />
-    <main className="custom_max_width">{children}</main>
+    <main className="bg-gray-100 custom_max_width">{children}</main>
     <Footer />
   </>
 );
