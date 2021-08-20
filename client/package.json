@@ -22,7 +22,7 @@
     "@hookform/resolvers": "^2.7.1",
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
-    "next": "11.0.1",
+    "next": "^11.0.1",
     "next-seo": "^4.26.0",
     "next-themes": "^0.0.15",
     "nprogress": "^0.2.0",
@@ -33,6 +33,7 @@
     "react-icons": "^4.2.0",
     "react-query": "^3.19.6",
     "react-use-clipboard": "1.0.7",
+    "sharp": "^0.29.0",
     "yup": "^0.32.9",
     "zustand": "^3.5.8"
   },
