@@ -6,17 +6,15 @@ type PropsOf<TTag = any> = TTag extends React.ElementType
 
 type MenuItemProps = {
   warning?: boolean;
-  disabled?: boolean;
 };
 
 const MenuItem = ({
   children,
   warning,
-  disabled,
   ...rest
 }: MenuItemProps & PropsOf<typeof Menu.Item>) => (
-  <Menu.Item disabled={disabled} {...rest}>
-    {({ active }) => (
+  <Menu.Item {...rest}>
+    {({ active, disabled }) => (
       <button
         disabled={disabled}
         className={`${
