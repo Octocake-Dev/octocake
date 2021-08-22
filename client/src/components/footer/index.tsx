@@ -1,8 +1,7 @@
 import React from "react";
-import Image from "next/image";
 import Link from "next/link";
 
-import Logo from "@/public/logo.svg";
+import { Logo } from "@/components/logo";
 
 const LINKS = [
   { title: "About", href: "/#" },
@@ -17,7 +16,7 @@ const Footer = () => (
     <div>
       <Link href="/">
         <a className="flex">
-          <Image src={Logo} alt="octocake logo" />
+          <Logo />
         </a>
       </Link>
     </div>
