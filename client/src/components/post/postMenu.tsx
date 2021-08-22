@@ -36,7 +36,7 @@ const PostMenu = ({ post }: { post: TPost }) => {
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
-        <Menu.Button className="flex" name="more">
+        <Menu.Button className="flex" aria-label="more">
           <FiMoreHorizontal className="w-5 h-5" />
         </Menu.Button>
       </div>
