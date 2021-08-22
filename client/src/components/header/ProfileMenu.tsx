@@ -75,7 +75,7 @@ const ProfileMenu = ({ user }: { user: User }) => {
               </MenuItem>
             </Link>
 
-            <Link href="/settings" passHref>
+            <Link href="/settings/profile" passHref>
               <MenuItem as="a">
                 <IoSettingsOutline
                   className="menu_item_icon"

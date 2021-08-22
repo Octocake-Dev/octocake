@@ -1,5 +1,11 @@
 async function redirects() {
-  return [];
+  return [
+    {
+      source: "/settings",
+      destination: "/settings/profile",
+      permanent: true,
+    },
+  ];
 }
 
 module.exports = redirects;
