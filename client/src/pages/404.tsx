@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
+import { NextSeo } from "next-seo";
 import { Button } from "octocake-ui";
 
 const Custom404 = () => {
@@ -12,6 +13,8 @@ const Custom404 = () => {
 
   return (
     <>
+      <NextSeo title="Page Not Found" />
+
       <section
         className="flex flex-col justify-center items-center space-y-5"
         style={{ minHeight: deviceInnerHeight }}
