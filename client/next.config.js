@@ -8,4 +8,5 @@ module.exports = {
     domains: ["avatars.githubusercontent.com"],
   },
   redirects: require("./next-redirects"),
+  headers: require("./next-headers"),
 };
