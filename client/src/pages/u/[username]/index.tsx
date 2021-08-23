@@ -29,8 +29,7 @@ const User = () => {
     the user should be logged-in to see follow/unFollow button.
     the user should not be able to see follow/unFollow button on his profile.
   */
-  const shouldShowFollowBtn =
-    currentUser && user?.githubId !== currentUser?.githubId;
+  const shouldShowFollowBtn = currentUser && user?.id !== currentUser.id;
 
   const url = `${baseUrl}/u/${user?.githubUsername}`;
 

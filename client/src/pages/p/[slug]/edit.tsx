@@ -10,7 +10,7 @@ import { schema } from "@/validations/post";
 import { useGetPostBySlug } from "@/api/post/getPostBySlug";
 import useEditPost from "@/hooks/useEditPost";
 import Loading from "@/components/Loading";
-import ErrorPage from "../../404";
+import ErrorPage from "@/pages/404";
 
 import { PostData } from "@/types/post";
 
@@ -37,7 +37,8 @@ const Edit = () => {
 
   if (isLoading) return <Loading />;
 
-  if (currentUser?.githubId !== post?.owner?.githubId) return <ErrorPage />;
+  // If the user is not the owner of the post then show error 404 page.
+  if (currentUser?.id !== post?.ownerId) return <ErrorPage />;
 
   return (
     <>

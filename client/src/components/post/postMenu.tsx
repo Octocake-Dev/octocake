@@ -58,7 +58,7 @@ const PostMenu = ({ post }: { post: TPost }) => {
             </MenuItem>
 
             {user &&
-              (owner.githubId === user?.githubId ? (
+              (owner.id === user.id ? (
                 <>
                   <Link href={`/p/${slug}/edit`} passHref>
                     <MenuItem as="a">

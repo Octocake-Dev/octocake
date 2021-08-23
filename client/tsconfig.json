@@ -6,6 +6,7 @@
       "@/api/*": ["src/api/*"],
       "@/hocs/*": ["src/hocs/*"],
       "@/public/*": ["public/*"],
+      "@/pages/*": ["src/pages/*"],
       "@/hooks/*": ["src/hooks/*"],
       "@/types/*": ["src/types/*"],
       "@/utils/*": ["src/utils/*"],
