@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useRouter } from "next/router";
 
 import { useUser } from "@/stores/useUser";
+import Loading from "@/components/Loading";
 
 // TODO: Remove any
 const WithAuth = (WrappedComponent: any) =>
@@ -13,11 +14,7 @@ const WithAuth = (WrappedComponent: any) =>
       !logged_in && push("/");
     }, [logged_in]);
 
-    return logged_in ? (
-      <WrappedComponent {...props} />
-    ) : (
-      <p>You can&apos;t access this page. Please login.</p>
-    );
+    return logged_in ? <WrappedComponent {...props} /> : <Loading />;
   };
 
 export default WithAuth;
