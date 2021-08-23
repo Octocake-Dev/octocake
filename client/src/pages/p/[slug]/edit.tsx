@@ -4,6 +4,7 @@ import { useRouter } from "next/router";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "octocake-ui";
+import { NextSeo } from "next-seo";
 
 import { useUser } from "@/stores/useUser";
 import { schema } from "@/validations/post";
@@ -26,10 +27,7 @@ const Edit = () => {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm({
-    resolver: yupResolver(schema),
-    defaultValues: { title: post?.title, description: post?.description },
-  });
+  } = useForm({ resolver: yupResolver(schema) });
 
   const onSubmit = ({ title, description, published = true }: PostData) => {
     editPost({ title, description, published });
@@ -42,12 +40,15 @@ const Edit = () => {
 
   return (
     <>
+      <NextSeo title="Edit Post" noindex nofollow />
+
       <section className="flex flex-col justify-center items-center space-y-5 min-h-screen">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
             id="title"
             placeholder="title"
+            defaultValue={post?.title}
             {...register("title")}
           />
           <p>{errors.title?.message}</p>
@@ -56,6 +57,7 @@ const Edit = () => {
             type="text"
             id="description"
             placeholder="description"
+            defaultValue={post?.description}
             {...register("description")}
           />
           <p>{errors.description?.message}</p>
