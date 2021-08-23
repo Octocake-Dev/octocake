@@ -5,18 +5,21 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { Button } from "octocake-ui";
 
+import { useUser } from "@/stores/useUser";
 import { schema } from "@/validations/post";
 import { useGetPostBySlug } from "@/api/post/getPostBySlug";
 import useEditPost from "@/hooks/useEditPost";
+import Loading from "@/components/Loading";
+import ErrorPage from "../../404";
 
 import { PostData } from "@/types/post";
 
-// TODO: Make this route secure, Just post's owner should be able to access this route.
 const Edit = () => {
   const { query } = useRouter();
 
-  const { data: post } = useGetPostBySlug(query.slug as string);
+  const currentUser = useUser((state) => state.user);
 
+  const { data: post, isLoading } = useGetPostBySlug(query.slug as string);
   const { mutate: editPost } = useEditPost(query.slug as string);
 
   const {
@@ -31,6 +34,10 @@ const Edit = () => {
   const onSubmit = ({ title, description, published = true }: PostData) => {
     editPost({ title, description, published });
   };
+
+  if (isLoading) return <Loading />;
+
+  if (currentUser?.githubId !== post?.owner?.githubId) return <ErrorPage />;
 
   return (
     <>
