@@ -10,6 +10,7 @@ import { Button } from "octocake-ui";
 import { getUser, useGetUser, useIsFollowed } from "@/api/user/getUser";
 import { baseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
+import Loading from "@/components/Loading";
 import useFollow from "@/hooks/useFollow";
 import Post from "@/components/post";
 
@@ -23,12 +24,12 @@ const User = () => {
   const { data: user } = useGetUser(query.username as string);
   const { data: isFollowed } = useIsFollowed(query.username as string);
 
-  if (isFallback) return <div>loading...</div>;
+  if (isFallback) return <Loading />;
 
-  /*
-    the user should be logged-in to see follow/unFollow button.
-    the user should not be able to see follow/unFollow button on his profile.
-  */
+  /**
+   * the user should be logged-in to see follow/unFollow button.
+   * the user should not be able to see follow/unFollow button on his profile.
+   */
   const shouldShowFollowBtn = currentUser && user?.id !== currentUser.id;
 
   const url = `${baseUrl}/u/${user?.githubUsername}`;

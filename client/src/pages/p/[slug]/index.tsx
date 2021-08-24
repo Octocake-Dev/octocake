@@ -8,13 +8,14 @@ import { dehydrate } from "react-query/hydration";
 
 import { getPostBySlug, useGetPostBySlug } from "@/api/post/getPostBySlug";
 import { baseUrl } from "@/lib/constants";
+import Loading from "@/components/Loading";
 
 const Post = () => {
   const { isFallback, query } = useRouter();
 
   const { data: post } = useGetPostBySlug(query.slug as string);
 
-  if (isFallback) return <div>loading...</div>;
+  if (isFallback) return <Loading />;
 
   const { title, description, slug } = post || {};
   const url = `${baseUrl}/p/${slug}`;
