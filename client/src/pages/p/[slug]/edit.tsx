@@ -36,7 +36,11 @@ const Edit = () => {
   if (isLoading) return <Loading />;
 
   // If the user is not the owner of the post then show error 404 page.
-  if (currentUser?.id !== post?.ownerId) return <ErrorPage />;
+  // FIXME: Fix TS error
+  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+  // @ts-ignore
+  if (post?.name === "NotFoundError" || currentUser?.id !== post?.ownerId)
+    return <ErrorPage />;
 
   return (
     <>
