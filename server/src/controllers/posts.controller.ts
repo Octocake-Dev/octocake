@@ -51,7 +51,7 @@ export const updatePost = async (req: CustomRequest, res: Response) => {
 
       res.status(200).send(updatedPost);
     } else {
-      res.status(403).send("Forbidden");
+      res.status(403).send({ success: false, message: "Forbidden" });
     }
   } catch (err) {
     res.send(err);
@@ -74,7 +74,7 @@ export const deletePost = async (req: CustomRequest, res: Response) => {
 
       res.status(200).send(deletedPost);
     } else {
-      res.status(403).send("Forbidden");
+      res.status(403).send({ success: false, message: "Forbidden" });
     }
   } catch (err) {
     res.send(err);

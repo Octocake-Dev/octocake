@@ -9,7 +9,7 @@ const verifyToken = (req: Request, res: Response, next: NextFunction) => {
 
   jwt.verify(token, config.jwt_key, (err, data) => {
     if (err) {
-      res.status(403).send("unauthorized");
+      res.status(403).send({ success: false, message: "Not Authenticated" });
     } else {
       req.user = data;
       next();
