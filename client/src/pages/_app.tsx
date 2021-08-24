@@ -12,6 +12,7 @@ import NProgress from "nprogress";
 
 import { useUser } from "@/stores/useUser";
 import { QueryClientOptions } from "@/lib/queryClient";
+import CustomToaster from "@/components/CustomToaster";
 import Global from "@/layouts/global";
 import SEO from "next-seo.config";
 
@@ -45,6 +46,7 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
             <OctocakeProvider>
               <Global>
                 <Component {...pageProps} />
+                <CustomToaster />
               </Global>
             </OctocakeProvider>
           </ThemeProvider>
