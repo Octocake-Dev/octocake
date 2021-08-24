@@ -7,11 +7,11 @@ import LocalizedFormat from "dayjs/plugin/localizedFormat";
 import StyledAvatar from "@/components/avatar";
 import PostMenu from "./postMenu";
 
-import { TPost } from "@/types/post";
+import { IPost } from "@/types/post";
 
 dayjs.extend(LocalizedFormat);
 
-const Post = ({ post }: { post: TPost }) => {
+const Post = ({ post }: { post: IPost }) => {
   const {
     createdAt,
     title,

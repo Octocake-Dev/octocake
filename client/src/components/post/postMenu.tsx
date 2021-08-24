@@ -16,9 +16,9 @@ import useDeletePost from "@/hooks/useDeletePost";
 import useFollow from "@/hooks/useFollow";
 import MenuItem from "@/components/menuItem";
 
-import { TPost } from "@/types/post";
+import { IPost } from "@/types/post";
 
-const PostMenu = ({ post }: { post: TPost }) => {
+const PostMenu = ({ post }: { post: IPost }) => {
   const user = useUser((state) => state.user);
 
   const { slug, owner } = post;

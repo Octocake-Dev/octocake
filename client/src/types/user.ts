@@ -1,4 +1,4 @@
-import { TPost } from "./post";
+import { IPost } from "./post";
 
 export type ISimpleUser = {
   id: number;
@@ -12,7 +12,7 @@ export type ISimpleUser = {
 };
 
 export interface IUser extends ISimpleUser {
-  posts: TPost[];
+  posts: IPost[];
   followedBy: ISimpleUser[];
   following: ISimpleUser[];
 }

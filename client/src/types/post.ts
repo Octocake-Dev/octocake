@@ -1,6 +1,6 @@
 import { ISimpleUser } from "./user";
 
-export type TPost = {
+export type IPost = {
   id: string;
   title: string;
   description: string;
