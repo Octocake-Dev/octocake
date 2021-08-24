@@ -8,10 +8,10 @@ import { apiBaseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import ProfileMenu from "./ProfileMenu";
 
-import { User } from "@/types/user";
+import { ISimpleUser } from "@/types/user";
 
 const Header = () => {
-  const [user, setUser] = useState<null | User>(null);
+  const [user, setUser] = useState<null | ISimpleUser>(null);
   const currentUser = useUser((state) => state.user);
 
   useEffect(() => setUser(currentUser), [currentUser]);

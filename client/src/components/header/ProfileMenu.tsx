@@ -14,9 +14,9 @@ import { apiBaseUrl } from "@/lib/constants";
 import StyledAvatar from "@/components/avatar";
 import MenuItem from "@/components/menuItem";
 
-import { User } from "@/types/user";
+import { ISimpleUser } from "@/types/user";
 
-const ProfileMenu = ({ user }: { user: User }) => {
+const ProfileMenu = ({ user }: { user: ISimpleUser }) => {
   const { githubAvatarUrl, githubName, githubUsername } = user;
 
   return (

@@ -1,4 +1,6 @@
-export type User = {
+import { TPost } from "./post";
+
+export type ISimpleUser = {
   id: number;
   githubAvatarUrl: string;
   githubName: string;
@@ -8,3 +10,9 @@ export type User = {
   createdAt: string;
   updatedAt: string;
 };
+
+export interface IUser extends ISimpleUser {
+  posts: TPost[];
+  followedBy: ISimpleUser[];
+  following: ISimpleUser[];
+}

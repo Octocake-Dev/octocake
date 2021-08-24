@@ -1,4 +1,4 @@
-import { User } from "./user";
+import { ISimpleUser } from "./user";
 
 export type TPost = {
   id: string;
@@ -9,7 +9,7 @@ export type TPost = {
   ownerId: number;
   createdAt: string;
   updatedAt: string;
-  owner: User;
+  owner: ISimpleUser;
 };
 
 export type PostData = {
