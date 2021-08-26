@@ -4,16 +4,14 @@ import { GetStaticProps, GetStaticPaths } from "next";
 
 import { NextSeo } from "next-seo";
 
+import WIP from "@/components/WIP";
+
 const Following = () => {
   return (
     <>
       <NextSeo />
 
-      <section className="flex flex-col justify-center items-center space-y-5 min-h-screen">
-        <div>
-          <h1 className="text-3xl font-bold">Work In Progress!</h1>
-        </div>
-      </section>
+      <WIP />
     </>
   );
 };

@@ -6,7 +6,7 @@ import { QueryClient } from "react-query";
 import { NextSeo } from "next-seo";
 
 import { getPosts, useGetPosts } from "@/api/posts/getPosts";
-import Post from "@/components/post";
+import HomePage from "@/modules/home/homePage";
 
 const Home = () => {
   const { data: posts } = useGetPosts();
@@ -15,17 +15,7 @@ const Home = () => {
     <>
       <NextSeo title="Home" />
 
-      <section className="px-5 py-2 sm:px-8 md:px-16 xl:px-28 custom_max_width">
-        {posts?.length ? (
-          <>
-            <h4 className="text-2xl font-bold leading-none">Posts</h4>
-
-            {posts.map((post) => (
-              <Post post={post} key={post.id} />
-            ))}
-          </>
-        ) : null}
-      </section>
+      <HomePage posts={posts} />
     </>
   );
 };
@@ -33,7 +23,7 @@ const Home = () => {
 export const getStaticProps: GetStaticProps = async () => {
   const queryClient = new QueryClient();
 
-  queryClient.prefetchQuery("posts", () => getPosts());
+  await queryClient.prefetchQuery("posts", () => getPosts());
 
   return {
     props: { dehydratedState: dehydrate(queryClient) },

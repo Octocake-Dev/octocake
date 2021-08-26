@@ -13,6 +13,7 @@
       "@/styles/*": ["src/styles/*"],
       "@/stores/*": ["src/stores/*"],
       "@/layouts/*": ["src/layouts/*"],
+      "@/modules/*": ["src/modules/*"],
       "@/components/*": ["src/components/*"],
       "@/validations/*": ["src/validations/*"]
     },

@@ -9,6 +9,7 @@ import { dehydrate } from "react-query/hydration";
 import { getPostBySlug, useGetPostBySlug } from "@/api/post/getPostBySlug";
 import { baseUrl } from "@/lib/constants";
 import Loading from "@/components/Loading";
+import WIP from "@/components/WIP";
 
 const Post = () => {
   const { isFallback, query } = useRouter();
@@ -29,11 +30,7 @@ const Post = () => {
         openGraph={{ title, description, url }}
       />
 
-      <section className="flex flex-col justify-center items-center space-y-5 min-h-screen">
-        <div>
-          <h1 className="text-3xl font-bold">Work In Progress!</h1>
-        </div>
-      </section>
+      <WIP />
     </>
   );
 };
