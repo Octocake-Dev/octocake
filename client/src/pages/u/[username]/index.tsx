@@ -44,6 +44,9 @@ const User = () => {
           title: user?.githubName,
           description: "",
           url,
+          images: [
+            { url: user?.githubAvatarUrl as string, alt: user?.githubName },
+          ],
         }}
       />
 

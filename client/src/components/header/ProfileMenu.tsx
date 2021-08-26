@@ -1,4 +1,4 @@
-import React, { Fragment } from "react";
+import React, { Fragment, memo } from "react";
 import Link from "next/link";
 
 import { Menu, Transition } from "@headlessui/react";
@@ -103,4 +103,4 @@ const ProfileMenu = ({ user }: { user: ISimpleUser }) => {
   );
 };
 
-export default ProfileMenu;
+export default memo(ProfileMenu);

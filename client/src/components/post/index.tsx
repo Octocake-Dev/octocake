@@ -1,4 +1,4 @@
-import React from "react";
+import React, { memo } from "react";
 import Link from "next/link";
 
 import dayjs from "dayjs";
@@ -65,4 +65,4 @@ const Post = ({ post }: { post: IPost }) => {
   );
 };
 
-export default Post;
+export default memo(Post);
