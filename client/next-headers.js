@@ -11,15 +11,6 @@ async function headers() {
       source: "/(.*)",
       headers: securityHeaders,
     },
-    {
-      source: "/fonts/inter-var-latin.woff2",
-      headers: [
-        {
-          key: "Cache-Control",
-          value: "public, max-age=31536000, immutable",
-        },
-      ],
-    },
   ];
 }
 
