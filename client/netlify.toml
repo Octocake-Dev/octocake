@@ -1,2 +1,7 @@
 [functions]
   node_bundler = "esbuild"
+
+[[headers]]
+  for = "/fonts/inter-var-latin.woff2"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
