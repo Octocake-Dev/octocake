@@ -15,7 +15,7 @@ const Footer = () => (
   <footer className="custom_max_width py-6 flex flex-col items-center justify-center text-center">
     <div>
       <Link href="/">
-        <a className="flex">
+        <a className="flex" aria-label="logo">
           <Logo />
         </a>
       </Link>
