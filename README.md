@@ -21,6 +21,8 @@
 
 </div>
 
+> **PRODUCTION ISSUE**: Authentication is not working because of cookies domain, The back-end and the front-end does not have the same domain.
+
 ## About The Project
 
 The idea still not clear enough to talk about it.
