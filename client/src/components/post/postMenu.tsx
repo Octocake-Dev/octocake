@@ -2,7 +2,7 @@ import React, { Fragment } from "react";
 import Link from "next/link";
 
 import { Menu, Transition } from "@headlessui/react";
-import { HiOutlineTrash, HiOutlinePencilAlt } from "react-icons/hi";
+import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BiBlock } from "react-icons/bi";
 import { MdReport, MdContentCopy } from "react-icons/md";
@@ -62,7 +62,7 @@ const PostMenu = ({ post }: { post: IPost }) => {
                 <>
                   <Link href={`/p/${slug}/edit`} passHref>
                     <MenuItem as="a">
-                      <HiOutlinePencilAlt
+                      <HiOutlinePencil
                         className="menu_item_icon"
                         aria-hidden="true"
                       />

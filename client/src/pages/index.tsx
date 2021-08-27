@@ -1,5 +1,5 @@
 import React from "react";
-import { GetStaticProps } from "next";
+import type { GetStaticProps } from "next";
 
 import { dehydrate } from "react-query/hydration";
 import { QueryClient } from "react-query";

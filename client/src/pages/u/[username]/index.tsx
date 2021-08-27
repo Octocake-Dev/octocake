@@ -1,6 +1,10 @@
 import React from "react";
 import { useRouter } from "next/router";
-import { GetStaticProps, GetStaticPropsContext, GetStaticPaths } from "next";
+import type {
+  GetStaticProps,
+  GetStaticPropsContext,
+  GetStaticPaths,
+} from "next";
 
 import { NextSeo } from "next-seo";
 import { QueryClient } from "react-query";

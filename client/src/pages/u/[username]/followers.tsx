@@ -1,6 +1,6 @@
 /* eslint-disable arrow-body-style */
 import React from "react";
-import { GetStaticProps, GetStaticPaths } from "next";
+import type { GetStaticProps, GetStaticPaths } from "next";
 
 import { NextSeo } from "next-seo";
 
