@@ -12,7 +12,7 @@ const LINKS = [
 ];
 
 const Footer = () => (
-  <footer className="custom_max_width py-6 flex flex-col items-center justify-center text-center">
+  <footer className="flex flex-col items-center justify-center py-6 text-center custom_max_width">
     <div>
       <Link href="/">
         <a className="flex" aria-label="logo">
@@ -21,7 +21,7 @@ const Footer = () => (
       </Link>
     </div>
 
-    <div className="py-4 flex items-center flex-col space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-center">
+    <div className="flex flex-col items-center py-4 space-y-2 sm:flex-row sm:space-y-0 sm:space-x-4 sm:justify-center">
       {LINKS.map(({ href, title }) => (
         <Link href={href} key={title}>
           <a className="font-medium sm:opacity-75 sm:hover:opacity-100 sm:hover:underline">
@@ -41,7 +41,7 @@ const Footer = () => (
         by{" "}
         <a
           href="https://github.com/imadatyatalah/"
-          className="text-primary-900 font-medium sm:hover:underline"
+          className="font-medium text-primary-900 sm:hover:underline"
           target="_blank"
           rel="noopener noreferrer"
         >

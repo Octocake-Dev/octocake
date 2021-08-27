@@ -31,7 +31,7 @@ const Header = () => {
         {user ? (
           <>
             <Link href="/new-post">
-              <a className="mr-8 hidden sm:block">
+              <a className="hidden mr-8 sm:block">
                 <Button size="sm" type="button">
                   New Post
                 </Button>

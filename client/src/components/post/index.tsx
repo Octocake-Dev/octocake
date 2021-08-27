@@ -43,7 +43,7 @@ const Post = ({ post }: { post: IPost }) => {
               </Link>
             </h3>
 
-            <p className="text-gray-700 text-sm">
+            <p className="text-sm text-gray-700">
               {dayjs(createdAt).format("ll")}
             </p>
           </div>
