@@ -3,7 +3,7 @@ import { Router } from "express";
 import githubOAuth from "./routes/auth/github";
 
 import users from "./routes/users";
-import currentUser from "./routes/current_user";
+import currentUser from "./routes/currentUser";
 
 import posts from "./routes/posts";
 
