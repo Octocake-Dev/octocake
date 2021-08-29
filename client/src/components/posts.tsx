@@ -8,7 +8,7 @@ const Posts = ({ posts }: { posts: IPost[] | undefined }) => (
   <>
     {posts?.length ? (
       <>
-        <h1 className="text-2xl font-semibold leading-relaxed tracking-normal">
+        <h1 className="text-2xl font-semibold leading-relaxed tracking-tight">
           Posts
         </h1>
 

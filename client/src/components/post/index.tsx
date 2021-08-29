@@ -21,7 +21,7 @@ const Post = ({ post }: { post: IPost }) => {
   } = post;
 
   return (
-    <article className="bg-white relative p-[12px] my-5 rounded-custom shadow-lg max-w-2xl">
+    <article className="bg-white relative p-[12px] mb-5 rounded-custom shadow-lg max-w-2xl">
       <header className="flex justify-between">
         <div className="flex">
           <Link href={`/u/${githubUsername}`}>

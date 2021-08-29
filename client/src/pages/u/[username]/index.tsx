@@ -54,9 +54,11 @@ const User = () => {
         }}
       />
 
-      <section className="px-5 py-2 sm:px-8 md:px-16 xl:px-28 custom_max_width">
+      <section>
         <div>
-          <h1 className="text-3xl font-bold">{user?.githubName}</h1>
+          <h1 className="text-4xl font-semibold leading-relaxed tracking-tight">
+            {user?.githubName}
+          </h1>
           <p>Followers: {user?.followedBy.length}</p>
           <p>Following: {user?.following.length}</p>
 
