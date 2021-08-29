@@ -16,7 +16,7 @@ import { baseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import Loading from "@/components/Loading";
 import useFollow from "@/hooks/useFollow";
-import Post from "@/components/post";
+import Posts from "@/components/posts";
 
 const User = () => {
   const { isFallback, query } = useRouter();
@@ -66,15 +66,7 @@ const User = () => {
             </Button>
           )}
 
-          {user?.posts.length ? (
-            <>
-              <h4 className="text-2xl font-bold leading-none">Posts</h4>
-
-              {user.posts.map((post) => (
-                <Post post={post} key={post.id} />
-              ))}
-            </>
-          ) : null}
+          <Posts posts={user?.posts} />
         </div>
       </section>
     </>

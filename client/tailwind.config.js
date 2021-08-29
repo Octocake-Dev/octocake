@@ -6,6 +6,7 @@ module.exports = {
   purge: [
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
+    "./src/modules/**/*.{js,jsx,ts,tsx}",
     "./src/layouts/**/*.{js,jsx,ts,tsx}",
   ],
   darkMode: "class",
