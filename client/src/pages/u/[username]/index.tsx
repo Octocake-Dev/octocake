@@ -56,9 +56,7 @@ const User = () => {
 
       <section>
         <div>
-          <h1 className="text-4xl font-semibold leading-relaxed tracking-tight">
-            {user?.githubName}
-          </h1>
+          <h1 className="oc_text-4xl">{user?.githubName}</h1>
           <p>Followers: {user?.followedBy.length}</p>
           <p>Following: {user?.following.length}</p>
 

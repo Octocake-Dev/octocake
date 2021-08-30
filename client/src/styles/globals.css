@@ -48,6 +48,24 @@
   .oc_page {
     @apply px-5 py-2 bg-gray-100 sm:px-8 md:px-16 xl:px-28 custom_max_width;
   }
+  .oc_text-base {
+    @apply text-base font-medium leading-normal tracking-normal;
+  }
+  .oc_text-lg {
+    @apply text-lg font-medium leading-normal tracking-normal;
+  }
+  .oc_text-xl {
+    @apply text-xl font-semibold leading-tight tracking-normal;
+  }
+  .oc_text-2xl {
+    @apply text-2xl font-semibold leading-relaxed tracking-tight;
+  }
+  .oc_text-3xl {
+    @apply text-3xl font-semibold leading-relaxed tracking-tight;
+  }
+  .oc_text-4xl {
+    @apply text-4xl font-semibold leading-relaxed tracking-tight;
+  }
 }
 
 @layer utilities {

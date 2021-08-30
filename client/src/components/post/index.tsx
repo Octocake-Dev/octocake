@@ -37,7 +37,7 @@ const Post = ({ post }: { post: IPost }) => {
           </Link>
 
           <div className="ml-3 space-y-1">
-            <h3 className="font-medium">
+            <h3 className="oc_text-base">
               <Link href={`/u/${githubUsername}`}>
                 <a>{githubName}</a>
               </Link>
@@ -53,7 +53,7 @@ const Post = ({ post }: { post: IPost }) => {
       </header>
 
       <div className="ml-[62px] mt-2">
-        <h2 className="text-2xl font-bold">
+        <h2 className="leading-normal oc_text-2xl">
           <Link href={`/p/${slug}`}>
             <a>{title}</a>
           </Link>

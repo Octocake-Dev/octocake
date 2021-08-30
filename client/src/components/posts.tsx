@@ -8,9 +8,7 @@ const Posts = ({ posts }: { posts: IPost[] | undefined }) => (
   <>
     {posts?.length ? (
       <>
-        <h1 className="text-2xl font-semibold leading-relaxed tracking-tight">
-          Posts
-        </h1>
+        <h1 className="oc_text-2xl">Posts</h1>
 
         {posts.map((post) => (
           <Post post={post} key={post.id} />
