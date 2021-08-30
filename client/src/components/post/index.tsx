@@ -44,7 +44,7 @@ const Post = ({ post }: { post: IPost }) => {
             </h3>
 
             <p className="text-sm text-gray-700">
-              {dayjs(createdAt).format("ll")}
+              <time dateTime={createdAt}>{dayjs(createdAt).format("ll")}</time>
             </p>
           </div>
         </div>
