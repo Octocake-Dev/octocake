@@ -36,7 +36,7 @@ const NewPost = () => {
             placeholder="title"
             {...register("title")}
           />
-          <p>{errors.title?.message}</p>
+          {errors.title && <p>{errors.title.message}</p>}
 
           <input
             type="text"
@@ -44,7 +44,7 @@ const NewPost = () => {
             placeholder="description"
             {...register("description")}
           />
-          <p>{errors.description?.message}</p>
+          {errors.description && <p>{errors.description.message}</p>}
 
           <Button disabled={isLoading} type="submit">
             Submit

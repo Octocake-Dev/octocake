@@ -55,7 +55,7 @@ const Edit = () => {
             defaultValue={post?.title}
             {...register("title")}
           />
-          <p>{errors.title?.message}</p>
+          {errors.title && <p>{errors.title.message}</p>}
 
           <input
             type="text"
@@ -64,7 +64,7 @@ const Edit = () => {
             defaultValue={post?.description}
             {...register("description")}
           />
-          <p>{errors.description?.message}</p>
+          {errors.description && <p>{errors.description.message}</p>}
 
           <Button type="submit">Submit</Button>
         </form>
