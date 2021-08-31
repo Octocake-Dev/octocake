@@ -28,23 +28,31 @@ const NewPost = () => {
     <>
       <NextSeo title="New Post" />
 
-      <section className="flex flex-col items-center justify-center min-h-screen space-y-5">
+      <section className="flex flex-col items-center justify-center min-h-screen">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
             id="title"
             placeholder="title"
+            className="block"
             {...register("title")}
           />
-          {errors.title && <p>{errors.title.message}</p>}
+          {errors.title && (
+            <p className="font-medium text-red-500">{errors.title.message}</p>
+          )}
 
           <input
             type="text"
             id="description"
             placeholder="description"
+            className="block"
             {...register("description")}
           />
-          {errors.description && <p>{errors.description.message}</p>}
+          {errors.description && (
+            <p className="font-medium text-red-500">
+              {errors.description.message}
+            </p>
+          )}
 
           <Button disabled={isLoading} type="submit">
             Submit

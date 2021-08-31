@@ -46,25 +46,33 @@ const Edit = () => {
     <>
       <NextSeo title="Edit Post" noindex nofollow />
 
-      <section className="flex flex-col items-center justify-center min-h-screen space-y-5">
+      <section className="flex flex-col items-center justify-center min-h-screen">
         <form onSubmit={handleSubmit(onSubmit)}>
           <input
             type="text"
             id="title"
             placeholder="title"
             defaultValue={post?.title}
+            className="block"
             {...register("title")}
           />
-          {errors.title && <p>{errors.title.message}</p>}
+          {errors.title && (
+            <p className="font-medium text-red-500">{errors.title.message}</p>
+          )}
 
           <input
             type="text"
             id="description"
             placeholder="description"
             defaultValue={post?.description}
+            className="block"
             {...register("description")}
           />
-          {errors.description && <p>{errors.description.message}</p>}
+          {errors.description && (
+            <p className="font-medium text-red-500">
+              {errors.description.message}
+            </p>
+          )}
 
           <Button type="submit">Submit</Button>
         </form>
