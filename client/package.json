@@ -19,7 +19,7 @@
     "prettier:check": "npx prettier --check ."
   },
   "dependencies": {
-    "@headlessui/react": "^1.4.0",
+    "@headlessui/react": "^1.4.1",
     "@hookform/resolvers": "^2.8.0",
     "axios": "^0.21.1",
     "dayjs": "^1.10.6",
