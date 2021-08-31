@@ -6,6 +6,8 @@
 
 <div align="center">
 
+<a href="https://octocake.netlify.app">Website</a>
+·
 <a href="https://github.com/Octocake-Dev/octocake/issues">Report Bug</a>
 ·
 <a href="https://github.com/Octocake-Dev/octocake/issues">Request Feature</a>
