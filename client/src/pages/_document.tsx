@@ -6,6 +6,8 @@ class MyDocument extends Document {
     return (
       <Html lang="en">
         <Head>
+          <script async src="https://cdn.splitbee.io/sb.js"></script>
+
           <link
             rel="apple-touch-icon"
             sizes="180x180"
@@ -33,7 +35,7 @@ class MyDocument extends Document {
             crossOrigin="anonymous"
           />
         </Head>
-        <body className="bg-white dark:bg-black text-black dark:text-white">
+        <body className="text-black bg-white dark:bg-black dark:text-white">
           <Main />
           <NextScript />
         </body>
