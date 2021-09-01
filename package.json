@@ -9,7 +9,17 @@
   "keywords": [
     "octocake"
   ],
+  "workspaces": [
+    "client",
+    "server"
+  ],
   "scripts": {
+    "client:dev": "yarn --cwd client dev",
+    "client:build": "yarn --cwd client build",
+    "client:start": "yarn --cwd client start",
+    "server:dev": "yarn --cwd server dev",
+    "server:build": "yarn --cwd server build",
+    "server:start": "yarn --cwd server start",
     "prettier:format": "prettier --write .",
     "prettier:check": "prettier --check ."
   },
