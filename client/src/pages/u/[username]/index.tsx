@@ -16,7 +16,7 @@ import { baseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import Loading from "@/components/Loading";
 import useFollow from "@/hooks/useFollow";
-import Posts from "@/components/posts";
+import Posts from "@/components/Posts";
 
 const User = () => {
   const { isFallback, query } = useRouter();

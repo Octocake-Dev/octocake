@@ -14,7 +14,7 @@ import { useIsFollowed } from "@/api/user/getUser";
 import { useUser } from "@/stores/useUser";
 import useDeletePost from "@/hooks/useDeletePost";
 import useFollow from "@/hooks/useFollow";
-import MenuItem from "@/components/menuItem";
+import MenuItem from "@/components/MenuItem";
 
 import { IPost } from "@/types/post";
 

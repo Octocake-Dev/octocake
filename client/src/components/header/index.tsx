@@ -3,7 +3,7 @@ import Link from "next/link";
 
 import { Button } from "octocake-ui";
 
-import { LogoWithName } from "@/components/logo";
+import { LogoWithName } from "@/components/Logo";
 import { apiBaseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import ProfileMenu from "./ProfileMenu";

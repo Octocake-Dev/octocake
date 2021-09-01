@@ -1,6 +1,6 @@
 import React from "react";
 
-import Posts from "@/components/posts";
+import Posts from "@/components/Posts";
 
 import { IPost } from "@/types/post";
 

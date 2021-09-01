@@ -1,7 +1,7 @@
 import React from "react";
 import Link from "next/link";
 
-import { Logo } from "@/components/logo";
+import { Logo } from "@/components/Logo";
 
 const LINKS = [
   { title: "About", href: "/#" },

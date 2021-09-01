@@ -4,8 +4,8 @@ import Link from "next/link";
 import dayjs from "dayjs";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
 
-import StyledAvatar from "@/components/avatar";
-import PostMenu from "./postMenu";
+import StyledAvatar from "@/components/Avatar";
+import PostMenu from "./PostMenu";
 
 import { IPost } from "@/types/post";
 

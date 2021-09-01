@@ -1,3 +1,5 @@
+import React, { forwardRef } from "react";
+
 import { Menu } from "@headlessui/react";
 
 type PropsOf<TTag = any> = TTag extends React.ElementType
@@ -8,11 +10,10 @@ type MenuItemProps = {
   warning?: boolean;
 };
 
-const MenuItem = ({
-  children,
-  warning,
-  ...rest
-}: MenuItemProps & PropsOf<typeof Menu.Item>) => (
+const MenuItem = (
+  { children, warning, ...rest }: MenuItemProps & PropsOf<typeof Menu.Item>,
+  ref: any
+) => (
   <Menu.Item {...rest}>
     {({ active, disabled }) => (
       <button
@@ -33,4 +34,4 @@ const MenuItem = ({
   </Menu.Item>
 );
 
-export default MenuItem;
+export default forwardRef(MenuItem);
