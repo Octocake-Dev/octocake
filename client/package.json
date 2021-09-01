@@ -14,9 +14,7 @@
     "build": "next build",
     "start": "next start",
     "next:lint": "next lint",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prettier:format": "npx prettier --write .",
-    "prettier:check": "npx prettier --check ."
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",

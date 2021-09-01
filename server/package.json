@@ -15,8 +15,6 @@
     "start": "tsc & node ./dist/server.js",
     "dev": "tsc -w & nodemon ./dist/server.js",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "prettier:format": "npx prettier --write .",
-    "prettier:check": "npx prettier --check .",
     "prisma:studio": "npx prisma studio",
     "prisma:migrate:dev": "npx prisma migrate dev",
     "prisma:migrate:reset": "npx prisma migrate reset",
