@@ -38,7 +38,6 @@ The idea still not clear enough to talk about it.
 - [Next.js](https://nextjs.org/)
 - [TailwindCSS](https://tailwindcss.com/)
 - [Headless-UI](https://headlessui.dev/)
-- [Octocake-UI](https://www.npmjs.com/package/octocake-ui)
 - [Next Themes](https://github.com/pacocoursey/next-themes)
 - [Next SEO](https://github.com/garmeeh/next-seo)
 - [Zustand](https://github.com/pmndrs/zustand)
@@ -46,6 +45,8 @@ The idea still not clear enough to talk about it.
 - [React Query](https://react-query.tanstack.com/)
 - [React Hook Form](http://react-hook-form.com/)
 - [DayJS](https://day.js.org/)
+- [styled-components](https://styled-components.com/)
+- [styled-system](https://styled-system.com/)
 
 #### server
 
