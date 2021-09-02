@@ -1,11 +1,10 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
 
-import { Button } from "octocake-ui";
-
 import { LogoWithName } from "@/components/Logo";
 import { apiBaseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
+import Button from "@/ui/button/Button";
 import ProfileMenu from "./ProfileMenu";
 
 import { ISimpleUser } from "@/types/user";
