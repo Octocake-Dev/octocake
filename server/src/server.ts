@@ -5,6 +5,7 @@ import passport from "passport";
 import cors from "cors";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
+import compression from "compression";
 
 import { corsOptions } from "./config/cors";
 import { config } from "./config/credentials";
@@ -19,6 +20,7 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(cors(corsOptions));
 app.use(helmet());
+app.use(compression());
 
 app.use(passport.initialize());
 app.use(passport.session());
