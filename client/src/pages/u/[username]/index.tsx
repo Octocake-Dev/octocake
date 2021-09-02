@@ -9,7 +9,6 @@ import type {
 import { NextSeo } from "next-seo";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
-import { Button } from "octocake-ui";
 
 import { getUser, useGetUser, useIsFollowed } from "@/api/user/getUser";
 import { baseUrl } from "@/lib/constants";
@@ -17,6 +16,7 @@ import { useUser } from "@/stores/useUser";
 import Loading from "@/components/Loading";
 import useFollow from "@/hooks/useFollow";
 import Posts from "@/components/Posts";
+import Button from "@/ui/button/Button";
 
 const User = () => {
   const { isFallback, query } = useRouter();

@@ -7,7 +7,6 @@ import { DefaultSeo } from "next-seo";
 import { QueryClient, QueryClientProvider } from "react-query";
 import { ReactQueryDevtools } from "react-query/devtools";
 import { Hydrate } from "react-query/hydration";
-import { OctocakeProvider } from "octocake-ui";
 import NProgress from "nprogress";
 
 import { useUser } from "@/stores/useUser";
@@ -43,12 +42,10 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
           <ThemeProvider defaultTheme="light" attribute="class">
-            <OctocakeProvider>
-              <Global>
-                <Component {...pageProps} />
-                <CustomToaster />
-              </Global>
-            </OctocakeProvider>
+            <Global>
+              <Component {...pageProps} />
+              <CustomToaster />
+            </Global>
           </ThemeProvider>
         </Hydrate>
 
