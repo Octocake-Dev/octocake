@@ -59,29 +59,39 @@ The idea still not clear enough to talk about the features.
 
 ## Getting Started
 
-First, Install client and server dependencies:
+First, Install project dependencies:
 
-client:
+at project root:
 
 ```bash
-cd client && npm i
+yarn
 ```
 
-server:
+### Setup the client
+
+Inside client folder
 
 ```bash
-cd server && npm i
+cp .env.example .env
 ```
 
 ### Setup the server
 
-inside server folder:
+Inside server folder
 
 ```bash
 cp .env.example .env
 ```
 
 Then fill environment variables:
+
+```bash
+# Get "256-bit WEP Key" from https://randomkeygen.com/
+JWT_KEY=YOUR_JWT_KEY
+
+# Create a local postgresql db
+DATABASE_URL=LOCAL_POSTGRESQL_DB_URL
+```
 
 You can simply get `GITHUB_ID` and `GITHUB_SECRET` by [creating a github oauth app](https://github.com/settings/applications/new), You can follow [github docs](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) if you don't know how.
 
@@ -92,18 +102,18 @@ GITHUB_SECRET=YOUR_GITHUB_CLIENT_SECRET
 
 ### Run the project
 
-Run the development server:
+at project root:
 
-inside server folder:
+Start client development server
 
 ```bash
-npm run build && npm run dev
+yarn client:dev
 ```
 
-Then inside client folder:
+Start server development server
 
 ```bash
-npm run dev
+yarn server:dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
