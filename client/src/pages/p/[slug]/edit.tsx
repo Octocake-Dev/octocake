@@ -3,13 +3,13 @@ import { useRouter } from "next/router";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "octocake-ui";
 import { NextSeo } from "next-seo";
 
 import { useUser } from "@/stores/useUser";
 import { schema } from "@/validations/post";
 import { useGetPostBySlug } from "@/api/post/getPostBySlug";
 import useEditPost from "@/hooks/useEditPost";
+import Button from "@/ui/button/Button";
 import Loading from "@/components/Loading";
 import ErrorPage from "@/pages/404";
 

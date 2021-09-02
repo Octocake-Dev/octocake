@@ -3,11 +3,11 @@ import React from "react";
 import { NextSeo } from "next-seo";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { Button } from "octocake-ui";
 
 import { schema } from "@/validations/post";
 import withAuth from "@/hocs/withAuth";
 import useCreatePost from "@/hooks/useCreatePost";
+import Button from "@/ui/button/Button";
 
 import { PostData } from "@/types/post";
 

@@ -2,7 +2,8 @@ import React from "react";
 import Link from "next/link";
 
 import { NextSeo } from "next-seo";
-import { Button } from "octocake-ui";
+
+import Button from "@/ui/button/Button";
 
 const Custom404 = () => (
   <>
