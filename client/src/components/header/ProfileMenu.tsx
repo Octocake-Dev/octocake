@@ -11,7 +11,7 @@ import {
 } from "react-icons/io5";
 
 import { apiBaseUrl } from "@/lib/constants";
-import StyledAvatar from "@/components/Avatar";
+import StyledAvatar from "@/ui/Avatar";
 import MenuItem from "@/components/MenuItem";
 
 import { ISimpleUser } from "@/types/user";
