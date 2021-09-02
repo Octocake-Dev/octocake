@@ -11,7 +11,7 @@ import ProfileMenu from "./ProfileMenu";
 import { ISimpleUser } from "@/types/user";
 
 const Header = () => {
-  const [user, setUser] = useState<null | ISimpleUser>(null);
+  const [user, setUser] = useState<ISimpleUser | null>(null);
   const currentUser = useUser((state) => state.user);
 
   useEffect(() => setUser(currentUser), [currentUser]);
