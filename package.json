@@ -7,6 +7,8 @@
     "server"
   ],
   "scripts": {
+    "storybook": "yarn --cwd client storybook",
+    "build-storybook": "yarn --cwd client build-storybook",
     "client:dev": "yarn --cwd client dev",
     "client:build": "yarn --cwd client build",
     "client:start": "yarn --cwd client start",

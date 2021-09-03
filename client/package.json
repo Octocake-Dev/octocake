@@ -7,7 +7,9 @@
     "build": "next build",
     "start": "next start",
     "next:lint": "next lint",
-    "lint": "eslint . --ext .js,.jsx,.ts,.tsx"
+    "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "dependencies": {
     "@headlessui/react": "^1.4.1",
@@ -32,6 +34,11 @@
     "zustand": "^3.5.10"
   },
   "devDependencies": {
+    "@babel/core": "^7.15.4",
+    "@storybook/addon-actions": "^6.3.8",
+    "@storybook/addon-essentials": "^6.3.8",
+    "@storybook/addon-links": "^6.3.8",
+    "@storybook/react": "^6.3.8",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.19",
     "@types/styled-components": "^5.1.13",
@@ -40,6 +47,7 @@
     "@typescript-eslint/eslint-plugin": "^4.30.0",
     "@typescript-eslint/parser": "^4.30.0",
     "autoprefixer": "^10.3.3",
+    "babel-loader": "^8.2.2",
     "babel-plugin-styled-components": "^1.13.2",
     "eslint": "^7.32.0",
     "eslint-config-next": "^11.1.2",
