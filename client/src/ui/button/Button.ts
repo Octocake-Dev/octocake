@@ -1,9 +1,10 @@
+import { red } from "tailwindcss/colors";
 import { variant } from "styled-system";
 import styled from "styled-components";
 
 type ButtonProps = {
   size?: "sm" | "md" | "lg";
-  variant?: "primary" | "secondary" | "ghost";
+  variant?: "primary" | "danger";
 };
 
 const Button = styled("button")<ButtonProps>(
@@ -20,12 +21,11 @@ const Button = styled("button")<ButtonProps>(
       prop: "variant",
       variants: {
         primary: {
-          border: "none",
           color: "white",
-          backgroundColor: "var(--color-primary-400)",
+          backgroundColor: "var(--color-primary-500)",
 
           ":hover": {
-            backgroundColor: "var(--color-primary-500)",
+            backgroundColor: "var(--color-primary-600)",
           },
           ":focus": {
             backgroundColor: "var(--color-primary-600)",
@@ -33,9 +33,18 @@ const Button = styled("button")<ButtonProps>(
           },
         },
 
-        secondary: {},
+        danger: {
+          color: "white",
+          backgroundColor: red[500],
 
-        ghost: {},
+          ":hover": {
+            backgroundColor: red[600],
+          },
+          ":focus": {
+            backgroundColor: red[600],
+            boxShadow: `0px 0px 0px 4px rgba(220,38,38,0.4)`,
+          },
+        },
       },
     }),
 
