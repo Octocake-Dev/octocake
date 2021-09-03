@@ -11,7 +11,7 @@ const WithAuth = <P extends any>(WrappedComponent: ComponentType<P>) =>
 
     useEffect(() => {
       !logged_in && push("/");
-    }, [logged_in]);
+    });
 
     return logged_in ? <WrappedComponent {...props} /> : <Loading />;
   };
