@@ -7,6 +7,7 @@
     "server"
   ],
   "scripts": {
+    "postbuild": "yarn --cwd client postbuild",
     "storybook": "yarn --cwd client storybook",
     "build-storybook": "yarn --cwd client build-storybook",
     "client:dev": "yarn --cwd client dev",
