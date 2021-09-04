@@ -1,22 +1,13 @@
 {
-  "env": {
-    "browser": true,
-    "es2021": true,
-    "node": true
-  },
+  "env": { "browser": true },
   "extends": [
     "next",
-    "eslint:recommended",
     "plugin:react/recommended",
     "plugin:react-hooks/recommended",
-    "plugin:@typescript-eslint/recommended",
-    "prettier"
+    "../.eslintrc.base.js"
   ],
-  "parser": "@typescript-eslint/parser",
   "parserOptions": {
-    "ecmaFeatures": { "jsx": true },
-    "ecmaVersion": 12,
-    "sourceType": "module"
+    "ecmaFeatures": { "jsx": true }
   },
   "settings": {
     "react": {
@@ -25,9 +16,8 @@
       "version": "detect"
     }
   },
-  "plugins": ["react", "react-hooks", "@typescript-eslint"],
+  "plugins": ["react", "react-hooks"],
   "rules": {
-    "@typescript-eslint/explicit-module-boundary-types": "off",
     "arrow-body-style": ["error", "as-needed"],
 
     "react-hooks/rules-of-hooks": "error",

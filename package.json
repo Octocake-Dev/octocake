@@ -10,6 +10,7 @@
     "postbuild": "yarn --cwd client postbuild",
     "storybook": "yarn --cwd client storybook",
     "build-storybook": "yarn --cwd client build-storybook",
+    "lint": "yarn --cwd client lint && yarn --cwd server lint",
     "client:dev": "yarn --cwd client dev",
     "client:build": "yarn --cwd client build",
     "client:start": "yarn --cwd client start",
