@@ -2,7 +2,7 @@ import { red } from "tailwindcss/colors";
 import { variant } from "styled-system";
 import styled from "styled-components";
 
-type ButtonProps = {
+export type ButtonProps = {
   size?: "sm" | "md" | "lg";
   variant?: "primary" | "danger";
 };
@@ -14,6 +14,7 @@ const Button = styled("button")<ButtonProps>(
     fontFamily: "inherit",
     fontWeight: 600,
     borderRadius: "10px",
+    border: "none",
   },
 
   () =>
