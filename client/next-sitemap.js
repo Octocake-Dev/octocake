@@ -1,5 +1,7 @@
 module.exports = {
   siteUrl: "https://octocake.netlify.app",
-  exclude: ["/new-post"],
   generateRobotsTxt: true,
+  robotsTxtOptions: {
+    additionalSitemaps: ["https://octocake.netlify.app/sitemap.xml"],
+  },
 };
