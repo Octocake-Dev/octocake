@@ -10,11 +10,12 @@ export type ButtonProps = {
 const Button = styled("button")<ButtonProps>(
   {
     cursor: "pointer",
-    transition: "250ms ease-in-out",
     fontFamily: "inherit",
     fontWeight: 600,
     borderRadius: "10px",
     border: "none",
+
+    ":hover, :focus": { transition: "250ms" },
   },
 
   () =>

@@ -6,6 +6,7 @@ import { QueryClient } from "react-query";
 import { NextSeo } from "next-seo";
 
 import { getPosts, useGetPosts } from "@/api/posts/getPosts";
+import { baseUrl } from "@/lib/constants";
 import HomePage from "@/modules/home/homePage";
 
 const Home = () => {
@@ -13,7 +14,11 @@ const Home = () => {
 
   return (
     <>
-      <NextSeo title="Home" />
+      <NextSeo
+        title="Home"
+        canonical={baseUrl}
+        openGraph={{ title: "Home", url: baseUrl }}
+      />
 
       <HomePage posts={posts} />
     </>
