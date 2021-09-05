@@ -4,6 +4,7 @@ const { fontFamily, borderRadius } = require("tailwindcss/defaultTheme");
 module.exports = {
   mode: "jit",
   purge: [
+    "./src/ui/**/*.{js,jsx,ts,tsx}",
     "./src/pages/**/*.{js,jsx,ts,tsx}",
     "./src/components/**/*.{js,jsx,ts,tsx}",
     "./src/modules/**/*.{js,jsx,ts,tsx}",

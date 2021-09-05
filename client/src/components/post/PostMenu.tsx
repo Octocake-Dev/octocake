@@ -1,7 +1,7 @@
-import React, { Fragment } from "react";
+import React from "react";
 import Link from "next/link";
 
-import { Menu, Transition } from "@headlessui/react";
+import { Menu } from "@headlessui/react";
 import { HiOutlineTrash, HiOutlinePencil } from "react-icons/hi";
 import { FiMoreHorizontal } from "react-icons/fi";
 import { BiBlock } from "react-icons/bi";
@@ -15,6 +15,7 @@ import { useUser } from "@/stores/useUser";
 import useDeletePost from "@/hooks/useDeletePost";
 import useFollow from "@/hooks/useFollow";
 import MenuItem from "@/components/MenuItem";
+import Transition from "@/ui/Transition";
 
 import { IPost } from "@/types/post";
 
@@ -41,16 +42,8 @@ const PostMenu = ({ post }: { post: IPost }) => {
         </Menu.Button>
       </div>
 
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 z-50 w-64 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <Transition>
+        <Menu.Items className="w-64 oc_menu_items">
           <div className="px-1 py-1">
             <MenuItem disabled={isCopied} onClick={setCopied}>
               <MdContentCopy className="menu_item_icon" aria-hidden="true" />
@@ -82,16 +75,23 @@ const PostMenu = ({ post }: { post: IPost }) => {
                 <>
                   <MenuItem disabled={isLoading} onClick={() => toggleFollow()}>
                     <BsPersonPlus
-                      className="menu_item_icon"
+                      className="absolute menu_item_icon"
                       aria-hidden="true"
                     />
-                    {isFollowed?.followedBy.length ? "UnFollow" : "Follow"} @
-                    {owner.githubUsername}
+                    <span className="ml-6 truncate">
+                      {isFollowed?.followedBy.length ? "UnFollow" : "Follow"} @
+                      {owner.githubUsername}
+                    </span>
                   </MenuItem>
 
                   <MenuItem warning>
-                    <BiBlock className="menu_item_icon" aria-hidden="true" />
-                    Block @{owner.githubUsername}
+                    <BiBlock
+                      className="absolute menu_item_icon"
+                      aria-hidden="true"
+                    />
+                    <span className="ml-6 truncate">
+                      Block @{owner.githubUsername}
+                    </span>
                   </MenuItem>
 
                   <MenuItem warning>

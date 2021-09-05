@@ -1,7 +1,7 @@
-import React, { Fragment, memo } from "react";
+import React, { memo } from "react";
 import Link from "next/link";
 
-import { Menu, Transition } from "@headlessui/react";
+import { Menu } from "@headlessui/react";
 import { BsPerson } from "react-icons/bs";
 import { HiOutlinePencilAlt } from "react-icons/hi";
 import {
@@ -13,6 +13,7 @@ import {
 import { apiBaseUrl } from "@/lib/constants";
 import StyledAvatar from "@/ui/Avatar";
 import MenuItem from "@/components/MenuItem";
+import Transition from "@/ui/Transition";
 
 import { ISimpleUser } from "@/types/user";
 
@@ -33,16 +34,8 @@ const ProfileMenu = ({ user }: { user: ISimpleUser }) => {
         </Menu.Button>
       </div>
 
-      <Transition
-        as={Fragment}
-        enter="transition ease-out duration-100"
-        enterFrom="transform opacity-0 scale-95"
-        enterTo="transform opacity-100 scale-100"
-        leave="transition ease-in duration-75"
-        leaveFrom="transform opacity-100 scale-100"
-        leaveTo="transform opacity-0 scale-95"
-      >
-        <Menu.Items className="absolute right-0 z-50 w-56 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none">
+      <Transition>
+        <Menu.Items className="w-56 oc_menu_items">
           <div className="px-1 py-1">
             <Link href={`/u/${githubUsername}`} passHref>
               <MenuItem as="a">

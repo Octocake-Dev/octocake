@@ -26,27 +26,27 @@ const Header = () => {
         </Link>
       </div>
 
-      <div className="flex items-center">
-        {user ? (
-          <>
-            <Link href="/new-post">
-              <a className="hidden mr-8 sm:block">
-                <Button size="sm" type="button">
-                  New Post
-                </Button>
-              </a>
-            </Link>
+      {user ? (
+        <div className="flex items-center">
+          <Link href="/new-post">
+            <a className="hidden mr-8 sm:block">
+              <Button size="sm" type="button">
+                New Post
+              </Button>
+            </a>
+          </Link>
 
-            <ProfileMenu user={user} />
-          </>
-        ) : (
+          <ProfileMenu user={user} />
+        </div>
+      ) : (
+        <div>
           <a href={`${apiBaseUrl}/auth/github`}>
             <Button size="sm" type="button">
               Sign in
             </Button>
           </a>
-        )}
-      </div>
+        </div>
+      )}
     </header>
   );
 };
