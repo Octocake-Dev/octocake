@@ -2,16 +2,16 @@ import React from "react";
 
 import { Story, Meta } from "@storybook/react";
 
-import ButtonComponent, { ButtonProps } from "../ui/button/Button";
+import Button, { ButtonProps } from "../ui/button/Button";
 
 export default {
   title: "Components/Button",
-  component: ButtonComponent,
+  component: Button,
 } as Meta;
 
 const Template: Story<
   ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>
-> = (args) => <ButtonComponent {...args} />;
+> = (args) => <Button {...args} />;
 
 export const Default = Template.bind({});
 Default.args = {
@@ -20,17 +20,17 @@ Default.args = {
 
 export const All = () => (
   <>
-    <ButtonComponent>Button</ButtonComponent>
+    <Button>Button</Button>
 
-    <ButtonComponent variant="danger">Button</ButtonComponent>
+    <Button variant="danger">Button</Button>
   </>
 );
 
 export const Sizes = () => (
   <>
-    <ButtonComponent size="lg">Button</ButtonComponent>
-    <ButtonComponent>Button</ButtonComponent>
-    <ButtonComponent size="sm">Button</ButtonComponent>
+    <Button size="lg">Button</Button>
+    <Button>Button</Button>
+    <Button size="sm">Button</Button>
   </>
 );
 
@@ -40,6 +40,6 @@ export const WithLink = () => (
     target="_blank"
     rel="noopener noreferrer"
   >
-    <ButtonComponent>Button</ButtonComponent>
+    <Button>Button</Button>
   </a>
 );
