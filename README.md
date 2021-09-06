@@ -16,10 +16,11 @@
 
 <div align="center">
 
-[![CodeFactor](https://www.codefactor.io/repository/github/octocake-dev/octocake/badge?style=for-the-badge)](https://www.codefactor.io/repository/github/octocake-dev/octocake)
-[![MIT License](https://img.shields.io/github/license/Octocake-Dev/octocake?color=blue&style=for-the-badge)](https://github.com/Octocake-Dev/octocake/blob/main/LICENSE)
-[![Stargazers](https://img.shields.io/github/stars/Octocake-Dev/octocake?style=for-the-badge)](https://github.com/Octocake-Dev/octocake/stargazers)
-[![Forks](https://img.shields.io/github/forks/Octocake-Dev/octocake?style=for-the-badge)](https://github.com/Octocake-Dev/octocake/network/members)
+[![CodeFactor][codefactor-image]](https://www.codefactor.io/repository/github/octocake-dev/octocake)
+[![MIT License][license-image]](https://github.com/Octocake-Dev/octocake/blob/main/LICENSE)
+![][typescript-image]
+[![Stargazers][stars-image]](https://github.com/Octocake-Dev/octocake/stargazers)
+[![Forks][forks-image]](https://github.com/Octocake-Dev/octocake/network/members)
 
 </div>
 
@@ -32,27 +33,8 @@ The idea still not clear enough to talk about it.
 ### Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
-
-#### client
-
 - [Next.js](https://nextjs.org/)
-- [TailwindCSS](https://tailwindcss.com/)
-- [Headless-UI](https://headlessui.dev/)
-- [Next Themes](https://github.com/pacocoursey/next-themes)
-- [Next SEO](https://github.com/garmeeh/next-seo)
-- [Zustand](https://github.com/pmndrs/zustand)
-- [Axios](https://github.com/axios/axios)
-- [React Query](https://react-query.tanstack.com/)
-- [React Hook Form](http://react-hook-form.com/)
-- [DayJS](https://day.js.org/)
-- [styled-components](https://styled-components.com/)
-- [styled-system](https://styled-system.com/)
-
-#### server
-
 - [Express](https://expressjs.com/)
-- [Prisma](https://www.prisma.io/)
-- [passport](https://www.passportjs.org/)
 
 ### Features
 
@@ -122,3 +104,13 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 ## License
 
 Distributed under the MIT License. See [`LICENSE`](https://github.com/Octocake-Dev/octocake/blob/main/LICENSE) for more information.
+
+<div align="center">
+  <sub>Built with ❤️ by <a href="https://github.com/imadatyatalah">Imad Atyat-Alah</a></sub>
+</div>
+
+[codefactor-image]: https://www.codefactor.io/repository/github/octocake-dev/octocake/badge?style=for-the-badge
+[license-image]: https://img.shields.io/github/license/Octocake-Dev/octocake?color=blue&style=for-the-badge
+[typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
+[stars-image]: https://img.shields.io/github/stars/Octocake-Dev/octocake?style=for-the-badge
+[forks-image]: https://img.shields.io/github/forks/Octocake-Dev/octocake?style=for-the-badge
