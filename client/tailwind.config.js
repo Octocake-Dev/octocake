@@ -13,9 +13,7 @@ module.exports = {
   darkMode: "class",
   theme: {
     extend: {
-      fontFamily: {
-        sans: ["Inter", ...fontFamily.sans],
-      },
+      fontFamily: { sans: ["Inter", ...fontFamily.sans] },
 
       colors: {
         primary: {
@@ -32,13 +30,8 @@ module.exports = {
         },
       },
     },
-    borderRadius: {
-      ...borderRadius,
-      custom: "10px",
-    },
+    borderRadius: { ...borderRadius, custom: "10px" },
   },
-  variants: {
-    extend: {},
-  },
-  plugins: [],
+  variants: { extend: {} },
+  plugins: [require("@tailwindcss/line-clamp")],
 };

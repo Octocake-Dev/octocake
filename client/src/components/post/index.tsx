@@ -59,7 +59,7 @@ const Post = ({ post }: { post: IPost }) => {
           </Link>
         </h2>
 
-        <p className="text-gray-700">{description}</p>
+        <p className="text-gray-700 line-clamp-2">{description}</p>
       </div>
     </article>
   );
