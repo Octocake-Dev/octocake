@@ -43,7 +43,7 @@
     "@storybook/react": "^6.3.8",
     "@types/nprogress": "^0.2.0",
     "@types/react": "^17.0.19",
-    "@types/styled-components": "^5.1.13",
+    "@types/styled-components": "^5.1.14",
     "@types/styled-system": "^5.1.13",
     "@types/tailwindcss": "^2.2.1",
     "@typescript-eslint/eslint-plugin": "^4.30.0",
