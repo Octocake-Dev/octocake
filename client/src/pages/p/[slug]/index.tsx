@@ -13,7 +13,7 @@ import { dehydrate } from "react-query/hydration";
 import { getPostBySlug, useGetPostBySlug } from "@/api/post/getPostBySlug";
 import { baseUrl } from "@/lib/constants";
 import Loading from "@/components/Loading";
-import WIP from "@/components/WIP";
+import PostPage from "@/modules/post/PostPage";
 
 const Post = () => {
   const { isFallback, query } = useRouter();
@@ -34,7 +34,7 @@ const Post = () => {
         openGraph={{ title, description, url }}
       />
 
-      <WIP />
+      <PostPage post={post} />
     </>
   );
 };
