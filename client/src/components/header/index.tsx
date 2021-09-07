@@ -1,11 +1,18 @@
 import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
+
+const ProfileMenu = dynamic(() => import("./ProfileMenu"), {
+  // eslint-disable-next-line react/display-name
+  loading: () => (
+    <div className="h-[50px] w-[50px] bg-primary-300 rounded-custom" />
+  ),
+});
 
 import { LogoWithName } from "@/components/Logo";
 import { apiBaseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import Button from "@/ui/button/Button";
-import ProfileMenu from "./ProfileMenu";
 
 import { ISimpleUser } from "@/types/user";
 
