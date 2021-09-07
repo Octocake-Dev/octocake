@@ -1,11 +1,13 @@
 import React, { memo } from "react";
+import dynamic from "next/dynamic";
 import Link from "next/link";
 
 import dayjs from "dayjs";
 import LocalizedFormat from "dayjs/plugin/localizedFormat";
 
+const PostMenu = dynamic(() => import("./PostMenu"));
+
 import StyledAvatar from "@/ui/Avatar";
-import PostMenu from "./PostMenu";
 
 import { IPost } from "@/types/post";
 
