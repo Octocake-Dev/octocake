@@ -34,6 +34,8 @@ const PostMenu = ({ post }: { post: IPost }) => {
     owner.githubUsername as string
   );
 
+  const isPostOwner = owner.id === user?.id;
+
   return (
     <Menu as="div" className="relative inline-block text-left">
       <div>
@@ -51,7 +53,7 @@ const PostMenu = ({ post }: { post: IPost }) => {
             </MenuItem>
 
             {user &&
-              (owner.id === user.id ? (
+              (isPostOwner ? (
                 <>
                   <Link href={`/p/${slug}/edit`} passHref>
                     <MenuItem as="a">

@@ -65,9 +65,9 @@ const User = () => {
               {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
             </Button>
           )}
-
-          <Posts posts={user?.posts} />
         </div>
+
+        <Posts posts={user?.posts} />
       </section>
     </>
   );
