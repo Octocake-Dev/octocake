@@ -6,21 +6,21 @@
 
 <div align="center">
 
-<a href="https://octocake.netlify.app">Website</a>
+[Website][octocake-link]
 ·
-<a href="https://github.com/Octocake-Dev/octocake/issues">Report Bug</a>
+[Report Bug][issues-link]
 ·
-<a href="https://github.com/Octocake-Dev/octocake/issues">Request Feature</a>
+[Request Feature][issues-link]
 
 </div>
 
 <div align="center">
 
-[![CodeFactor][codefactor-image]](https://www.codefactor.io/repository/github/octocake-dev/octocake)
-[![MIT License][license-image]](https://github.com/Octocake-Dev/octocake/blob/main/LICENSE)
+[![CodeFactor][codefactor-image]][codefactor-link]
+[![MIT License][license-image]][license-link]
 ![][typescript-image]
-[![Stargazers][stars-image]](https://github.com/Octocake-Dev/octocake/stargazers)
-[![Forks][forks-image]](https://github.com/Octocake-Dev/octocake/network/members)
+[![Stargazers][stars-image]][stars-link]
+[![Forks][forks-image]][forks-link]
 
 </div>
 
@@ -103,14 +103,20 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## License
 
-Distributed under the MIT License. See [`LICENSE`](https://github.com/Octocake-Dev/octocake/blob/main/LICENSE) for more information.
+Distributed under the MIT License. See [`LICENSE`](license-link) for more information.
 
 <div align="center">
   <sub>Built with ❤️ by <a href="https://github.com/imadatyatalah">Imad Atyat-Alah</a></sub>
 </div>
 
+[octocake-link]: https://octocake.netlify.app
 [codefactor-image]: https://www.codefactor.io/repository/github/octocake-dev/octocake/badge?style=for-the-badge
+[codefactor-link]: https://www.codefactor.io/repository/github/octocake-dev/octocake
 [license-image]: https://img.shields.io/github/license/Octocake-Dev/octocake?color=blue&style=for-the-badge
+[license-link]: https://github.com/Octocake-Dev/octocake/blob/main/LICENSE
 [typescript-image]: https://img.shields.io/badge/Typescript-294E80.svg?style=for-the-badge&logo=typescript
 [stars-image]: https://img.shields.io/github/stars/Octocake-Dev/octocake?style=for-the-badge
+[stars-link]: https://github.com/Octocake-Dev/octocake/stargazers
 [forks-image]: https://img.shields.io/github/forks/Octocake-Dev/octocake?style=for-the-badge
+[forks-link]: https://github.com/Octocake-Dev/octocake/network/members
+[issues-link]: https://github.com/Octocake-Dev/octocake/issues
