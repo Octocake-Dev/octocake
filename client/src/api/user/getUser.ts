@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import toast from "react-hot-toast";
 
 import { instance } from "@/lib/axios";
 
@@ -11,7 +12,13 @@ export const getUser = async (username: string): Promise<IUser> => {
 };
 
 export const useGetUser = (username: string) =>
-  useQuery<IUser>(["user", username], () => getUser(username));
+  useQuery<IUser>(["user", username], () => getUser(username), {
+    onError: (err) => {
+      if ("message" in (err as Error)) {
+        toast.error((err as Error).message);
+      }
+    },
+  });
 
 export const useIsFollowed = (username: string) =>
   useQuery(["user", username, "isFollowed"], () =>

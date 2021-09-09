@@ -1,4 +1,5 @@
 import { useQuery, useQueryClient } from "react-query";
+import toast from "react-hot-toast";
 
 import { instance } from "@/lib/axios";
 
@@ -18,6 +19,11 @@ export const useGetPosts = () => {
       posts.forEach((post) => {
         queryClient.setQueryData(["post", post.slug], post);
       });
+    },
+    onError: (err) => {
+      if ("message" in (err as Error)) {
+        toast.error((err as Error).message);
+      }
     },
   });
 };

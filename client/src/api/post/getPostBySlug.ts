@@ -1,4 +1,5 @@
 import { useQuery } from "react-query";
+import toast from "react-hot-toast";
 
 import { instance } from "@/lib/axios";
 
@@ -11,4 +12,10 @@ export const getPostBySlug = async (slug: string): Promise<IPost> => {
 };
 
 export const useGetPostBySlug = (slug: string) =>
-  useQuery<IPost>(["post", slug], () => getPostBySlug(slug));
+  useQuery<IPost>(["post", slug], () => getPostBySlug(slug), {
+    onError: (err) => {
+      if ("message" in (err as Error)) {
+        toast.error((err as Error).message);
+      }
+    },
+  });
