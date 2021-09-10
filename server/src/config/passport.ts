@@ -25,6 +25,7 @@ passport.use(
       clientID: config.github_client_id,
       clientSecret: config.github_client_secret,
       callbackURL: `${config.api_base_url}/auth/github/callback`,
+      scope: ["user:email"],
     },
     async (
       accessToken: string,
@@ -37,7 +38,7 @@ passport.use(
         githubName: profile._json.name,
         githubUsername: profile._json.login,
         githubAvatarUrl: profile._json.avatar_url,
-        githubEmail: profile._json.email,
+        githubEmail: profile.emails[0].value,
       };
 
       await prisma.user.upsert({
