@@ -26,6 +26,42 @@
   --color-primary-900: #036666;
 }
 
+/* for firefox */
+* {
+  scrollbar-width: 8px;
+  scrollbar-color: var(--color-primary-700) rgba(0, 0, 0, 0);
+}
+
+/* for non-firefox */
+::-webkit-scrollbar {
+  overflow: overlay;
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  display: initial;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: var(--color-primary-700);
+  border-radius: 5px;
+}
+
+#nprogress {
+  position: relative;
+  z-index: 9999999;
+}
+
+#nprogress .bar {
+  background: var(--color-primary-500) !important;
+  height: 2.5px !important;
+}
+
+#nprogress .peg {
+  box-shadow: 0 0 10px var(--color-primary-500),
+    0 0 5px var(--color-primary-500) !important;
+}
+
 @layer base {
   body,
   button {
@@ -77,19 +113,4 @@
       @apply opacity-50 cursor-not-allowed;
     }
   }
-}
-
-#nprogress {
-  position: relative;
-  z-index: 9999999;
-}
-
-#nprogress .bar {
-  background: var(--color-primary-500) !important;
-  height: 2.5px !important;
-}
-
-#nprogress .peg {
-  box-shadow: 0 0 10px var(--color-primary-500),
-    0 0 5px var(--color-primary-500) !important;
 }
