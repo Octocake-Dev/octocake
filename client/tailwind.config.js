@@ -3,13 +3,7 @@ const { fontFamily, borderRadius } = require("tailwindcss/defaultTheme");
 
 module.exports = {
   mode: "jit",
-  purge: [
-    "./src/ui/**/*.{js,jsx,ts,tsx}",
-    "./src/pages/**/*.{js,jsx,ts,tsx}",
-    "./src/components/**/*.{js,jsx,ts,tsx}",
-    "./src/modules/**/*.{js,jsx,ts,tsx}",
-    "./src/layouts/**/*.{js,jsx,ts,tsx}",
-  ],
+  purge: ["./src/**/**/*.{jsx,tsx}"],
   darkMode: "class",
   theme: {
     extend: {
