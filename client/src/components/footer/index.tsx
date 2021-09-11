@@ -4,11 +4,11 @@ import Link from "next/link";
 import { Logo } from "@/components/Logo";
 
 const LINKS = [
-  { title: "About", href: "/#" },
-  { title: "Contact", href: "/#" },
-  { title: "Privacy policy", href: "/#" },
-  { title: "Terms of use", href: "/#" },
-  { title: "Code of conduct", href: "/#" },
+  { title: "About", href: "/about" },
+  { title: "Contact", href: "/contact" },
+  { title: "Privacy policy", href: "/privacy" },
+  { title: "Terms of use", href: "/terms" },
+  { title: "Code of conduct", href: "/code-of-conduct" },
 ];
 
 const Footer = () => (
