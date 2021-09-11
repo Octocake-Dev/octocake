@@ -9,7 +9,7 @@
     "postbuild": "next-sitemap --config next-sitemap.js",
     "next:lint": "next lint",
     "lint": "eslint . --ext .js,.jsx,.ts,.tsx",
-    "storybook": "start-storybook -p 6006",
+    "storybook": "start-storybook -p 6006 --ci -c .storybook watch-css -s ./",
     "build-storybook": "build-storybook"
   },
   "dependencies": {
