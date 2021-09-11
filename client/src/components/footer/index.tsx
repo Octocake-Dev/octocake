@@ -12,7 +12,7 @@ const LINKS = [
 ];
 
 const Footer = () => (
-  <footer className="flex flex-col items-center justify-center py-6 text-center custom_max_width">
+  <footer className="flex flex-col items-center justify-center py-6 text-center oc_max_width">
     <div>
       <Link href="/">
         <a className="flex" aria-label="logo">

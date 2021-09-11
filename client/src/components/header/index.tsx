@@ -23,7 +23,7 @@ const Header = () => {
   useEffect(() => setUser(currentUser), [currentUser]);
 
   return (
-    <header className="flex items-center justify-between h-[70px] px-5 sm:px-8 md:px-16 xl:px-28 custom_max_width">
+    <header className="flex items-center justify-between h-[70px] px-5 xl:px-14 oc_max_width">
       <div>
         <Link href="/">
           <a className="flex items-end" aria-label="logo">

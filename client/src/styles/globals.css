@@ -75,7 +75,7 @@
 }
 
 @layer components {
-  .custom_max_width {
+  .oc_max_width {
     @apply mx-auto max-w-[1440px];
   }
   .menu_item_icon {
@@ -85,7 +85,7 @@
     @apply absolute right-0 z-50 mt-2 origin-top-right bg-white divide-y divide-gray-100 rounded-md shadow-lg ring-1 ring-black ring-opacity-5 focus:outline-none;
   }
   .oc_page {
-    @apply px-5 py-2 bg-gray-100 sm:px-8 md:px-16 xl:px-28 custom_max_width;
+    @apply px-5 bg-gray-100 xl:px-14 oc_max_width;
   }
   .oc_text-base {
     @apply text-base font-medium leading-normal tracking-normal;
