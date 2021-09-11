@@ -55,7 +55,7 @@ const Post = ({ post }: { post: IPost }) => {
       </header>
 
       <div className="ml-[62px] mt-2">
-        <h2 className="leading-normal oc_text-2xl">
+        <h2 className="leading-snug oc_text-2xl">
           <Link href={`/p/${slug}`}>
             <a>{title}</a>
           </Link>
