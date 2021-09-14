@@ -10,8 +10,6 @@ describe("Avatar", () => {
   it("Should render an avatar", () => {
     render(<Avatar src="/logo.svg" width="50" height="50" alt={alt} />);
 
-    const avatar = screen.getByAltText(alt);
-
-    expect(avatar).toBeVisible();
+    expect(screen.getByAltText(alt)).toBeVisible();
   });
 });

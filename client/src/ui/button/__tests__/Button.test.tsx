@@ -8,8 +8,6 @@ describe("Button", () => {
   it("Should render a button with Click me text", () => {
     render(<Button>Click me</Button>);
 
-    const text = screen.getByText("Click me");
-
-    expect(text).toBeVisible();
+    expect(screen.getByText("Click me")).toBeVisible();
   });
 });
