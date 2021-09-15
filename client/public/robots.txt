@@ -7,3 +7,4 @@ Host: https://octocake.netlify.app
 
 # Sitemaps
 Sitemap: https://octocake.netlify.app/sitemap.xml
+Sitemap: https://octocake.netlify.app/server-sitemap.xml
