@@ -24,6 +24,7 @@ model User {
   following  User[] @relation("UserFollows", references: [id])
 
   posts Post[]
+  role  Role   @default(USER)
 
   @@map("users")
 }
@@ -44,4 +45,9 @@ model Post {
   updatedAt DateTime @updatedAt @map("updated_at")
 
   @@map("posts")
+}
+
+enum Role {
+  USER
+  ADMIN
 }
