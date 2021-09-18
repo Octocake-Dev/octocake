@@ -21,7 +21,7 @@ const Edit = () => {
   const currentUser = useUser((state) => state.user);
 
   const { data: post, isLoading } = useGetPostBySlug(query.slug as string);
-  const { mutate: editPost } = useEditPost(query.slug as string);
+  const { mutateAsync: editPost } = useEditPost(query.slug as string);
 
   const {
     register,
@@ -29,8 +29,12 @@ const Edit = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = ({ title, description, published = true }: PostData) => {
-    editPost({ title, description, published });
+  const onSubmit = async ({
+    title,
+    description,
+    published = true,
+  }: PostData) => {
+    await editPost({ title, description, published });
   };
 
   if (isLoading) return <Loading />;

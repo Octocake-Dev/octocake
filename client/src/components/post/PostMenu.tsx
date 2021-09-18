@@ -28,8 +28,8 @@ const PostMenu = ({ post }: { post: IPost }) => {
     successDuration: 4000,
   });
 
-  const { mutate: deletePost } = useDeletePost(slug);
-  const { mutate: toggleFollow } = useFollow(owner.githubUsername);
+  const { mutateAsync: deletePost } = useDeletePost();
+  const { mutateAsync: toggleFollow } = useFollow(owner.githubUsername);
   const { data: isFollowed, isLoading } = useIsFollowed(
     owner.githubUsername as string
   );
@@ -65,7 +65,10 @@ const PostMenu = ({ post }: { post: IPost }) => {
                     </MenuItem>
                   </Link>
 
-                  <MenuItem warning onClick={() => deletePost()}>
+                  <MenuItem
+                    warning
+                    onClick={async () => await deletePost(slug)}
+                  >
                     <HiOutlineTrash
                       className="menu_item_icon"
                       aria-hidden="true"
@@ -75,7 +78,10 @@ const PostMenu = ({ post }: { post: IPost }) => {
                 </>
               ) : (
                 <>
-                  <MenuItem disabled={isLoading} onClick={() => toggleFollow()}>
+                  <MenuItem
+                    disabled={isLoading}
+                    onClick={async () => await toggleFollow()}
+                  >
                     <BsPersonPlus
                       className="absolute menu_item_icon"
                       aria-hidden="true"

@@ -8,7 +8,7 @@ import { instance } from "@/lib/axios";
 import { PostData } from "@/types/post";
 
 const useCreatePost = () =>
-  useMutation((data: PostData) => instance.post(`/posts`, data), {
+  useMutation(async (data: PostData) => await instance.post(`/posts`, data), {
     onSuccess: ({ data }) => {
       Router.push(`/p/${data.slug}`);
       toast.success("Your post was created successfully!");

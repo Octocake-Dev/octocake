@@ -6,7 +6,7 @@ import { instance } from "@/lib/axios";
 const useFollow = (username: string) => {
   const queryClient = useQueryClient();
 
-  return useMutation(() => instance.put(`/users/${username}`), {
+  return useMutation(async () => await instance.put(`/users/${username}`), {
     onSuccess: () => {
       queryClient.invalidateQueries(["user", username]);
     },
