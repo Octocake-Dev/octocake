@@ -4,12 +4,19 @@ export type ISimpleUser = {
   id: number;
   githubAvatarUrl: string;
   githubName: string;
-  githubEmail: string | null;
+  githubEmail: string;
   githubUsername: string;
   githubId: number;
   createdAt: string;
   updatedAt: string;
   role: "USER" | "ADMIN";
+  bio?: string;
+  location?: string;
+  githubUrl?: string;
+  twitterUrl?: string;
+  mediumUrl?: string;
+  stackOverflowUrl?: string;
+  websiteUrl?: string;
 };
 
 export interface IUser extends ISimpleUser {

@@ -10,8 +10,15 @@ generator client {
 model User {
   id Int @id @default(autoincrement())
 
-  githubAvatarUrl String? @map("github_avatar_url")
-  githubName      String  @map("github_name")
+  bio              String?
+  location         String?
+  githubUrl        String? @map("github_url")
+  twitterUrl       String? @map("twitter_url")
+  mediumUrl        String? @map("medium_url")
+  stackOverflowUrl String? @map("stackOverflow_url")
+  websiteUrl       String? @map("website_url")
+  githubAvatarUrl  String? @map("github_avatar_url")
+  githubName       String  @map("github_name")
 
   githubEmail    String? @unique @map("github_email")
   githubUsername String  @unique @map("github_username")
@@ -33,6 +40,7 @@ model Post {
   id          String @id @default(cuid())
   title       String
   description String
+  // body        String
 
   slug String @unique
 
