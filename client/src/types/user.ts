@@ -1,10 +1,5 @@
 import { IPost } from "./post";
 
-enum Role {
-  USER,
-  ADMIN,
-}
-
 export type ISimpleUser = {
   id: number;
   githubAvatarUrl: string;
@@ -14,7 +9,7 @@ export type ISimpleUser = {
   githubId: number;
   createdAt: string;
   updatedAt: string;
-  role: Role;
+  role: "USER" | "ADMIN";
 };
 
 export interface IUser extends ISimpleUser {
