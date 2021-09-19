@@ -10,7 +10,7 @@ import { useUser } from "@/stores/useUser";
 import useUpdateUser from "@/hooks/useUpdateUser";
 import WithAuth from "@/hocs/withAuth";
 
-import { UserData } from "@/types/user";
+import { ISimpleUser, UserData } from "@/types/user";
 
 const Inputs = [
   { id: "bio", placeholder: "Bio" },
@@ -47,25 +47,28 @@ const Profile = () => {
         <h1 className="oc_text-3xl">{currentUser?.githubName}</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
-          {Inputs.map(({ id, placeholder }) => (
-            <div className="my-4" key={id}>
+          {Inputs.map(({ id: inputId, placeholder }) => (
+            <div className="my-4" key={inputId}>
               <h2 className="oc_text-lg">{placeholder}</h2>
 
               <input
                 type="text"
-                id={id}
+                id={inputId}
                 placeholder={placeholder}
+                defaultValue={currentUser?.[inputId as keyof ISimpleUser]}
                 className="block"
-                {...register(id)}
+                {...register(inputId)}
               />
 
-              {errors[id] && (
-                <p className="font-medium text-red-500">{errors[id].message}</p>
+              {errors[inputId] && (
+                <p className="font-medium text-red-500">
+                  {errors[inputId].message}
+                </p>
               )}
             </div>
           ))}
 
-          <Button type="submit">Submit</Button>
+          <Button type="submit">Update profile</Button>
         </form>
       </section>
     </>
