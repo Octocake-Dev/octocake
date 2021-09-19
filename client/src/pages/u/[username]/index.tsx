@@ -59,6 +59,13 @@ const User = () => {
           <h1 className="oc_text-4xl">{user?.githubName}</h1>
           <p>Followers: {user?.followedBy.length}</p>
           <p>Following: {user?.following.length}</p>
+          <p>{user?.bio}</p>
+          <p>{user?.location}</p>
+          <p>{user?.githubUrl}</p>
+          <p>{user?.twitterUrl}</p>
+          <p>{user?.mediumUrl}</p>
+          <p>{user?.stackOverflowUrl}</p>
+          <p>{user?.websiteUrl}</p>
 
           {shouldShowFollowBtn && (
             <Button
