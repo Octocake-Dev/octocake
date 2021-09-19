@@ -1,5 +1,4 @@
 import { Request, Response } from "express";
-import { User as UserModel } from "@prisma/client";
 
 import { prisma } from "../config/prisma";
 import { CustomRequest } from "../types/request";
@@ -43,7 +42,7 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
       mediumUrl,
       stackOverflowUrl,
       websiteUrl,
-    }: UserModel = req.body;
+    } = req.body;
 
     const updatedUser = await prisma.user.update({
       where: { githubId: Number(req.user.id) },
