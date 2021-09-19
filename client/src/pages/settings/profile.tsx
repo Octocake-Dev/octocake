@@ -25,7 +25,7 @@ const Inputs = [
 const Profile = () => {
   const currentUser = useUser((state) => state.user);
 
-  const { mutateAsync: updateUser } = useUpdateUser(
+  const { mutate: updateUser } = useUpdateUser(
     currentUser?.githubUsername as string
   );
 
@@ -35,8 +35,8 @@ const Profile = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = async (data: UserData) => {
-    await updateUser(data);
+  const onSubmit = (data: UserData) => {
+    updateUser(data);
   };
 
   return (

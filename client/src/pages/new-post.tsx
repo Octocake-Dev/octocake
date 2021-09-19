@@ -12,7 +12,7 @@ import Button from "@/ui/button/Button";
 import { PostData } from "@/types/post";
 
 const NewPost = () => {
-  const { mutateAsync: createPost, isLoading } = useCreatePost();
+  const { mutate: createPost, isLoading } = useCreatePost();
 
   const {
     register,
@@ -20,12 +20,8 @@ const NewPost = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = async ({
-    title,
-    description,
-    published = true,
-  }: PostData) => {
-    await createPost({ title, description, published });
+  const onSubmit = ({ title, description, published = true }: PostData) => {
+    createPost({ title, description, published });
   };
 
   return (

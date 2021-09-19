@@ -22,7 +22,7 @@ const User = () => {
   const { isFallback, query } = useRouter();
   const currentUser = useUser((state) => state.user);
 
-  const { mutateAsync: toggleFollow, isLoading } = useFollow(
+  const { mutate: toggleFollow, isLoading } = useFollow(
     query.username as string
   );
   const { data: user } = useGetUser(query.username as string);
@@ -68,10 +68,7 @@ const User = () => {
           <p>{user?.websiteUrl}</p>
 
           {shouldShowFollowBtn && (
-            <Button
-              disabled={isLoading}
-              onClick={async () => await toggleFollow()}
-            >
+            <Button disabled={isLoading} onClick={() => toggleFollow()}>
               {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
             </Button>
           )}
