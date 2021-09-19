@@ -22,7 +22,7 @@ const User = () => {
   const { isFallback, query } = useRouter();
   const currentUser = useUser((state) => state.user);
 
-  const { mutateAsync: toggleFollow, isLoading } = useFollow(
+  const { mutate: toggleFollow, isLoading } = useFollow(
     query.username as string
   );
   const { data: user } = useGetUser(query.username as string);
@@ -59,12 +59,16 @@ const User = () => {
           <h1 className="oc_text-4xl">{user?.githubName}</h1>
           <p>Followers: {user?.followedBy.length}</p>
           <p>Following: {user?.following.length}</p>
+          <p>{user?.bio}</p>
+          <p>{user?.location}</p>
+          <p>{user?.githubUrl}</p>
+          <p>{user?.twitterUrl}</p>
+          <p>{user?.mediumUrl}</p>
+          <p>{user?.stackOverflowUrl}</p>
+          <p>{user?.websiteUrl}</p>
 
           {shouldShowFollowBtn && (
-            <Button
-              disabled={isLoading}
-              onClick={async () => await toggleFollow()}
-            >
+            <Button disabled={isLoading} onClick={() => toggleFollow()}>
               {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
             </Button>
           )}

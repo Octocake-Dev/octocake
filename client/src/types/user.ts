@@ -24,3 +24,13 @@ export interface IUser extends ISimpleUser {
   followedBy: ISimpleUser[];
   following: ISimpleUser[];
 }
+
+export type UserData = {
+  bio: string;
+  location: string;
+  githubUrl: string;
+  twitterUrl: string;
+  mediumUrl: string;
+  stackOverflowUrl: string;
+  websiteUrl: string;
+};

@@ -32,6 +32,37 @@ export const getUser = async (req: Request, res: Response) => {
   }
 };
 
+export const UpdateUser = async (req: CustomRequest, res: Response) => {
+  try {
+    const {
+      bio,
+      location,
+      githubUrl,
+      twitterUrl,
+      mediumUrl,
+      stackOverflowUrl,
+      websiteUrl,
+    } = req.body;
+
+    const updatedUser = await prisma.user.update({
+      where: { githubId: Number(req.user.id) },
+      data: {
+        bio,
+        location,
+        githubUrl,
+        twitterUrl,
+        mediumUrl,
+        stackOverflowUrl,
+        websiteUrl,
+      },
+    });
+
+    res.status(200).send(updatedUser);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
 export const isFollowed = async (req: CustomRequest, res: Response) => {
   try {
     const { username } = req.params;
