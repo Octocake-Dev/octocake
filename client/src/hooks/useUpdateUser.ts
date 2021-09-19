@@ -7,8 +7,7 @@ import { UserData } from "@/types/user";
 
 const useUpdateUser = (username: string) =>
   useMutation(
-    async (data: UserData) =>
-      await instance.put(`/users/${username}/profile`, data),
+    async (data: UserData) => await instance.put(`/users/${username}`, data),
     {
       onSuccess: () => {
         toast.success("Your profile was updated successfully!");

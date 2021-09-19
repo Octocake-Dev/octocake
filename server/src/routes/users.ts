@@ -12,12 +12,10 @@ const router = Router();
 
 router.get("/:username", getUser);
 
-// TODO: path should be "/:username"
-router.put("/:username/profile", verifyToken, UpdateUser);
+router.put("/:username", verifyToken, UpdateUser);
 
 router.get("/:username/isFollowed", verifyToken, isFollowed);
 
-// TODO: path should be "/:username/toggleFollow"
-router.put("/:username", verifyToken, toggleFollow);
+router.put("/:username/toggleFollow", verifyToken, toggleFollow);
 
 export default router;
