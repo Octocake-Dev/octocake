@@ -5,12 +5,12 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import Button from "@/ui/button/Button";
 
-import { schema } from "@/validations/user";
+import { schema, SchemaTypes } from "@/validations/user";
 import { useUser } from "@/stores/useUser";
 import useUpdateUser from "@/hooks/useUpdateUser";
 import WithAuth from "@/hocs/withAuth";
 
-import { ISimpleUser, UserData } from "@/types/user";
+import { UserData } from "@/types/user";
 
 const Inputs = [
   { id: "bio", placeholder: "Bio" },
@@ -35,9 +35,7 @@ const Profile = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = (data: UserData) => {
-    updateUser(data);
-  };
+  const onSubmit = (data: UserData) => updateUser(data);
 
   return (
     <>
@@ -55,14 +53,14 @@ const Profile = () => {
                 type="text"
                 id={inputId}
                 placeholder={placeholder}
-                defaultValue={currentUser?.[inputId as keyof ISimpleUser]}
+                defaultValue={currentUser?.[inputId as keyof SchemaTypes]}
                 className="block"
-                {...register(inputId)}
+                {...register(inputId as keyof SchemaTypes)}
               />
 
-              {errors[inputId] && (
+              {errors[inputId as keyof SchemaTypes] && (
                 <p className="font-medium text-red-500">
-                  {errors[inputId].message}
+                  {errors[inputId as keyof SchemaTypes]?.message}
                 </p>
               )}
             </div>

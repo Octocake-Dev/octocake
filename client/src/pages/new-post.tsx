@@ -20,9 +20,8 @@ const NewPost = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = ({ title, description, published = true }: PostData) => {
+  const onSubmit = ({ title, description, published = true }: PostData) =>
     createPost({ title, description, published });
-  };
 
   return (
     <>
