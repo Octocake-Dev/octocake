@@ -10,7 +10,7 @@ type UserData = {
   websiteUrl: string;
 };
 
-export const UpdateUserService = async (userId: number, data: UserData) => {
+export const UpdateUserService = async (userId: number, data: any) => {
   try {
     return await prisma.user.update({
       where: { githubId: userId },
