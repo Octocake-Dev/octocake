@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import { prisma } from "../config/prisma";
+import { UpdateUserService } from "../services/users.service";
 import { CustomRequest } from "../types/request";
 
 export const getCurrentUser = async (req: CustomRequest, res: Response) => {
@@ -44,17 +45,14 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
       websiteUrl,
     } = req.body;
 
-    const updatedUser = await prisma.user.update({
-      where: { githubId: Number(req.user.id) },
-      data: {
-        bio,
-        location,
-        githubUrl,
-        twitterUrl,
-        mediumUrl,
-        stackOverflowUrl,
-        websiteUrl,
-      },
+    const updatedUser = await UpdateUserService(Number(req.user.id), {
+      bio,
+      location,
+      githubUrl,
+      twitterUrl,
+      mediumUrl,
+      stackOverflowUrl,
+      websiteUrl,
     });
 
     res.status(200).send(updatedUser);
