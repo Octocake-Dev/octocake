@@ -42,7 +42,7 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
       mediumUrl,
       stackOverflowUrl,
       websiteUrl,
-    }: any = req.body;
+    } = req.body;
 
     const updatedUser = await prisma.user.update({
       where: { githubId: Number(req.user.id) },
