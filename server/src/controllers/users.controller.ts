@@ -54,7 +54,7 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
         mediumUrl,
         stackOverflowUrl,
         websiteUrl,
-      },
+      } as any,
     });
 
     res.status(200).send(updatedUser);
