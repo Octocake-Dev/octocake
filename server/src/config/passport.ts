@@ -39,12 +39,13 @@ passport.use(
         githubUsername: profile._json.login,
         githubAvatarUrl: profile._json.avatar_url,
         githubEmail: profile.emails[0].value,
+        role: "USER",
       };
 
       await prisma.user.upsert({
         where: { githubId: profile._json.id },
-        create: data,
-        update: data,
+        create: data as any,
+        update: data as any,
       });
 
       return done(null, profile);
