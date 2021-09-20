@@ -1,13 +1,20 @@
 import React from "react";
 import { useRouter } from "next/router";
+import type {
+  GetStaticPaths,
+  GetStaticProps,
+  GetStaticPropsContext,
+} from "next";
 
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { NextSeo } from "next-seo";
+import { QueryClient } from "react-query";
+import { dehydrate } from "react-query/hydration";
 
 import { useUser } from "@/stores/useUser";
 import { schema } from "@/validations/post";
-import { useGetPostBySlug } from "@/api/post/getPostBySlug";
+import { getPostBySlug, useGetPostBySlug } from "@/api/post/getPostBySlug";
 import useEditPost from "@/hooks/useEditPost";
 import Button from "@/ui/button/Button";
 import Loading from "@/components/Loading";
@@ -16,11 +23,11 @@ import ErrorPage from "@/pages/404";
 import { PostData } from "@/types/post";
 
 const Edit = () => {
-  const { query } = useRouter();
+  const { isFallback, query } = useRouter();
 
   const currentUser = useUser((state) => state.user);
 
-  const { data: post, isLoading } = useGetPostBySlug(query.slug as string);
+  const { data: post } = useGetPostBySlug(query.slug as string);
   const { mutate: editPost } = useEditPost(query.slug as string);
 
   const {
@@ -29,18 +36,13 @@ const Edit = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = ({ title, description, published = true }: PostData) => {
+  const onSubmit = ({ title, description, published = true }: PostData) =>
     editPost({ title, description, published });
-  };
 
-  if (isLoading) return <Loading />;
+  if (isFallback) return <Loading />;
 
   // If the user is not the owner of the post then show error 404 page.
-  // FIXME: Fix TS error
-  // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-  // @ts-ignore
-  if (post?.name === "NotFoundError" || currentUser?.id !== post?.ownerId)
-    return <ErrorPage />;
+  if (currentUser?.id !== post?.ownerId) return <ErrorPage />;
 
   return (
     <>
@@ -79,6 +81,30 @@ const Edit = () => {
       </section>
     </>
   );
+};
+
+export const getStaticPaths: GetStaticPaths = async () => ({
+  paths: [],
+  fallback: true,
+});
+
+export const getStaticProps: GetStaticProps = async ({
+  params,
+}: GetStaticPropsContext) => {
+  const queryClient = new QueryClient();
+
+  const post = await queryClient.fetchQuery(["post", params?.slug], () =>
+    getPostBySlug(params?.slug as string)
+  );
+
+  return {
+    props: { dehydratedState: dehydrate(queryClient) },
+    // FIXME: Fix TS error
+    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
+    // @ts-ignore
+    notFound: post.name === "NotFoundError",
+    revalidate: 1,
+  };
 };
 
 export default Edit;
