@@ -3,6 +3,8 @@ import { Request, Response } from "express";
 import { prisma } from "../config/prisma";
 import { CustomRequest } from "../types/request";
 
+// @route   GET /current_user
+// @desc    Get current user
 export const getCurrentUser = async (req: CustomRequest, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
@@ -15,6 +17,8 @@ export const getCurrentUser = async (req: CustomRequest, res: Response) => {
   }
 };
 
+// @route   GET /users/:username
+// @desc    Get user by username
 export const getUser = async (req: Request, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
@@ -32,6 +36,8 @@ export const getUser = async (req: Request, res: Response) => {
   }
 };
 
+// @route   PUT /users/:username
+// @desc    Update user by username
 export const UpdateUser = async (req: CustomRequest, res: Response) => {
   try {
     const {
@@ -63,6 +69,8 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
   }
 };
 
+// @route   GET /users/:username/isFollowed
+// @desc    Checks current user is following other user by username
 export const isFollowed = async (req: CustomRequest, res: Response) => {
   try {
     const { username } = req.params;
@@ -80,6 +88,8 @@ export const isFollowed = async (req: CustomRequest, res: Response) => {
   }
 };
 
+// @route   PUT /users/:toggleFollow
+// @desc    Follow/UnFollow by username
 export const toggleFollow = async (req: CustomRequest, res: Response) => {
   try {
     const { username } = req.params;

@@ -12,6 +12,8 @@ const RANDOM_STRING_LENGTH = 10;
 const generateSlug = (title: string) =>
   slugify(`${title} ${randomString(RANDOM_STRING_LENGTH)}`);
 
+// @route   POST /posts
+// @desc    Create post
 export const createPost = async (req: CustomRequest, res: Response) => {
   try {
     const { title, description, published } = req.body;
@@ -32,6 +34,8 @@ export const createPost = async (req: CustomRequest, res: Response) => {
   }
 };
 
+// @route   PUT /posts/:slug
+// @desc    Update post by slug
 export const updatePost = async (req: CustomRequest, res: Response) => {
   try {
     const { slug } = req.params;
@@ -58,6 +62,8 @@ export const updatePost = async (req: CustomRequest, res: Response) => {
   }
 };
 
+// @route   DELETE /posts/:slug
+// @desc    Delete post by slug
 export const deletePost = async (req: CustomRequest, res: Response) => {
   try {
     const { slug } = req.params;
@@ -81,6 +87,8 @@ export const deletePost = async (req: CustomRequest, res: Response) => {
   }
 };
 
+// @route   GET /posts
+// @desc    Get all posts
 export const getPosts = async (req: Request, res: Response) => {
   try {
     const posts = await prisma.post.findMany({
@@ -94,6 +102,8 @@ export const getPosts = async (req: Request, res: Response) => {
   }
 };
 
+// @route   GET /posts/:slug
+// @desc    Get post by slug
 export const getPostBySlug = async (req: Request, res: Response) => {
   try {
     const { slug } = req.params;
