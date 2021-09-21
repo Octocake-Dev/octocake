@@ -52,7 +52,7 @@ passport.use(
           mediumUrl: "",
           stackOverflowUrl: "",
           websiteUrl: "",
-        },
+        } as any,
         update: data,
       });
 
