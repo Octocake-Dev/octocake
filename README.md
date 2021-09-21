@@ -101,6 +101,10 @@ yarn server:dev
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
+## Contributing
+
+Please take a look at [CONTRIBUTING.md](contributing-link).
+
 ## License
 
 Distributed under the MIT License. See [`LICENSE`](license-link) for more information.
@@ -120,3 +124,4 @@ Distributed under the MIT License. See [`LICENSE`](license-link) for more inform
 [forks-image]: https://img.shields.io/github/forks/Octocake-Dev/octocake?style=for-the-badge
 [forks-link]: https://github.com/Octocake-Dev/octocake/network/members
 [issues-link]: https://github.com/Octocake-Dev/octocake/issues
+[contributing-link]: https://github.com/Octocake-Dev/octocake/blob/main/CONTRIBUTING.md
