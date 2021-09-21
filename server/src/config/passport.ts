@@ -13,6 +13,7 @@ passport.deserializeUser(async (id, done) => {
     const user = await prisma.user.findUnique({
       where: { githubId: Number(id) },
     });
+
     done(null, user);
   } catch (err) {
     done(err);
@@ -33,22 +34,26 @@ passport.use(
       profile: any,
       done: any
     ) => {
-      const data = {
-        githubId: profile._json.id,
-        githubName: profile._json.name,
-        githubUsername: profile._json.login,
-        githubAvatarUrl: profile._json.avatar_url,
-        githubEmail: profile.emails[0].value,
-        githubUrl: profile.profileUrl,
-      };
+      try {
+        const data = {
+          githubId: profile._json.id,
+          githubName: profile._json.name,
+          githubUsername: profile._json.login,
+          githubAvatarUrl: profile._json.avatar_url,
+          githubEmail: profile.emails[0].value,
+          githubUrl: profile.profileUrl,
+        };
 
-      await prisma.user.upsert({
-        where: { githubId: profile._json.id },
-        create: data,
-        update: data,
-      });
+        await prisma.user.upsert({
+          where: { githubId: profile._json.id },
+          create: data,
+          update: data,
+        });
 
-      return done(null, profile);
+        return done(null, profile);
+      } catch (err) {
+        done(err);
+      }
     }
   )
 );
