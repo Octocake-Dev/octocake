@@ -10,19 +10,19 @@ generator client {
 model User {
   id Int @id @default(autoincrement())
 
-  bio              String?
-  location         String?
-  githubUrl        String? @map("github_url")
-  twitterUrl       String? @map("twitter_url")
-  mediumUrl        String? @map("medium_url")
-  stackOverflowUrl String? @map("stackOverflow_url")
-  websiteUrl       String? @map("website_url")
-  githubAvatarUrl  String? @map("github_avatar_url")
-  githubName       String  @map("github_name")
+  bio              String
+  location         String
+  githubUrl        String @map("github_url")
+  twitterUrl       String @map("twitter_url")
+  mediumUrl        String @map("medium_url")
+  stackOverflowUrl String @map("stackOverflow_url")
+  websiteUrl       String @map("website_url")
+  githubAvatarUrl  String @map("github_avatar_url")
+  githubName       String @map("github_name")
 
-  githubEmail    String? @unique @map("github_email")
-  githubUsername String  @unique @map("github_username")
-  githubId       Int     @unique @map("github_id")
+  githubEmail    String @unique @map("github_email")
+  githubUsername String @unique @map("github_username")
+  githubId       Int    @unique @map("github_id")
 
   createdAt DateTime @default(now()) @map("created_at")
   updatedAt DateTime @updatedAt @map("updated_at")
