@@ -103,11 +103,11 @@ Open [http://localhost:3000](http://localhost:3000) with your browser to see the
 
 ## Contributing
 
-Please take a look at [CONTRIBUTING.md](contributing-link).
+Please take a look at [`CONTRIBUTING.md`][contributing-link].
 
 ## License
 
-Distributed under the MIT License. See [`LICENSE`](license-link) for more information.
+Distributed under the MIT License. See [`LICENSE`][license-link] for more information.
 
 <div align="center">
   <sub>Built with ❤️ by <a href="https://github.com/imadatyatalah">Imad Atyat-Alah</a></sub>
