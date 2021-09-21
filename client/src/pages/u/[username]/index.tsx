@@ -61,7 +61,6 @@ const User = () => {
           <p>Following: {user?.following.length}</p>
           <p>{user?.bio}</p>
           <p>{user?.location}</p>
-          <p>{user?.githubUrl}</p>
           <p>{user?.twitterUrl}</p>
           <p>{user?.mediumUrl}</p>
           <p>{user?.stackOverflowUrl}</p>

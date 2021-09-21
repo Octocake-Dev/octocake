@@ -15,7 +15,6 @@ import { UserData } from "@/types/user";
 const Inputs = [
   { id: "bio", placeholder: "Bio" },
   { id: "location", placeholder: "Location" },
-  { id: "githubUrl", placeholder: "Github URL" },
   { id: "twitterUrl", placeholder: "Twitter URL" },
   { id: "mediumUrl", placeholder: "Medium URL" },
   { id: "stackOverflowUrl", placeholder: "Stack Overflow URL" },

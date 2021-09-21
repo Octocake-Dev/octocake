@@ -43,7 +43,6 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
     const {
       bio,
       location,
-      githubUrl,
       twitterUrl,
       mediumUrl,
       stackOverflowUrl,
@@ -55,7 +54,6 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
       data: {
         bio,
         location,
-        githubUrl,
         twitterUrl,
         mediumUrl,
         stackOverflowUrl,

@@ -28,7 +28,6 @@ export interface IUser extends ISimpleUser {
 export type UserData = {
   bio: string;
   location: string;
-  githubUrl: string;
   twitterUrl: string;
   mediumUrl: string;
   stackOverflowUrl: string;

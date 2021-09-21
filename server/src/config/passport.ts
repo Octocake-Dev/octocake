@@ -44,15 +44,7 @@ passport.use(
 
       await prisma.user.upsert({
         where: { githubId: profile._json.id },
-        create: {
-          ...data,
-          bio: "",
-          location: "",
-          twitterUrl: "",
-          mediumUrl: "",
-          stackOverflowUrl: "",
-          websiteUrl: "",
-        } as any,
+        create: data,
         update: data,
       });
 
