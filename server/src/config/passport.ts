@@ -4,8 +4,6 @@ import passport from "passport";
 import { config } from "./credentials.js";
 import { prisma } from "./prisma";
 
-import type { User as UserModel } from "@prisma/client";
-
 passport.serializeUser((user: any, done) => {
   done(null, user._json.id);
 });
@@ -44,7 +42,7 @@ passport.use(
           githubAvatarUrl: profile._json.avatar_url,
           githubEmail: profile.emails[0].value,
           githubUrl: profile.profileUrl,
-        } as UserModel;
+        };
 
         await prisma.user.upsert({
           where: { githubId: profile._json.id },
