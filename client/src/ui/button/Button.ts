@@ -14,7 +14,8 @@ const Button = styled("button")<ButtonProps>(
     fontWeight: 600,
     borderRadius: "10px",
     border: "none",
-    transitionDuration: "250ms",
+
+    ":hover, :focus": { transitionDuration: "250ms" },
   },
 
   () =>
