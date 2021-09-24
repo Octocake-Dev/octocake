@@ -7,7 +7,7 @@ import Button from "@/ui/button/Button";
 
 import { schema, SchemaTypes } from "@/validations/user";
 import { useUser } from "@/stores/useUser";
-import useUpdateUser from "@/hooks/useUpdateUser";
+import { useUpdateUser } from "@/hooks/index";
 import WithAuth from "@/hocs/withAuth";
 
 import { UserData } from "@/types/user";

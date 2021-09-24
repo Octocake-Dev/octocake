@@ -5,8 +5,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 
 import { schema } from "@/validations/post";
+import { useCreatePost } from "@/hooks/index";
 import withAuth from "@/hocs/withAuth";
-import useCreatePost from "@/hooks/useCreatePost";
 import Button from "@/ui/button/Button";
 
 import { PostData } from "@/types/post";

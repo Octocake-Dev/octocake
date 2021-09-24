@@ -13,8 +13,8 @@ import { dehydrate } from "react-query/hydration";
 import { getUser, useGetUser, useIsFollowed } from "@/api/user/getUser";
 import { baseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
+import { useFollow } from "@/hooks/index";
 import Loading from "@/components/Loading";
-import useFollow from "@/hooks/useFollow";
 import Posts from "@/components/Posts";
 import Button from "@/ui/button/Button";
 
@@ -42,11 +42,11 @@ const User = () => {
     <>
       <NextSeo
         title={user?.githubName}
-        description=""
+        description={user?.bio}
         canonical={url}
         openGraph={{
           title: user?.githubName,
-          description: "",
+          description: user?.bio,
           url,
           images: [
             { url: user?.githubAvatarUrl as string, alt: user?.githubName },
@@ -61,6 +61,7 @@ const User = () => {
           <p>Following: {user?.following.length}</p>
           <p>{user?.bio}</p>
           <p>{user?.location}</p>
+          <p>{user?.githubUrl}</p>
           <p>{user?.twitterUrl}</p>
           <p>{user?.mediumUrl}</p>
           <p>{user?.stackOverflowUrl}</p>

@@ -8,12 +8,10 @@ import { BiBlock } from "react-icons/bi";
 import { MdReport, MdContentCopy } from "react-icons/md";
 import { BsPersonPlus } from "react-icons/bs";
 
+import { useCopyClipboard, useDeletePost, useFollow } from "@/hooks/index";
 import { baseUrl } from "@/lib/constants";
 import { useIsFollowed } from "@/api/user/getUser";
 import { useUser } from "@/stores/useUser";
-import useCopyClipboard from "@/hooks/useCopyClipboard";
-import useDeletePost from "@/hooks/useDeletePost";
-import useFollow from "@/hooks/useFollow";
 import MenuItem from "@/components/MenuItem";
 import Transition from "@/ui/Transition";
 
