@@ -24,7 +24,7 @@
 
 </div>
 
-> **PRODUCTION ISSUE**: Authentication is not working because of cookies domain, The back-end and the front-end does not have the same domain.
+> **PRODUCTION ISSUE**: Auth is not working!
 
 ## About The Project
 
