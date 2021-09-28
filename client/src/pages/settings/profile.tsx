@@ -38,7 +38,7 @@ const Profile = () => {
 
   return (
     <>
-      <NextSeo title="Profile" noindex nofollow />
+      <NextSeo title="Profile" />
 
       <section className="flex flex-col items-center justify-center min-h-screen">
         <h1 className="oc_text-3xl">{currentUser?.githubName}</h1>

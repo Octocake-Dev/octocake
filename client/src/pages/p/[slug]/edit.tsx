@@ -46,7 +46,7 @@ const Edit = () => {
 
   return (
     <>
-      <NextSeo title="Edit Post" noindex nofollow />
+      <NextSeo title="Edit Post" />
 
       <section className="flex flex-col items-center justify-center min-h-screen">
         <form onSubmit={handleSubmit(onSubmit)}>
