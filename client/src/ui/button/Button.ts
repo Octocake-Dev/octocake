@@ -18,37 +18,36 @@ const Button = styled("button")<ButtonProps>(
     ":hover, :focus": { transitionDuration: "250ms" },
   },
 
-  () =>
-    variant({
-      prop: "variant",
-      variants: {
-        primary: {
-          color: "white",
-          backgroundColor: "var(--color-primary-500)",
+  variant({
+    prop: "variant",
+    variants: {
+      primary: {
+        color: "white",
+        backgroundColor: "var(--color-primary-500)",
 
-          ":hover": {
-            backgroundColor: "var(--color-primary-600)",
-          },
-          ":focus": {
-            backgroundColor: "var(--color-primary-600)",
-            boxShadow: `0px 0px 0px 4px rgba(53,143,128,0.4)`,
-          },
+        ":hover": {
+          backgroundColor: "var(--color-primary-600)",
         },
-
-        danger: {
-          color: "white",
-          backgroundColor: red[500],
-
-          ":hover": {
-            backgroundColor: red[600],
-          },
-          ":focus": {
-            backgroundColor: red[600],
-            boxShadow: `0px 0px 0px 4px rgba(220,38,38,0.4)`,
-          },
+        ":focus": {
+          backgroundColor: "var(--color-primary-600)",
+          boxShadow: `0px 0px 0px 4px rgba(53,143,128,0.4)`,
         },
       },
-    }),
+
+      danger: {
+        color: "white",
+        backgroundColor: red[500],
+
+        ":hover": {
+          backgroundColor: red[600],
+        },
+        ":focus": {
+          backgroundColor: red[600],
+          boxShadow: `0px 0px 0px 4px rgba(220,38,38,0.4)`,
+        },
+      },
+    },
+  }),
 
   variant({
     prop: "size",
