@@ -2,7 +2,9 @@ import React from "react";
 
 import { ImSpinner2 } from "react-icons/im";
 
-import StyledButton, { ButtonProps } from "./Button.styles";
+import StyledButton from "./Button.styles";
+
+import type { ButtonProps } from "@/types/Button";
 
 const Button = ({
   children,

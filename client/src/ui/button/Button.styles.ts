@@ -2,11 +2,7 @@ import { red } from "tailwindcss/colors";
 import { variant } from "styled-system";
 import styled from "styled-components";
 
-export type ButtonProps = {
-  size?: "sm" | "md" | "lg";
-  variant?: "primary" | "danger";
-  loading?: boolean;
-};
+import type { ButtonProps } from "@/types/Button";
 
 const StyledButton = styled.button<ButtonProps>`
   cursor: pointer;
