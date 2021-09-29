@@ -24,7 +24,7 @@ const Inputs = [
 const Profile = () => {
   const currentUser = useUser((state) => state.user);
 
-  const { mutate: updateUser } = useUpdateUser(
+  const { mutate: updateUser, isLoading } = useUpdateUser(
     currentUser?.githubUsername as string
   );
 
@@ -65,7 +65,9 @@ const Profile = () => {
             </div>
           ))}
 
-          <Button type="submit">Update profile</Button>
+          <Button loading={isLoading} type="submit">
+            Update profile
+          </Button>
         </form>
       </section>
     </>
