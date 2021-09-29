@@ -19,6 +19,12 @@ describe("Button", () => {
     expect(screen.getByText(text)).toBeDisabled();
   });
 
+  it("Should render a disabled button if loading prop is passed", () => {
+    render(<Button loading={true}>{text}</Button>);
+
+    expect(screen.getByText(text)).toBeDisabled();
+  });
+
   it("Should match snapshot", () => {
     render(<Button disabled={true}>{text}</Button>);
 
