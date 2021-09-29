@@ -12,7 +12,7 @@ import useClipboard from "../useCopyClipboard";
 
 afterEach(cleanup);
 
-test("display sucess message if the copy worked", () => {
+test("display success message if the copy worked", () => {
   const Component = () => {
     const [isCopied, setCopied] = useClipboard("Text to copy");
 
