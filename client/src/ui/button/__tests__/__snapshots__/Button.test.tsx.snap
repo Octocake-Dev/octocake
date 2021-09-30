@@ -3,7 +3,6 @@
 exports[`Button Should match snapshot 1`] = `
 <button
   class="Buttonstyles__StyledButton-sc-1irlc1z-0 gvgyfc"
-  disabled=""
 >
   Click me
 </button>
