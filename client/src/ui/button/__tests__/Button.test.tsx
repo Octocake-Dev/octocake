@@ -14,13 +14,19 @@ describe("Button", () => {
   });
 
   it("Should render a disabled button if disabled prop is passed", () => {
-    render(<Button disabled={true}>{text}</Button>);
+    render(<Button disabled>{text}</Button>);
+
+    expect(screen.getByText(text)).toBeDisabled();
+  });
+
+  it("Should render a disabled button if loading prop is passed", () => {
+    render(<Button loading>{text}</Button>);
 
     expect(screen.getByText(text)).toBeDisabled();
   });
 
   it("Should match snapshot", () => {
-    render(<Button disabled={true}>{text}</Button>);
+    render(<Button>{text}</Button>);
 
     expect(screen.getByText(text)).toMatchSnapshot();
   });

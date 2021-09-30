@@ -53,7 +53,7 @@ const NewPost = () => {
             </p>
           )}
 
-          <Button disabled={isLoading} type="submit">
+          <Button loading={isLoading} type="submit">
             Submit
           </Button>
         </form>

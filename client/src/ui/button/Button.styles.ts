@@ -2,23 +2,25 @@ import { red } from "tailwindcss/colors";
 import { variant } from "styled-system";
 import styled from "styled-components";
 
-export type ButtonProps = {
-  size?: "sm" | "md" | "lg";
-  variant?: "primary" | "danger";
-};
+import type { ButtonProps } from "@/types/Button";
 
-const Button = styled("button")<ButtonProps>(
-  {
-    cursor: "pointer",
-    fontFamily: "inherit",
-    fontWeight: 600,
-    borderRadius: "10px",
-    border: "none",
+const StyledButton = styled.button<ButtonProps>`
+  cursor: pointer;
+  font-family: inherit;
+  font-weight: 600;
+  border-radius: 10px;
+  border: none;
+  display: inline-flex;
+  align-items: center;
 
-    ":hover, :focus": { transitionDuration: "250ms" },
-  },
+  ${({ loading }) => loading && `pointer-events: none; opacity: 80%;`};
 
-  variant({
+  :hover,
+  :focus {
+    transition-duration: 250ms;
+  }
+
+  ${variant({
     prop: "variant",
     variants: {
       primary: {
@@ -47,9 +49,9 @@ const Button = styled("button")<ButtonProps>(
         },
       },
     },
-  }),
+  })}
 
-  variant({
+  ${variant({
     prop: "size",
     variants: {
       sm: {
@@ -67,9 +69,7 @@ const Button = styled("button")<ButtonProps>(
         padding: "14px 24px",
       },
     },
-  })
-);
+  })}
+`;
 
-Button.defaultProps = { size: "md", variant: "primary" };
-
-export default Button;
+export default StyledButton;

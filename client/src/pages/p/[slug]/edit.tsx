@@ -28,7 +28,7 @@ const Edit = () => {
   const currentUser = useUser((state) => state.user);
 
   const { data: post } = useGetPostBySlug(query.slug as string);
-  const { mutate: editPost } = useEditPost(query.slug as string);
+  const { mutate: editPost, isLoading } = useEditPost(query.slug as string);
 
   const {
     register,
@@ -76,7 +76,9 @@ const Edit = () => {
             </p>
           )}
 
-          <Button type="submit">Submit</Button>
+          <Button loading={isLoading} type="submit">
+            Submit
+          </Button>
         </form>
       </section>
     </>

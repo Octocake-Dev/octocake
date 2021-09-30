@@ -68,7 +68,7 @@ const User = () => {
           <p>{user?.websiteUrl}</p>
 
           {shouldShowFollowBtn && (
-            <Button disabled={isLoading} onClick={() => toggleFollow()}>
+            <Button loading={isLoading} onClick={() => toggleFollow()}>
               {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
             </Button>
           )}

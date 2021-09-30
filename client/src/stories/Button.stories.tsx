@@ -2,7 +2,9 @@ import React from "react";
 
 import { Story, Meta } from "@storybook/react";
 
-import Button, { ButtonProps } from "../ui/button/Button";
+import Button from "../ui/button/Button";
+
+import type { ButtonProps } from "../types/Button";
 
 export default {
   title: "Components/Button",
@@ -33,6 +35,8 @@ export const Sizes = () => (
     <Button size="sm">Button</Button>
   </>
 );
+
+export const Loading = () => <Button loading={true}>Loading</Button>;
 
 export const WithLink = () => (
   <a
