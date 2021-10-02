@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 
 import { NextSeo } from "next-seo";
 import { useForm } from "react-hook-form";
@@ -9,9 +9,11 @@ import { useCreatePost } from "@/hooks/index";
 import withAuth from "@/hocs/withAuth";
 import Button from "@/ui/button/Button";
 
-import { PostData } from "@/types/post";
+import type { PostData } from "@/types/post";
 
 const NewPost = () => {
+  const [isPublished, setIsPublished] = useState<boolean>(false);
+
   const { mutate: createPost, isLoading } = useCreatePost();
 
   const {
@@ -20,8 +22,11 @@ const NewPost = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = ({ title, description, published = true }: PostData) =>
-    createPost({ title, description, published });
+  const onSubmit = ({
+    title,
+    description,
+    published = isPublished,
+  }: PostData) => createPost({ title, description, published });
 
   return (
     <>
@@ -53,8 +58,20 @@ const NewPost = () => {
             </p>
           )}
 
-          <Button loading={isLoading} type="submit">
-            Submit
+          <Button
+            onClick={() => setIsPublished(true)}
+            loading={isLoading}
+            type="submit"
+          >
+            Publish
+          </Button>
+
+          <Button
+            onClick={() => setIsPublished(false)}
+            loading={isLoading}
+            type="submit"
+          >
+            Save draft
           </Button>
         </form>
       </section>
