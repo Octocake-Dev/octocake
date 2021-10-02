@@ -41,8 +41,9 @@ const Edit = () => {
 
   if (isFallback) return <Loading />;
 
-  // If the user is not the owner of the post then show error 404 page.
-  if (currentUser?.id !== post?.ownerId) return <ErrorPage />;
+  const isOwner = currentUser?.id !== post?.ownerId;
+
+  if (isOwner) return <ErrorPage />;
 
   return (
     <>
@@ -77,7 +78,7 @@ const Edit = () => {
           )}
 
           <Button loading={isLoading} type="submit">
-            Submit
+            Save changes
           </Button>
         </form>
       </section>
