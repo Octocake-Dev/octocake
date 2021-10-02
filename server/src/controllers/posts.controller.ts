@@ -92,6 +92,7 @@ export const deletePost = async (req: CustomRequest, res: Response) => {
 export const getPosts = async (req: Request, res: Response) => {
   try {
     const posts = await prisma.post.findMany({
+      where: { published: true },
       orderBy: { createdAt: "desc" },
       include: { owner: true },
     });
