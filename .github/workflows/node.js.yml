@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+    name: Install dependencies, Build, lint, and test on Node.js ${{ matrix.node-version }}
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -21,6 +23,18 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
-      - run: yarn
-      - run: yarn lint
-      - run: cd client && yarn test:ci
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Build client
+        run: yarn client:build
+
+      - name: Build server
+        run: yarn server:build
+
+      - name: Run lint
+        run: yarn lint
+
+      - name: Run tests
+        run: yarn client:test:ci
