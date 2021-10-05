@@ -12,6 +12,8 @@
     "client:dev": "yarn --cwd client dev",
     "client:build": "yarn --cwd client build",
     "client:start": "yarn --cwd client start",
+    "client:test": "yarn --cwd client test",
+    "client:test:ci": "yarn --cwd client test:ci",
     "server:dev": "yarn --cwd server dev",
     "server:build": "yarn --cwd server build",
     "server:start": "yarn --cwd server start",
