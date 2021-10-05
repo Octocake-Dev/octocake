@@ -41,7 +41,7 @@ passport.use(
           githubUsername: profile._json.login,
           githubAvatarUrl: profile._json.avatar_url,
           githubEmail: profile.emails[0].value,
-          githubUrl: profile.profileUrl || "https://github.com/",
+          githubUrl: profile.profileUrl,
         };
 
         await prisma.user.upsert({
