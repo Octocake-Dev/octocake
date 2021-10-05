@@ -8,6 +8,8 @@ on:
 
 jobs:
   build:
+    name: Install dependencies, Build, lint, and test on Node.js ${{ matrix.node-version }}
+
     runs-on: ubuntu-latest
 
     strategy:
@@ -15,15 +17,23 @@ jobs:
         node-version: [14.x]
 
     steps:
+      - name: Checkout repo
       - uses: actions/checkout@v2
+
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
           cache: "yarn"
 
-      - name: Install dependecies
+      - name: Install dependencies
         run: yarn
+
+      - name: Build client
+        run: yarn client:build
+
+      - name: Build server
+        run: yarn server:build
 
       - name: Run lint
         run: yarn lint
