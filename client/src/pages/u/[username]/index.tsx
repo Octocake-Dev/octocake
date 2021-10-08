@@ -17,6 +17,7 @@ import { useFollow } from "@/hooks/index";
 import Loading from "@/components/Loading";
 import Posts from "@/components/Posts";
 import Button from "@/ui/button/Button";
+import SocialLinks from "@/modules/user/SocialLinks";
 
 const User = () => {
   const { isFallback, query } = useRouter();
@@ -61,11 +62,8 @@ const User = () => {
           <p>Following: {user?.following.length}</p>
           <p>{user?.bio}</p>
           <p>{user?.location}</p>
-          <p>{user?.githubUrl}</p>
-          <p>{user?.twitterUrl}</p>
-          <p>{user?.mediumUrl}</p>
-          <p>{user?.stackOverflowUrl}</p>
-          <p>{user?.websiteUrl}</p>
+
+          <SocialLinks user={user} />
 
           {shouldShowFollowBtn && (
             <Button loading={isLoading} onClick={() => toggleFollow()}>
