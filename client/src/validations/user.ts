@@ -11,11 +11,4 @@ export const schema = yup.object({
   websiteUrl: yup.string().url(`Website ${urlValidationTemp}`),
 });
 
-export type SchemaTypes = {
-  bio?: string;
-  location?: string;
-  twitterUrl?: string;
-  mediumUrl?: string;
-  stackOverflowUrl?: string;
-  websiteUrl?: string;
-};
+export type SchemaTypes = yup.InferType<typeof schema>;
