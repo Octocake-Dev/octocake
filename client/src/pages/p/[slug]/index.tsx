@@ -23,15 +23,13 @@ const Post = () => {
   if (isFallback) return <Loading />;
 
   const { title, description, slug } = post || {};
-  const url = `${baseUrl}/p/${slug}`;
 
   return (
     <>
       <NextSeo
         title={title}
         description={description}
-        canonical={url}
-        openGraph={{ title, description, url }}
+        canonical={`${baseUrl}/p/${slug}`}
       />
 
       <PostPage post={post} />

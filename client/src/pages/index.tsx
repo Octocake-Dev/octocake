@@ -14,11 +14,7 @@ const Home = () => {
 
   return (
     <>
-      <NextSeo
-        title="Home"
-        canonical={baseUrl}
-        openGraph={{ title: "Home", url: baseUrl }}
-      />
+      <NextSeo title="Home" canonical={baseUrl} />
 
       <HomePage posts={posts} />
     </>

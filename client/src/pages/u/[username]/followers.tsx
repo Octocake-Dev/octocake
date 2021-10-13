@@ -9,7 +9,7 @@ import WIP from "@/components/WIP";
 const Followers = () => {
   return (
     <>
-      <NextSeo />
+      <NextSeo title="Followers" />
 
       <WIP />
     </>

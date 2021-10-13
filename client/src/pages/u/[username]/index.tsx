@@ -37,18 +37,13 @@ const User = () => {
    */
   const shouldShowFollowBtn = currentUser && user?.id !== currentUser.id;
 
-  const url = `${baseUrl}/u/${user?.githubUsername}`;
-
   return (
     <>
       <NextSeo
         title={user?.githubName}
         description={user?.bio}
-        canonical={url}
+        canonical={`${baseUrl}/u/${user?.githubUsername}`}
         openGraph={{
-          title: user?.githubName,
-          description: user?.bio,
-          url,
           images: [
             { url: user?.githubAvatarUrl as string, alt: user?.githubName },
           ],
