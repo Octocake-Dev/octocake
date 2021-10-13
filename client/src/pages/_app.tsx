@@ -41,7 +41,11 @@ const MyApp = ({ Component, pageProps }: AppProps) => {
 
       <QueryClientProvider client={queryClient}>
         <Hydrate state={pageProps.dehydratedState}>
-          <ThemeProvider defaultTheme="light" attribute="class">
+          <ThemeProvider
+            forcedTheme="light"
+            defaultTheme="light"
+            attribute="class"
+          >
             <Global>
               <Component {...pageProps} />
               <CustomToaster />
