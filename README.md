@@ -1,8 +1,8 @@
-<p align="center">
+<div align="center">
   <a href="https://github.com/Octocake-Dev/octocake/">
     <img src="./client/public/desktop-logo.svg" alt="Octocake logo" width="300" />
   </a>
-</p>
+</div>
 
 <div align="center">
 
@@ -23,6 +23,10 @@
 [![Forks][forks-image]][forks-link]
 
 </div>
+
+<p align="center">
+  <img src="./screenshot.png" alt="Octocake screenshot" width="1366" />
+</p>
 
 > **PRODUCTION ISSUE**: Auth is not working!
 
