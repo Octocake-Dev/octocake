@@ -14,7 +14,7 @@ import { dehydrate } from "react-query/hydration";
 
 import { useUser } from "@/stores/useUser";
 import { schema } from "@/validations/post";
-import { getPostBySlug, useGetPostBySlug } from "@/api/post/getPostBySlug";
+import { getPostBySlug, useGetPostBySlug } from "@/api/posts/getPostBySlug";
 import { useEditPost } from "@/hooks/index";
 import Button from "@/ui/button/Button";
 import Loading from "@/components/Loading";

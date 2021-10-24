@@ -6,12 +6,10 @@ import type {
   GetStaticPropsContext,
 } from "next";
 
-import { NextSeo } from "next-seo";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
-import { getPostBySlug, useGetPostBySlug } from "@/api/post/getPostBySlug";
-import { baseUrl } from "@/lib/constants";
+import { getPostBySlug, useGetPostBySlug } from "@/api/posts/getPostBySlug";
 import Loading from "@/components/Loading";
 import PostPage from "@/modules/post/PostPage";
 
@@ -22,19 +20,7 @@ const Post = () => {
 
   if (isFallback) return <Loading />;
 
-  const { title, description, slug } = post || {};
-
-  return (
-    <>
-      <NextSeo
-        title={title}
-        description={description}
-        canonical={`${baseUrl}/p/${slug}`}
-      />
-
-      <PostPage post={post} />
-    </>
-  );
+  return <PostPage post={post} />;
 };
 
 export const getStaticPaths: GetStaticPaths = async () => ({

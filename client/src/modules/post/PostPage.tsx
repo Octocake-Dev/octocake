@@ -1,16 +1,28 @@
 import React from "react";
 
-import { IPost } from "@/types/post";
+import { NextSeo } from "next-seo";
+
+import { baseUrl } from "@/lib/constants";
+
+import type { IPost } from "@/types/post";
 
 const PostPage = ({ post }: { post: IPost | undefined }) => {
-  const { title, description } = post || {};
+  const { title, description, slug } = post || {};
 
   return (
-    <section className="min-h-screen text-center">
-      <h1 className="px-8 oc_text-4xl">{title}</h1>
+    <>
+      <NextSeo
+        title={title}
+        description={description}
+        canonical={`${baseUrl}/p/${slug}`}
+      />
 
-      <p className="px-16 text-lg text-gray-700">{description}</p>
-    </section>
+      <section className="min-h-screen text-center">
+        <h1 className="px-8 oc_text-4xl">{title}</h1>
+
+        <p className="px-16 text-lg text-gray-700">{description}</p>
+      </section>
+    </>
   );
 };
 
