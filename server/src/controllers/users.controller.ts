@@ -8,7 +8,7 @@ import { CustomRequest } from "../types/request";
 export const getCurrentUser = async (req: CustomRequest, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
-      where: { githubId: Number(req.user.id) },
+      where: { githubId: req.user.id },
     });
 
     res.send(user);
@@ -50,7 +50,7 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
     } = req.body;
 
     const updatedUser = await prisma.user.update({
-      where: { githubId: Number(req.user.id) },
+      where: { githubId: req.user.id },
       data: {
         bio,
         location,
@@ -76,7 +76,7 @@ export const isFollowed = async (req: CustomRequest, res: Response) => {
     const isFollowed = await prisma.user.findUnique({
       where: { githubUsername: username },
       select: {
-        followedBy: { where: { githubId: { equals: Number(req.user.id) } } },
+        followedBy: { where: { githubId: { equals: req.user.id } } },
       },
     });
 
@@ -95,11 +95,11 @@ export const toggleFollow = async (req: CustomRequest, res: Response) => {
     const isFollowed = await prisma.user.findUnique({
       where: { githubUsername: username },
       include: {
-        followedBy: { where: { githubId: { equals: Number(req.user.id) } } },
+        followedBy: { where: { githubId: { equals: req.user.id } } },
       },
     });
 
-    if (isFollowed.githubId === Number(req.user.id)) {
+    if (isFollowed.githubId === req.user.id) {
       return res.status(400).json({
         success: false,
         message: "You can't follow yourself",
@@ -109,14 +109,14 @@ export const toggleFollow = async (req: CustomRequest, res: Response) => {
     if (isFollowed.followedBy.length) {
       // Unfollow
       await prisma.user.update({
-        where: { githubId: Number(req.user.id) },
+        where: { githubId: req.user.id },
         data: { following: { disconnect: { githubUsername: username } } },
       });
 
       await prisma.user.update({
         where: { githubUsername: username },
         data: {
-          followedBy: { disconnect: { githubId: Number(req.user.id) } },
+          followedBy: { disconnect: { githubId: req.user.id } },
         },
       });
 
@@ -127,13 +127,13 @@ export const toggleFollow = async (req: CustomRequest, res: Response) => {
     } else {
       // Follow
       await prisma.user.update({
-        where: { githubId: Number(req.user.id) },
+        where: { githubId: req.user.id },
         data: { following: { connect: { githubUsername: username } } },
       });
 
       await prisma.user.update({
         where: { githubUsername: username },
-        data: { followedBy: { connect: { githubId: Number(req.user.id) } } },
+        data: { followedBy: { connect: { githubId: req.user.id } } },
       });
 
       res.status(200).send({

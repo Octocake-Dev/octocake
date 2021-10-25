@@ -14,7 +14,7 @@ router.get(
   "/callback",
   passport.authenticate("github", { failureRedirect: "/login" }),
   (req: CustomRequest, res: Response, next: NextFunction) => {
-    const token = jwt.sign({ id: req.user.id }, config.jwt_key, {
+    const token = jwt.sign({ id: Number(req.user.id) }, config.jwt_key, {
       expiresIn: 60 * 60 * 24 * 1000,
     });
 

@@ -24,7 +24,7 @@ export const createPost = async (req: CustomRequest, res: Response) => {
         description,
         published,
         slug: generateSlug(title),
-        owner: { connect: { githubId: Number(req.user.id) } },
+        owner: { connect: { githubId: req.user.id } },
       },
     });
 
@@ -45,7 +45,7 @@ export const updatePost = async (req: CustomRequest, res: Response) => {
       include: { owner: true },
     });
 
-    if (post.owner.githubId === Number(req.user.id)) {
+    if (post.owner.githubId === req.user.id) {
       const { title, description, published } = req.body;
 
       const updatedPost = await prisma.post.update({
@@ -73,7 +73,7 @@ export const deletePost = async (req: CustomRequest, res: Response) => {
       include: { owner: true },
     });
 
-    if (post.owner.githubId === Number(req.user.id)) {
+    if (post.owner.githubId === req.user.id) {
       const deletedPost = await prisma.post.delete({
         where: { slug },
       });
