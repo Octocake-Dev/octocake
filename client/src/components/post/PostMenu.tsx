@@ -27,10 +27,8 @@ const PostMenu = ({ post }: { post: IPost }) => {
   });
 
   const { mutate: deletePost } = useDeletePost();
-  const { mutate: toggleFollow } = useFollow(owner.githubUsername);
-  const { data: isFollowed, isLoading } = useIsFollowed(
-    owner.githubUsername as string
-  );
+  const { mutate: toggleFollow, isLoading } = useFollow(owner.githubUsername);
+  const { data: isFollowed,  } = useIsFollowed(owner.githubUsername);
 
   const isPostOwner = owner.id === user?.id;
 

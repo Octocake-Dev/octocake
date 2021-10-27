@@ -2,7 +2,7 @@ import React from "react";
 
 import Post from "@/components/post";
 
-import { IPost } from "@/types/post";
+import type { IPost } from "@/types/post";
 
 const Posts = ({ posts }: { posts: IPost[] | undefined }) => (
   <>
