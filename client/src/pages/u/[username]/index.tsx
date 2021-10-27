@@ -1,5 +1,6 @@
 import React from "react";
 import { useRouter } from "next/router";
+import Link from "next/link";
 import type {
   GetStaticProps,
   GetStaticPropsContext,
@@ -18,6 +19,8 @@ import Loading from "@/components/Loading";
 import Posts from "@/components/Posts";
 import Button from "@/ui/button/Button";
 import SocialLinks from "@/modules/user/SocialLinks";
+
+// i know this code is kinda garbage, I just need to complete the design and I will refactor it later!
 
 const User = () => {
   const { isFallback, query } = useRouter();
@@ -53,8 +56,28 @@ const User = () => {
       <section>
         <div>
           <h1 className="oc_text-4xl">{user?.githubName}</h1>
-          <p>Followers: {user?.followedBy.length}</p>
-          <p>Following: {user?.following.length}</p>
+
+          <p>
+            <Link href={`${user?.githubUsername}/followers`}>
+              <a className="text-gray-700 transition-all hover:text-black">
+                <span className="font-medium text-black">
+                  {user?.followedBy.length}
+                </span>{" "}
+                Followers
+              </a>
+            </Link>
+          </p>
+          <p>
+            <Link href={`${user?.githubUsername}/following`}>
+              <a className="text-gray-700 transition-all hover:text-black">
+                <span className="font-medium text-black">
+                  {user?.following.length}
+                </span>{" "}
+                Following
+              </a>
+            </Link>
+          </p>
+
           <p>{user?.bio}</p>
           <p>{user?.location}</p>
 
