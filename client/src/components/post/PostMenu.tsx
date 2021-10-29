@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 
 import { Menu } from "@headlessui/react";
@@ -9,16 +9,16 @@ import { MdReport, MdContentCopy } from "react-icons/md";
 import { BsPersonPlus } from "react-icons/bs";
 
 import { useCopyClipboard, useDeletePost, useFollow } from "@/hooks/index";
+import { checkIsFollowed } from "@/utils/checkIsFollowed";
 import { baseUrl } from "@/lib/constants";
-import { useIsFollowed } from "@/api/user/getUser";
 import { useUser } from "@/stores/useUser";
 import MenuItem from "@/components/MenuItem";
 import Transition from "@/ui/Transition";
 
-import { IPost } from "@/types/post";
+import type { IPost } from "@/types/post";
 
 const PostMenu = ({ post }: { post: IPost }) => {
-  const user = useUser((state) => state.user);
+  const currentUser = useUser((state) => state.user);
 
   const { slug, owner } = post;
 
@@ -28,9 +28,13 @@ const PostMenu = ({ post }: { post: IPost }) => {
 
   const { mutate: deletePost } = useDeletePost();
   const { mutate: toggleFollow, isLoading } = useFollow(owner.githubUsername);
-  const { data: isFollowed,  } = useIsFollowed(owner.githubUsername);
 
-  const isPostOwner = owner.id === user?.id;
+  const isPostOwner = owner.id === currentUser?.id;
+
+  const isFollowed = useMemo(
+    () => checkIsFollowed(post.owner.followedBy, currentUser?.id),
+    [currentUser?.id, post.owner.followedBy]
+  );
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -48,7 +52,7 @@ const PostMenu = ({ post }: { post: IPost }) => {
               {isCopied ? "Copied to Clipboard" : "Copy post URL"}
             </MenuItem>
 
-            {user &&
+            {currentUser &&
               (isPostOwner ? (
                 <>
                   <Link href={`/p/${slug}/edit`} passHref>
@@ -77,7 +81,7 @@ const PostMenu = ({ post }: { post: IPost }) => {
                       aria-hidden="true"
                     />
                     <span className="ml-6 truncate">
-                      {isFollowed?.followedBy.length ? "UnFollow" : "Follow"} @
+                      {isFollowed?.length ? "UnFollow" : "Follow"} @
                       {owner.githubUsername}
                     </span>
                   </MenuItem>

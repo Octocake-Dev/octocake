@@ -3,11 +3,19 @@ import toast from "react-hot-toast";
 
 import { instance } from "@/lib/axios";
 
-const useFollow = (username: string) => {
+/**
+ * Follow or UnFollow a user
+ * @param username username of The user that will be followed or unFollowed
+ * @param userRoute username param from /u/:username path
+ */
+
+const useFollow = (username: string, userRoute?: string) => {
   const queryClient = useQueryClient();
 
   return useMutation(() => instance.put(`/users/${username}/toggleFollow`), {
     onSuccess: () => {
+      queryClient.invalidateQueries("posts");
+      queryClient.invalidateQueries(["user", userRoute]);
       queryClient.invalidateQueries(["user", username]);
     },
     onError: (err) => {

@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useMemo } from "react";
 import { useRouter } from "next/router";
 import Link from "next/link";
 import type {
@@ -11,7 +11,8 @@ import { NextSeo } from "next-seo";
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
-import { getUser, useGetUser, useIsFollowed } from "@/api/user/getUser";
+import { checkIsFollowed } from "@/utils/checkIsFollowed";
+import { getUser, useGetUser } from "@/api/user/getUser";
 import { baseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import { useFollow } from "@/hooks/index";
@@ -30,7 +31,11 @@ const User = () => {
     query.username as string
   );
   const { data: user } = useGetUser(query.username as string);
-  const { data: isFollowed } = useIsFollowed(query.username as string);
+
+  const isFollowed = useMemo(
+    () => checkIsFollowed(user?.followedBy, currentUser?.id),
+    [user?.followedBy, currentUser?.id]
+  );
 
   if (isFallback) return <Loading />;
 
@@ -85,7 +90,7 @@ const User = () => {
 
           {shouldShowFollowBtn && (
             <Button loading={isLoading} onClick={() => toggleFollow()}>
-              {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
+              {isFollowed?.length ? "UnFollow" : "Follow"}
             </Button>
           )}
         </div>
