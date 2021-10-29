@@ -24,13 +24,46 @@ export const getUser = async (req: Request, res: Response) => {
     const user = await prisma.user.findUnique({
       where: { githubUsername: req.params.username },
       include: {
-        posts: { include: { owner: true }, orderBy: { createdAt: "desc" } },
-        followedBy: true,
-        following: true,
+        posts: {
+          include: { owner: { include: { followedBy: true } } },
+          orderBy: { createdAt: "desc" },
+        },
+        followedBy: { include: { followedBy: true } },
+        following: { include: { followedBy: true } },
       },
     });
 
     res.status(200).send(user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+// @route   GET /users/:username/followers
+// @desc    Get user followers by username
+export const getUserFollowers = async (req: Request, res: Response) => {
+  try {
+    const userFollowers = await prisma.user.findUnique({
+      where: { githubUsername: req.params.username },
+      include: { followedBy: { include: { followedBy: true } } },
+    });
+
+    res.status(200).send(userFollowers);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+// @route   GET /users/:username/following
+// @desc    Get user following by username
+export const getUserFollowing = async (req: Request, res: Response) => {
+  try {
+    const userFollowers = await prisma.user.findUnique({
+      where: { githubUsername: req.params.username },
+      include: { following: { include: { followedBy: true } } },
+    });
+
+    res.status(200).send(userFollowers);
   } catch (err) {
     res.send(err);
   }
@@ -62,25 +95,6 @@ export const UpdateUser = async (req: CustomRequest, res: Response) => {
     });
 
     res.status(200).send(updatedUser);
-  } catch (err) {
-    res.send(err);
-  }
-};
-
-// @route   GET /users/:username/isFollowed
-// @desc    Checks current user is following other user by username
-export const isFollowed = async (req: CustomRequest, res: Response) => {
-  try {
-    const { username } = req.params;
-
-    const isFollowed = await prisma.user.findUnique({
-      where: { githubUsername: username },
-      select: {
-        followedBy: { where: { githubId: { equals: req.user.id } } },
-      },
-    });
-
-    res.status(200).send(isFollowed);
   } catch (err) {
     res.send(err);
   }

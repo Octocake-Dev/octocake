@@ -94,7 +94,7 @@ export const getPosts = async (req: Request, res: Response) => {
     const posts = await prisma.post.findMany({
       where: { published: true },
       orderBy: { createdAt: "desc" },
-      include: { owner: true },
+      include: { owner: { include: { followedBy: true } } },
     });
 
     res.status(200).send(posts);

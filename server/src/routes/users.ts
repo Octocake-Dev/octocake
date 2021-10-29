@@ -3,7 +3,8 @@ import { Router } from "express";
 import {
   getUser,
   UpdateUser,
-  isFollowed,
+  getUserFollowers,
+  getUserFollowing,
   toggleFollow,
 } from "../controllers/users.controller";
 import verifyToken from "../middlewares/verifyToken";
@@ -12,9 +13,11 @@ const router = Router();
 
 router.get("/:username", getUser);
 
-router.put("/:username", verifyToken, UpdateUser);
+router.get("/:username/followers", getUserFollowers);
 
-router.get("/:username/isFollowed", verifyToken, isFollowed);
+router.get("/:username/following", getUserFollowing);
+
+router.put("/:username", verifyToken, UpdateUser);
 
 router.put("/:username/toggleFollow", verifyToken, toggleFollow);
 

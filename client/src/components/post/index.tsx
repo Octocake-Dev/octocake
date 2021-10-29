@@ -9,7 +9,7 @@ const PostMenu = dynamic(() => import("./PostMenu"));
 
 import StyledAvatar from "@/ui/Avatar";
 
-import { IPost } from "@/types/post";
+import type { IPost } from "@/types/post";
 
 dayjs.extend(LocalizedFormat);
 
