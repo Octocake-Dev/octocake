@@ -9,14 +9,17 @@ import type {
 import { QueryClient } from "react-query";
 import { dehydrate } from "react-query/hydration";
 
-import { getUser, useGetUser } from "@/api/user/getUser";
+import {
+  getUserFollowing,
+  useGetUserFollowing,
+} from "@/api/user/getUserFollowing";
 import Loading from "@/components/Loading";
 import FollowingPage from "@/modules/user/FollowingPage";
 
 const Following = () => {
   const { isFallback, query } = useRouter();
 
-  const { data: user } = useGetUser(query.username as string);
+  const { data: user } = useGetUserFollowing(query.username as string);
 
   if (isFallback) return <Loading />;
 
@@ -33,8 +36,9 @@ export const getStaticProps: GetStaticProps = async ({
 }: GetStaticPropsContext) => {
   const queryClient = new QueryClient();
 
-  const user = await queryClient.fetchQuery(["user", params?.username], () =>
-    getUser(params?.username as string)
+  const user = await queryClient.fetchQuery(
+    ["user", params?.username, "following"],
+    () => getUserFollowing(params?.username as string)
   );
 
   return {

@@ -17,6 +17,7 @@ export type ISimpleUser = {
   mediumUrl?: string;
   stackOverflowUrl?: string;
   websiteUrl?: string;
+  followedBy: ISimpleUser[];
 };
 
 export interface IUser extends ISimpleUser {

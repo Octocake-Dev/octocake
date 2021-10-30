@@ -3,7 +3,6 @@ import dynamic from "next/dynamic";
 import Link from "next/link";
 
 const ProfileMenu = dynamic(() => import("./ProfileMenu"), {
-  // eslint-disable-next-line react/display-name
   loading: () => (
     <div className="h-[50px] w-[50px] bg-primary-300 rounded-custom" />
   ),

@@ -1,21 +1,33 @@
-import React from "react";
+import React, { useMemo } from "react";
 import Link from "next/link";
 
+import { checkIsFollowed } from "@/utils/checkIsFollowed";
 import { useUser } from "@/stores/useUser";
-import { useIsFollowed } from "@/api/user/getUser";
+import { useFollow } from "@/hooks/index";
 import StyledAvatar from "@/ui/Avatar";
 import Button from "@/ui/button/Button";
-import useFollow from "@/hooks/useFollow";
 
 import type { ISimpleUser } from "@/types/user";
 
-const UserCard = ({ user }: { user: ISimpleUser }) => {
+interface Props {
+  user: ISimpleUser;
+  userRoute: string;
+}
+
+const UserCard = ({ user, userRoute }: Props) => {
   const currentUser = useUser((state) => state.user);
 
   const { githubAvatarUrl, githubUsername, githubName, bio } = user;
 
-  const { mutate: toggleFollow, isLoading } = useFollow(githubUsername);
-  const { data: isFollowed } = useIsFollowed(githubUsername);
+  const { mutate: toggleFollow, isLoading } = useFollow(
+    githubUsername,
+    userRoute
+  );
+
+  const isFollowed = useMemo(
+    () => checkIsFollowed(user.followedBy, currentUser?.id),
+    [user.followedBy, currentUser?.id]
+  );
 
   /**
    * the user should be logged-in to see follow/unFollow button.
@@ -50,7 +62,7 @@ const UserCard = ({ user }: { user: ISimpleUser }) => {
 
         {shouldShowFollowBtn && (
           <Button loading={isLoading} onClick={() => toggleFollow()} size="sm">
-            {isFollowed?.followedBy.length ? "UnFollow" : "Follow"}
+            {isFollowed?.length ? "UnFollow" : "Follow"}
           </Button>
         )}
       </header>

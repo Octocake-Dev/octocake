@@ -18,7 +18,11 @@ const FollowingPage = ({ user }: { user: IUser | undefined }) => (
       <h1 className="oc_text-2xl">Following</h1>
 
       {user?.following.map((followedUser) => (
-        <UserCard user={followedUser} key={followedUser.id} />
+        <UserCard
+          user={followedUser}
+          userRoute={user.githubUsername}
+          key={followedUser.id}
+        />
       ))}
     </section>
   </>
