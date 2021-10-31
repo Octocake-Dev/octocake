@@ -25,8 +25,9 @@ const NewPost = () => {
   const onSubmit = ({
     title,
     description,
+    body,
     published = isPublished,
-  }: PostData) => createPost({ title, description, published });
+  }: PostData) => createPost({ title, description, body, published });
 
   return (
     <>
@@ -37,7 +38,7 @@ const NewPost = () => {
           <input
             type="text"
             id="title"
-            placeholder="title"
+            placeholder="Title"
             className="block"
             {...register("title")}
           />
@@ -48,7 +49,7 @@ const NewPost = () => {
           <input
             type="text"
             id="description"
-            placeholder="description"
+            placeholder="Description"
             className="block"
             {...register("description")}
           />
@@ -56,6 +57,16 @@ const NewPost = () => {
             <p className="font-medium text-red-500">
               {errors.description.message}
             </p>
+          )}
+
+          <textarea
+            id="body"
+            placeholder="Body"
+            className="block"
+            {...register("body")}
+          />
+          {errors.body && (
+            <p className="font-medium text-red-500">{errors.body.message}</p>
           )}
 
           <Button
