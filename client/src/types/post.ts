@@ -10,12 +10,12 @@ export type IPost = {
   createdAt: string;
   updatedAt: string;
   owner: ISimpleUser;
-  // body: string
+  body: string;
 };
 
 export type PostData = {
   title: string;
   description: string;
   published: boolean;
-  // body: string
+  body: string;
 };

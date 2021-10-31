@@ -16,13 +16,14 @@ const generateSlug = (title: string) =>
 // @desc    Create post
 export const createPost = async (req: CustomRequest, res: Response) => {
   try {
-    const { title, description, published } = req.body;
+    const { title, description, published, body } = req.body;
 
     const post = await prisma.post.create({
       data: {
         title,
         description,
         published,
+        body,
         slug: generateSlug(title),
         owner: { connect: { githubId: req.user.id } },
       },
