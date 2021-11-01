@@ -80,6 +80,7 @@ const Edit = () => {
           <textarea
             id="body"
             placeholder="Body"
+            defaultValue={post?.body}
             className="block"
             {...register("body")}
           />
