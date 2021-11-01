@@ -26,7 +26,7 @@ export const createPost = async (req: CustomRequest, res: Response) => {
         body,
         slug: generateSlug(title),
         owner: { connect: { githubId: req.user.id } },
-      },
+      } as any,
     });
 
     res.status(201).send(post);
@@ -57,7 +57,7 @@ export const updatePost = async (req: CustomRequest, res: Response) => {
           published,
           body,
           slug: generateSlug(title),
-        },
+        } as any,
       });
 
       res.status(200).send(updatedPost);
