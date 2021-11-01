@@ -20,6 +20,7 @@ async function main() {
       posts: {
         createMany: {
           data: {
+            body: faker.lorem.paragraph(10),
             description: faker.lorem.sentences(3),
             title: faker.lorem.sentences(2),
             slug: faker.lorem.slug(),

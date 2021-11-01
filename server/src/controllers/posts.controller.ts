@@ -16,13 +16,14 @@ const generateSlug = (title: string) =>
 // @desc    Create post
 export const createPost = async (req: CustomRequest, res: Response) => {
   try {
-    const { title, description, published } = req.body;
+    const { title, description, published, body } = req.body;
 
     const post = await prisma.post.create({
       data: {
         title,
         description,
         published,
+        body,
         slug: generateSlug(title),
         owner: { connect: { githubId: req.user.id } },
       },
@@ -46,11 +47,17 @@ export const updatePost = async (req: CustomRequest, res: Response) => {
     });
 
     if (post.owner.githubId === req.user.id) {
-      const { title, description, published } = req.body;
+      const { title, description, body, published } = req.body;
 
       const updatedPost = await prisma.post.update({
         where: { slug },
-        data: { title, description, published, slug: generateSlug(title) },
+        data: {
+          title,
+          description,
+          published,
+          body,
+          slug: generateSlug(title),
+        },
       });
 
       res.status(200).send(updatedPost);

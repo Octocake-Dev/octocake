@@ -36,8 +36,8 @@ const Edit = () => {
     formState: { errors },
   } = useForm({ resolver: yupResolver(schema) });
 
-  const onSubmit = ({ title, description, published = true }: PostData) =>
-    editPost({ title, description, published });
+  const onSubmit = ({ title, description, body, published = true }: PostData) =>
+    editPost({ title, description, body, published });
 
   if (isFallback) return <Loading />;
 
@@ -75,6 +75,17 @@ const Edit = () => {
             <p className="font-medium text-red-500">
               {errors.description.message}
             </p>
+          )}
+
+          <textarea
+            id="body"
+            placeholder="Body"
+            defaultValue={post?.body}
+            className="block"
+            {...register("body")}
+          />
+          {errors.body && (
+            <p className="font-medium text-red-500">{errors.body.message}</p>
           )}
 
           <Button loading={isLoading} type="submit">
