@@ -4,6 +4,7 @@ import Link from "next/link";
 import { Menu } from "@headlessui/react";
 import { BsPerson } from "react-icons/bs";
 import { HiOutlinePencilAlt } from "react-icons/hi";
+import { RiDashboardLine } from "react-icons/ri";
 import {
   IoLogOutOutline,
   IoSettingsOutline,
@@ -15,10 +16,41 @@ import StyledAvatar from "@/ui/Avatar";
 import MenuItem from "@/components/MenuItem";
 import Transition from "@/ui/Transition";
 
-import { ISimpleUser } from "@/types/user";
+import type { ISimpleUser } from "@/types/user";
 
 const ProfileMenu = ({ user }: { user: ISimpleUser }) => {
   const { githubAvatarUrl, githubName, githubUsername } = user;
+
+  const TOP_LINKS = [
+    {
+      title: "Profile",
+      url: `/u/${githubUsername}`,
+      icon: BsPerson,
+    },
+    {
+      title: "Dashboard",
+      url: "/dashboard",
+      icon: RiDashboardLine,
+    },
+    {
+      title: "New Post",
+      url: "/new-post",
+      icon: HiOutlinePencilAlt,
+    },
+  ];
+
+  const MIDDLE_LINKS = [
+    {
+      title: "Help",
+      url: "/help",
+      icon: IoHelpBuoyOutline,
+    },
+    {
+      title: "Settings",
+      url: "/settings/profile",
+      icon: IoSettingsOutline,
+    },
+  ];
 
   return (
     <Menu as="div" className="relative inline-block text-left">
@@ -37,46 +69,25 @@ const ProfileMenu = ({ user }: { user: ISimpleUser }) => {
       <Transition>
         <Menu.Items className="w-56 oc_menu_items">
           <div className="px-1 py-1">
-            <Link href={`/u/${githubUsername}`} passHref>
-              <MenuItem as="a">
-                <BsPerson className="menu_item_icon" aria-hidden="true" />
-                Profile
-              </MenuItem>
-            </Link>
-
-            <Link href="/new-post" passHref>
-              <MenuItem as="a">
-                <HiOutlinePencilAlt
-                  className="menu_item_icon"
-                  aria-hidden="true"
-                  opacity="85%"
-                />
-                New Post
-              </MenuItem>
-            </Link>
+            {TOP_LINKS.map(({ title, url, icon: Icon }) => (
+              <Link href={url} passHref key={title}>
+                <MenuItem as="a">
+                  <Icon className="menu_item_icon" aria-hidden="true" />
+                  {title}
+                </MenuItem>
+              </Link>
+            ))}
           </div>
 
           <div className="px-1 py-1">
-            <Link href="/help" passHref>
-              <MenuItem as="a">
-                <IoHelpBuoyOutline
-                  className="menu_item_icon"
-                  aria-hidden="true"
-                  opacity="85%"
-                />
-                Help
-              </MenuItem>
-            </Link>
-
-            <Link href="/settings/profile" passHref>
-              <MenuItem as="a">
-                <IoSettingsOutline
-                  className="menu_item_icon"
-                  aria-hidden="true"
-                />
-                Settings
-              </MenuItem>
-            </Link>
+            {MIDDLE_LINKS.map(({ title, url, icon: Icon }) => (
+              <Link href={url} passHref key={title}>
+                <MenuItem as="a">
+                  <Icon className="menu_item_icon" aria-hidden="true" />
+                  {title}
+                </MenuItem>
+              </Link>
+            ))}
           </div>
 
           <div className="px-1 py-1">
