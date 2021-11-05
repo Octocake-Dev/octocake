@@ -40,7 +40,7 @@ const Footer = () => (
         </span>
         by{" "}
         <a
-          href="https://github.com/imadatyatalah/"
+          href="https://imadatyatalah.vercel.app/"
           className="font-medium text-primary-900 sm:hover:underline"
           target="_blank"
           rel="noopener noreferrer"

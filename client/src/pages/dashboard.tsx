@@ -1,11 +1,11 @@
 import React from "react";
 
+import WithAuth from "@/hocs/withAuth";
+
+import DashboardPage from "@/modules/dashboard/DashboardPage";
+
 const Dashboard = () => {
-  return (
-    <section>
-      <h1 className="oc_text-3xl">Dashboard</h1>
-    </section>
-  );
+  return <DashboardPage />;
 };
 
-export default Dashboard;
+export default WithAuth(Dashboard);

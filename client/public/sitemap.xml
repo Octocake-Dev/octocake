@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml" xmlns:mobile="http://www.google.com/schemas/sitemap-mobile/1.0" xmlns:image="http://www.google.com/schemas/sitemap-image/1.1" xmlns:video="http://www.google.com/schemas/sitemap-video/1.1">
-<url><loc>https://octocake.netlify.app</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-10-06T18:18:51.223Z</lastmod></url>
-<url><loc>https://octocake.netlify.app/new-post</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-10-06T18:18:51.225Z</lastmod></url>
-<url><loc>https://octocake.netlify.app/settings/profile</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-10-06T18:18:51.225Z</lastmod></url>
+<url><loc>https://octocake.netlify.app</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-11-05T15:44:10.428Z</lastmod></url>
+<url><loc>https://octocake.netlify.app/dashboard</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-11-05T15:44:10.430Z</lastmod></url>
+<url><loc>https://octocake.netlify.app/new-post</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-11-05T15:44:10.430Z</lastmod></url>
+<url><loc>https://octocake.netlify.app/settings/profile</loc><changefreq>daily</changefreq><priority>0.7</priority><lastmod>2021-11-05T15:44:10.430Z</lastmod></url>
 </urlset>
