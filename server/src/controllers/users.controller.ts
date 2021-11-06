@@ -25,12 +25,31 @@ export const getUser = async (req: Request, res: Response) => {
       where: { githubUsername: req.params.username },
       include: {
         posts: {
+          where: { published: true },
           include: { owner: { include: { followedBy: true } } },
           orderBy: { createdAt: "desc" },
         },
         followedBy: { include: { followedBy: true } },
         following: { include: { followedBy: true } },
       },
+    });
+
+    res.status(200).send(user);
+  } catch (err) {
+    res.send(err);
+  }
+};
+
+// @route   GET /users/:username/dashboard
+// @desc    Get user dashboard by id(signed-in user id)
+export const getUserDashboardData = async (
+  req: CustomRequest,
+  res: Response
+) => {
+  try {
+    const user = await prisma.user.findUnique({
+      where: { githubId: req.user.id },
+      select: { posts: { orderBy: { createdAt: "desc" } } },
     });
 
     res.status(200).send(user);
