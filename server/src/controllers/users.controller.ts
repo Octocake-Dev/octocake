@@ -40,7 +40,7 @@ export const getUser = async (req: Request, res: Response) => {
   }
 };
 
-// @route   GET /users/:username/dashboard
+// @route   GET /current_user/dashboard
 // @desc    Get user dashboard by id(signed-in user id)
 export const getUserDashboardData = async (
   req: CustomRequest,

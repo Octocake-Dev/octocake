@@ -2,7 +2,7 @@ import { useQuery } from "react-query";
 
 import { instance } from "@/lib/axios";
 
-import { IPost } from "@/types/post";
+import type { IPost } from "@/types/post";
 
 export const getPostBySlug = async (slug: string): Promise<IPost> => {
   const { data } = await instance.get(`/posts/${slug}`);

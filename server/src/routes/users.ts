@@ -2,7 +2,6 @@ import { Router } from "express";
 
 import {
   getUser,
-  getUserDashboardData,
   UpdateUser,
   getUserFollowers,
   getUserFollowing,
@@ -13,8 +12,6 @@ import verifyToken from "../middlewares/verifyToken";
 const router = Router();
 
 router.get("/:username", getUser);
-
-router.get("/:username/dashboard", verifyToken, getUserDashboardData);
 
 router.get("/:username/followers", getUserFollowers);
 
