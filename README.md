@@ -34,74 +34,13 @@
 
 Octocake is an open-source social platform created for developers to share their knowledge, Experiences, Journey, and a lot more with the community. Inspired by big projects like [dev.to](https://dev.to/) and [hashnode](https://hashnode.com/).
 
-Check out the [reasons behind why I have started this Octocake](https://imadatyatalah.vercel.app/blog/why-i-have-started-octocake#why-i-have-started-octocake).
+Check out the [reasons behind why I have started Octocake](https://imadatyatalah.vercel.app/blog/why-i-have-started-octocake#why-i-have-started-octocake).
 
 ### Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Next.js](https://nextjs.org/)
 - [Express](https://expressjs.com/)
-
-## Getting Started
-
-First, Install project dependencies:
-
-at project root:
-
-```bash
-yarn
-```
-
-### Setup the client
-
-Inside client folder
-
-```bash
-cp .env.example .env
-```
-
-### Setup the server
-
-Inside server folder
-
-```bash
-cp .env.example .env
-```
-
-Then fill environment variables:
-
-```bash
-# Get "256-bit WEP Key" from https://randomkeygen.com/
-JWT_KEY=YOUR_JWT_KEY
-
-# Create a local postgresql db
-DATABASE_URL=LOCAL_POSTGRESQL_DB_URL
-```
-
-You can simply get `GITHUB_ID` and `GITHUB_SECRET` by [creating a github oauth app](https://github.com/settings/applications/new), You can follow [github docs](https://docs.github.com/en/developers/apps/building-oauth-apps/creating-an-oauth-app) if you don't know how.
-
-```bash
-GITHUB_ID=YOUR_GITHUB_CLIENT_ID
-GITHUB_SECRET=YOUR_GITHUB_CLIENT_SECRET
-```
-
-### Run the project
-
-at project root:
-
-Start client development server
-
-```bash
-yarn client:dev
-```
-
-Start server development server
-
-```bash
-yarn server:dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
 ## Contributing
 
@@ -112,7 +51,7 @@ Please take a look at [`CONTRIBUTING.md`][contributing-link].
 Distributed under the MIT License. See [`LICENSE`][license-link] for more information.
 
 <div align="center">
-  <sub>Built with ❤️ by <a href="https://github.com/imadatyatalah">Imad Atyat-Alah</a></sub>
+  <sub>Built with ❤️ by <a href="https://imadatyatalah.vercel.app">Imad Atyat-Alah</a></sub>
 </div>
 
 [octocake-link]: https://octocake.netlify.app
