@@ -32,17 +32,15 @@
 
 ## About The Project
 
-The idea still not clear enough to talk about it.
+Octocake is an open-source social platform created for developers to share their knowledge, Experiences, Journey, and a lot more with the community. Inspired by big projects like [dev.to](https://dev.to/) and [hashnode](https://hashnode.com/).
+
+Check out the [reasons behind why I have started this Octocake](https://imadatyatalah.vercel.app/blog/why-i-have-started-octocake#why-i-have-started-octocake).
 
 ### Built With
 
 - [TypeScript](https://www.typescriptlang.org/)
 - [Next.js](https://nextjs.org/)
 - [Express](https://expressjs.com/)
-
-### Features
-
-The idea still not clear enough to talk about the features.
 
 ## Getting Started
 
