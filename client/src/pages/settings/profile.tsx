@@ -6,11 +6,10 @@ import { yupResolver } from "@hookform/resolvers/yup";
 import Button from "@/ui/button/Button";
 
 import { schema, SchemaTypes } from "@/validations/user";
-import { useUser } from "@/stores/useUser";
 import { useUpdateUser } from "@/hooks/index";
 import WithAuth from "@/hocs/withAuth";
 
-import { UserData } from "@/types/user";
+import type { ISimpleUser, UserData } from "@/types/user";
 
 const Inputs = [
   { id: "bio", placeholder: "Bio" },
@@ -21,12 +20,8 @@ const Inputs = [
   { id: "websiteUrl", placeholder: "Website URL" },
 ];
 
-const Profile = () => {
-  const currentUser = useUser((state) => state.user);
-
-  const { mutate: updateUser, isLoading } = useUpdateUser(
-    currentUser?.githubUsername as string
-  );
+const Profile = ({ user }: { user: ISimpleUser }) => {
+  const { mutate: updateUser, isLoading } = useUpdateUser(user.githubUsername);
 
   const {
     register,
@@ -41,7 +36,7 @@ const Profile = () => {
       <NextSeo title="Profile" />
 
       <section className="flex flex-col items-center justify-center min-h-screen">
-        <h1 className="oc_text-3xl">{currentUser?.githubName}</h1>
+        <h1 className="oc_text-3xl">{user.githubName}</h1>
 
         <form onSubmit={handleSubmit(onSubmit)}>
           {Inputs.map(({ id: inputId, placeholder }) => (
@@ -52,7 +47,7 @@ const Profile = () => {
                 type="text"
                 id={inputId}
                 placeholder={placeholder}
-                defaultValue={currentUser?.[inputId as keyof SchemaTypes]}
+                defaultValue={user[inputId as keyof SchemaTypes]}
                 className="block"
                 {...register(inputId as keyof SchemaTypes)}
               />
