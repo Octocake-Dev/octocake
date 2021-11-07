@@ -13,10 +13,10 @@ import { apiBaseUrl } from "@/lib/constants";
 import { useUser } from "@/stores/useUser";
 import Button from "@/ui/button/Button";
 
-import { ISimpleUser } from "@/types/user";
+import type { TCurrentUser } from "@/types/user";
 
 const Header = () => {
-  const [user, setUser] = useState<ISimpleUser | null>(null);
+  const [user, setUser] = useState<TCurrentUser | null>(null);
 
   const currentUser = useUser((state) => state.user);
 

@@ -2,15 +2,21 @@ import { useQuery } from "react-query";
 
 import { instance } from "@/lib/axios";
 
-import type { IUser } from "@/types/user";
+import type { ISimpleUser, TCurrentUser } from "@/types/user";
 
-export const getUserFollowers = async (username: string): Promise<IUser> => {
+export interface IUserFollowers extends TCurrentUser {
+  followedBy: ISimpleUser[];
+}
+
+export const getUserFollowers = async (
+  username: string
+): Promise<IUserFollowers> => {
   const { data } = await instance.get(`/users/${username}/followers`);
 
   return data;
 };
 
 export const useGetUserFollowers = (username: string) =>
-  useQuery<IUser, Error>(["user", username, "followers"], () =>
+  useQuery<IUserFollowers, Error>(["user", username, "followers"], () =>
     getUserFollowers(username)
   );

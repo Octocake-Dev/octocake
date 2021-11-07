@@ -3,6 +3,7 @@ import { Request, Response } from "express";
 import slugify from "slugify";
 
 import { prisma } from "../config/prisma";
+import { UserData } from "../config/user";
 import randomString from "../utils/randomString";
 
 import { CustomRequest } from "../types/request";
@@ -101,7 +102,16 @@ export const getPosts = async (req: Request, res: Response) => {
     const posts = await prisma.post.findMany({
       where: { published: true },
       orderBy: { createdAt: "desc" },
-      include: { owner: { include: { followedBy: true } } },
+
+      include: {
+        owner: {
+          select: {
+            ...UserData,
+
+            followedBy: { select: UserData },
+          },
+        },
+      },
     });
 
     res.status(200).send(posts);
@@ -118,7 +128,7 @@ export const getPostBySlug = async (req: Request, res: Response) => {
 
     const post = await prisma.post.findUnique({
       where: { slug },
-      include: { owner: true },
+      include: { owner: { select: UserData } },
     });
 
     res.status(200).send(post);

@@ -66,7 +66,7 @@ const User = () => {
             <Link href={`${user?.githubUsername}/followers`}>
               <a className="text-gray-700 transition-all hover:text-black">
                 <span className="font-medium text-black">
-                  {user?.followedBy.length}
+                  {user?._count.followedBy}
                 </span>{" "}
                 Followers
               </a>
@@ -76,7 +76,7 @@ const User = () => {
             <Link href={`${user?.githubUsername}/following`}>
               <a className="text-gray-700 transition-all hover:text-black">
                 <span className="font-medium text-black">
-                  {user?.following.length}
+                  {user?._count.following}
                 </span>{" "}
                 Following
               </a>

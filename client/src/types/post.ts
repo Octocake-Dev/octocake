@@ -1,4 +1,4 @@
-import { ISimpleUser } from "./user";
+import type { ISimpleUser } from "./user";
 
 export type IPost = {
   id: string;

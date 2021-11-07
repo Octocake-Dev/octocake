@@ -1,6 +1,7 @@
 import { Request, Response } from "express";
 
 import { prisma } from "../config/prisma";
+import { UserData } from "../config/user";
 import { CustomRequest } from "../types/request";
 
 // @route   GET /current_user
@@ -9,6 +10,7 @@ export const getCurrentUser = async (req: CustomRequest, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
       where: { githubId: req.user.id },
+      select: UserData,
     });
 
     res.send(user);
@@ -23,14 +25,23 @@ export const getUser = async (req: Request, res: Response) => {
   try {
     const user = await prisma.user.findUnique({
       where: { githubUsername: req.params.username },
-      include: {
+      select: {
+        ...UserData,
+
+        _count: true,
+
+        followedBy: { select: UserData },
+
         posts: {
           where: { published: true },
-          include: { owner: { include: { followedBy: true } } },
           orderBy: { createdAt: "desc" },
+
+          include: {
+            owner: {
+              select: { ...UserData, followedBy: { select: UserData } },
+            },
+          },
         },
-        followedBy: { include: { followedBy: true } },
-        following: { include: { followedBy: true } },
       },
     });
 
@@ -64,7 +75,17 @@ export const getUserFollowers = async (req: Request, res: Response) => {
   try {
     const userFollowers = await prisma.user.findUnique({
       where: { githubUsername: req.params.username },
-      include: { followedBy: { include: { followedBy: true } } },
+      select: {
+        ...UserData,
+
+        followedBy: {
+          select: {
+            ...UserData,
+
+            followedBy: { select: { ...UserData } },
+          },
+        },
+      },
     });
 
     res.status(200).send(userFollowers);
@@ -79,7 +100,17 @@ export const getUserFollowing = async (req: Request, res: Response) => {
   try {
     const userFollowers = await prisma.user.findUnique({
       where: { githubUsername: req.params.username },
-      include: { following: { include: { followedBy: true } } },
+      select: {
+        ...UserData,
+
+        following: {
+          select: {
+            ...UserData,
+
+            followedBy: { select: { ...UserData } },
+          },
+        },
+      },
     });
 
     res.status(200).send(userFollowers);
