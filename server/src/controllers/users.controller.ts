@@ -2,6 +2,7 @@ import { Request, Response } from "express";
 
 import { prisma } from "../config/prisma";
 import { UserData } from "../config/user";
+import { PostData } from "../config/post";
 import { CustomRequest } from "../types/request";
 
 // @route   GET /current_user
@@ -36,7 +37,9 @@ export const getUser = async (req: Request, res: Response) => {
           where: { published: true },
           orderBy: { createdAt: "desc" },
 
-          include: {
+          select: {
+            ...PostData,
+
             owner: {
               select: { ...UserData, followedBy: { select: UserData } },
             },

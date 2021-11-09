@@ -4,6 +4,7 @@ import slugify from "slugify";
 
 import { prisma } from "../config/prisma";
 import { UserData } from "../config/user";
+import { PostData } from "../config/post";
 import randomString from "../utils/randomString";
 
 import { CustomRequest } from "../types/request";
@@ -103,7 +104,9 @@ export const getPosts = async (req: Request, res: Response) => {
       where: { published: true },
       orderBy: { createdAt: "desc" },
 
-      include: {
+      select: {
+        ...PostData,
+
         owner: {
           select: {
             ...UserData,
@@ -128,7 +131,11 @@ export const getPostBySlug = async (req: Request, res: Response) => {
 
     const post = await prisma.post.findUnique({
       where: { slug },
-      include: { owner: { select: UserData } },
+      select: {
+        ...UserData,
+
+        owner: { select: UserData },
+      },
     });
 
     res.status(200).send(post);
