@@ -9,7 +9,7 @@ import { schema, SchemaTypes } from "@/validations/user";
 import { useUpdateUser } from "@/hooks/index";
 import WithAuth from "@/hocs/withAuth";
 
-import type { ISimpleUser, UserData } from "@/types/user";
+import type { TCurrentUser, UserData } from "@/types/user";
 
 const Inputs = [
   { id: "bio", placeholder: "Bio" },
@@ -20,7 +20,7 @@ const Inputs = [
   { id: "websiteUrl", placeholder: "Website URL" },
 ];
 
-const Profile = ({ user }: { user: ISimpleUser }) => {
+const Profile = ({ user }: { user: TCurrentUser }) => {
   const { mutate: updateUser, isLoading } = useUpdateUser(user.githubUsername);
 
   const {

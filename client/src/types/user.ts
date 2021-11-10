@@ -1,15 +1,10 @@
-import { IPost } from "./post";
+import type { IPost } from "./post";
 
-export type ISimpleUser = {
+export type TCurrentUser = {
   id: number;
   githubAvatarUrl: string;
   githubName: string;
-  githubEmail: string;
   githubUsername: string;
-  githubId: number;
-  createdAt: string;
-  updatedAt: string;
-  role: "USER" | "ADMIN";
   bio?: string;
   location?: string;
   githubUrl?: string;
@@ -17,13 +12,27 @@ export type ISimpleUser = {
   mediumUrl?: string;
   stackOverflowUrl?: string;
   websiteUrl?: string;
-  followedBy: ISimpleUser[];
 };
 
-export interface IUser extends ISimpleUser {
+export interface ISimpleUser extends TCurrentUser {
+  // githubEmail: string;
+  // githubId: number;
+  // createdAt: string;
+  // updatedAt: string;
+  // role: "USER" | "ADMIN";
+  followedBy: TCurrentUser[];
+}
+
+export interface IUser extends TCurrentUser {
+  _count: {
+    followedBy: number;
+    following: number;
+    posts: number;
+  };
+
   posts: IPost[];
-  followedBy: ISimpleUser[];
-  following: ISimpleUser[];
+  followedBy: TCurrentUser[];
+  // following: TCurrentUser[];
 }
 
 export type UserData = {

@@ -16,9 +16,9 @@ import StyledAvatar from "@/ui/Avatar";
 import MenuItem from "@/components/MenuItem";
 import Transition from "@/ui/Transition";
 
-import type { ISimpleUser } from "@/types/user";
+import type { TCurrentUser } from "@/types/user";
 
-const ProfileMenu = ({ user }: { user: ISimpleUser }) => {
+const ProfileMenu = ({ user }: { user: TCurrentUser }) => {
   const { githubAvatarUrl, githubName, githubUsername } = user;
 
   const TOP_LINKS = [

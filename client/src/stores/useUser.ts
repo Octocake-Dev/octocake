@@ -3,10 +3,10 @@ import { persist } from "zustand/middleware";
 
 import { instance } from "@/lib/axios";
 
-import { ISimpleUser } from "@/types/user";
+import type { TCurrentUser } from "@/types/user";
 
 type UserState = {
-  user: ISimpleUser | null;
+  user: TCurrentUser | null;
   logged_in: boolean;
   fetchUser: () => Promise<void>;
 };

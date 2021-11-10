@@ -20,7 +20,7 @@ import type { IPost } from "@/types/post";
 const PostMenu = ({ post }: { post: IPost }) => {
   const currentUser = useUser((state) => state.user);
 
-  const { slug, owner } = post;
+  const { slug, ownerId, owner } = post;
 
   const [isCopied, setCopied] = useCopyClipboard(`${baseUrl}/p/${slug}`, {
     successDuration: 4000,
@@ -29,7 +29,7 @@ const PostMenu = ({ post }: { post: IPost }) => {
   const { mutate: deletePost } = useDeletePost();
   const { mutate: toggleFollow, isLoading } = useFollow(owner.githubUsername);
 
-  const isPostOwner = owner.id === currentUser?.id;
+  const isPostOwner = ownerId === currentUser?.id;
 
   const isFollowed = useMemo(
     () => checkIsFollowed(post.owner.followedBy, currentUser?.id),

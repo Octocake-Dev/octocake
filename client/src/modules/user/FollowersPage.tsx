@@ -5,9 +5,9 @@ import { NextSeo } from "next-seo";
 import { baseUrl } from "@/lib/constants";
 import UserCard from "@/components/UserCard";
 
-import type { IUser } from "@/types/user";
+import type { IUserFollowers } from "@/api/user/getUserFollowers";
 
-const FollowersPage = ({ user }: { user: IUser | undefined }) => (
+const FollowersPage = ({ user }: { user: IUserFollowers | undefined }) => (
   <>
     <NextSeo
       title="Followers"
