@@ -33,57 +33,70 @@ const NewPost = () => {
     <>
       <NextSeo title="New Post" />
 
-      <section className="flex flex-col items-center justify-center min-h-screen">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            id="title"
-            placeholder="Title"
-            className="block"
-            {...register("title")}
-          />
-          {errors.title && (
-            <p className="font-medium text-red-500">{errors.title.message}</p>
-          )}
+      <section>
+        <h1 className="oc_text-3xl">New Post</h1>
 
-          <input
-            type="text"
-            id="description"
-            placeholder="Description"
-            className="block"
-            {...register("description")}
-          />
-          {errors.description && (
-            <p className="font-medium text-red-500">
-              {errors.description.message}
-            </p>
-          )}
+        <form
+          className="flex flex-col items-center justify-center"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div>
+            <input
+              type="text"
+              id="title"
+              placeholder="Title"
+              className="block"
+              {...register("title")}
+            />
+            {errors.title && (
+              <p className="font-medium text-red-500">{errors.title.message}</p>
+            )}
+          </div>
 
-          <textarea
-            id="body"
-            placeholder="Body"
-            className="block"
-            {...register("body")}
-          />
-          {errors.body && (
-            <p className="font-medium text-red-500">{errors.body.message}</p>
-          )}
+          <div>
+            <input
+              type="text"
+              id="description"
+              placeholder="Description"
+              className="block"
+              {...register("description")}
+            />
+            {errors.description && (
+              <p className="font-medium text-red-500">
+                {errors.description.message}
+              </p>
+            )}
+          </div>
 
-          <Button
-            onClick={() => setIsPublished(true)}
-            loading={isLoading}
-            type="submit"
-          >
-            Publish
-          </Button>
+          <div>
+            <textarea
+              id="body"
+              placeholder="Body"
+              className="block"
+              {...register("body")}
+            />
+            {errors.body && (
+              <p className="font-medium text-red-500">{errors.body.message}</p>
+            )}
+          </div>
 
-          <Button
-            onClick={() => setIsPublished(false)}
-            loading={isLoading}
-            type="submit"
-          >
-            Save draft
-          </Button>
+          <div>
+            <Button
+              onClick={() => setIsPublished(true)}
+              loading={isLoading}
+              type="submit"
+            >
+              Publish
+            </Button>
+
+            <Button
+              onClick={() => setIsPublished(false)}
+              loading={isLoading}
+              type="submit"
+            >
+              Save draft
+            </Button>
+          </div>
         </form>
       </section>
     </>

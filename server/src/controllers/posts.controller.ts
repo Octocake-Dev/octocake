@@ -132,7 +132,7 @@ export const getPostBySlug = async (req: Request, res: Response) => {
     const post = await prisma.post.findUnique({
       where: { slug },
       select: {
-        ...UserData,
+        ...PostData,
 
         owner: { select: UserData },
       },

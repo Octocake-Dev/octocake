@@ -41,56 +41,69 @@ const Edit = () => {
 
   if (isFallback) return <Loading />;
 
-  const isOwner = currentUser?.id !== post?.ownerId;
+  const isOwner = currentUser?.id === post?.ownerId;
 
-  if (isOwner) return <ErrorPage />;
+  if (!isOwner) return <ErrorPage />;
 
   return (
     <>
       <NextSeo title="Edit Post" />
 
-      <section className="flex flex-col items-center justify-center min-h-screen">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <input
-            type="text"
-            id="title"
-            placeholder="title"
-            defaultValue={post?.title}
-            className="block"
-            {...register("title")}
-          />
-          {errors.title && (
-            <p className="font-medium text-red-500">{errors.title.message}</p>
-          )}
+      <section>
+        <h1 className="oc_text-3xl">Edit Post</h1>
 
-          <input
-            type="text"
-            id="description"
-            placeholder="description"
-            defaultValue={post?.description}
-            className="block"
-            {...register("description")}
-          />
-          {errors.description && (
-            <p className="font-medium text-red-500">
-              {errors.description.message}
-            </p>
-          )}
+        <form
+          className="flex flex-col items-center justify-center"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div>
+            <input
+              type="text"
+              id="title"
+              placeholder="title"
+              defaultValue={post?.title}
+              className="block"
+              {...register("title")}
+            />
+            {errors.title && (
+              <p className="font-medium text-red-500">{errors.title.message}</p>
+            )}
+          </div>
 
-          <textarea
-            id="body"
-            placeholder="Body"
-            defaultValue={post?.body}
-            className="block"
-            {...register("body")}
-          />
-          {errors.body && (
-            <p className="font-medium text-red-500">{errors.body.message}</p>
-          )}
+          <div>
+            <input
+              type="text"
+              id="description"
+              placeholder="description"
+              defaultValue={post?.description}
+              className="block"
+              {...register("description")}
+            />
+            {errors.description && (
+              <p className="font-medium text-red-500">
+                {errors.description.message}
+              </p>
+            )}
+          </div>
 
-          <Button loading={isLoading} type="submit">
-            Save changes
-          </Button>
+          <div>
+            <textarea
+              id="body"
+              placeholder="Body"
+              defaultValue={post?.body}
+              className="block"
+              {...register("body")}
+            />
+            {errors.body && (
+              <p className="font-medium text-red-500">{errors.body.message}</p>
+            )}
+          </div>
+
+          <div>
+            <Button loading={isLoading} type="submit">
+              Save changes
+            </Button>
+          </div>
         </form>
       </section>
     </>
