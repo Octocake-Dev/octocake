@@ -10,6 +10,7 @@ import compression from "compression";
 import { corsOptions } from "./config/cors";
 import { config } from "./config/credentials";
 import routes from "./routes";
+import adminRoutes from "./adminRoutes";
 import "./config/passport";
 
 const app = express();
@@ -26,6 +27,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 app.use("/", routes);
+app.use("/admin", adminRoutes);
 
 // catch 404 and forward to error handler
 app.use((req: Request, res: Response, next: NextFunction) => {
