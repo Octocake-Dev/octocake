@@ -40,7 +40,6 @@ export const getStaticProps: GetStaticProps = async ({
   return {
     props: { dehydratedState: dehydrate(queryClient) },
     // FIXME: Fix TS error
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
     // @ts-ignore
     notFound: post.name === "NotFoundError",
     revalidate: 1,

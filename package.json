@@ -22,9 +22,9 @@
     "prepare": "husky install"
   },
   "devDependencies": {
-    "husky": "^7.0.4",
+    "husky": ">=6",
     "lint-staged": ">=10",
-    "prettier": "2.4.1"
+    "prettier": "2.5.0"
   },
   "lint-staged": {
     "*.{js,jsx,ts,tsx}": "eslint --cache --fix",
