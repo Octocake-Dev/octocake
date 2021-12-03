@@ -1,59 +1,52 @@
 import { red } from "tailwindcss/colors";
-import { variant } from "styled-system";
-import styled from "styled-components";
+import { styled } from "../../../stitches.config";
 
-import type { ButtonProps } from "@/types/Button";
+const StyledButton = styled("button", {
+  cursor: "pointer",
+  fontFamily: "inherit",
+  fontWeight: 600,
+  borderRadius: "10px",
+  border: "none",
+  display: "inline-flex",
+  alignItems: "center",
 
-const StyledButton = styled.button<ButtonProps>`
-  cursor: pointer;
-  font-family: inherit;
-  font-weight: 600;
-  border-radius: 10px;
-  border: none;
-  display: inline-flex;
-  align-items: center;
+  "&:hover, &:focus": {
+    transitionDuration: "250ms",
+  },
+  "&:disabled": {
+    pointerEvents: "none",
+    opacity: "80%",
+  },
 
-  ${({ loading }) => loading && `pointer-events: none; opacity: 80%;`};
-
-  :hover,
-  :focus {
-    transition-duration: 250ms;
-  }
-
-  ${variant({
-    prop: "variant",
-    variants: {
+  variants: {
+    variant: {
       primary: {
         color: "white",
-        backgroundColor: "var(--color-primary-500)",
+        backgroundColor: "$primary500",
 
-        ":hover": {
-          backgroundColor: "var(--color-primary-600)",
+        "&:hover": {
+          backgroundColor: "$primary600",
         },
-        ":focus": {
-          backgroundColor: "var(--color-primary-600)",
+        "&:focus": {
+          backgroundColor: "$primary600",
           boxShadow: `0px 0px 0px 4px rgba(53,143,128,0.4)`,
         },
       },
-
       danger: {
         color: "white",
         backgroundColor: red[500],
 
-        ":hover": {
+        "&:hover": {
           backgroundColor: red[600],
         },
-        ":focus": {
+        "&:focus": {
           backgroundColor: red[600],
           boxShadow: `0px 0px 0px 4px rgba(220,38,38,0.4)`,
         },
       },
     },
-  })}
 
-  ${variant({
-    prop: "size",
-    variants: {
+    size: {
       sm: {
         fontSize: "14px",
         padding: "10px 20px",
@@ -69,7 +62,7 @@ const StyledButton = styled.button<ButtonProps>`
         padding: "14px 24px",
       },
     },
-  })}
-`;
+  },
+});
 
 export default StyledButton;

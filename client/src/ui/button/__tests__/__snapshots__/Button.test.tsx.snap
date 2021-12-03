@@ -2,7 +2,7 @@
 
 exports[`Button Should match snapshot 1`] = `
 <button
-  class="Buttonstyles__StyledButton-sc-1irlc1z-0 gvgyfc"
+  class="c-gRHiUP c-gRHiUP-eVNdMc-variant-primary c-gRHiUP-edqHme-size-md"
 >
   Click me
 </button>

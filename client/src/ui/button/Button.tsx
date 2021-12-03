@@ -12,7 +12,7 @@ const Button = ({
   loading,
   ...rest
 }: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <StyledButton loading={loading} disabled={disabled || loading} {...rest}>
+  <StyledButton disabled={disabled || loading} {...rest}>
     {children}
 
     {loading && (
