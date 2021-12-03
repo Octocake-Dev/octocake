@@ -1,4 +1,5 @@
 import React from "react";
+import type { NextPage } from "next";
 
 import { NextSeo } from "next-seo";
 import { useForm } from "react-hook-form";
@@ -20,7 +21,7 @@ const Inputs = [
   { id: "websiteUrl", placeholder: "Website URL" },
 ];
 
-const Profile = ({ user }: { user: TCurrentUser }) => {
+const Profile: NextPage<{ user: TCurrentUser }> = ({ user }) => {
   const { mutate: updateUser, isLoading } = useUpdateUser(user.githubUsername);
 
   const {
