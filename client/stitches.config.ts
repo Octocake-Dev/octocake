@@ -12,16 +12,16 @@ export const {
 } = createStitches({
   theme: {
     colors: {
-      primary50: "var(--color-primary-50)",
-      primary100: "var(--color-primary-100)",
-      primary200: "var(--color-primary-200)",
-      primary300: "var(--color-primary-300)",
-      primary400: "var(--color-primary-400)",
-      primary500: "var(--color-primary-500)",
-      primary600: "var(--color-primary-600)",
-      primary700: "var(--color-primary-700)",
-      primary800: "var(--color-primary-800)",
-      primary900: "var(--color-primary-900)",
+      primary50: "#99e2b4",
+      primary100: "#88d4ab",
+      primary200: "#78c6a3",
+      primary300: "#67b99a",
+      primary400: "#56ab91",
+      primary500: "#469d89",
+      primary600: "#358f80",
+      primary700: "#248277",
+      primary800: "#14746f",
+      primary900: "#036666",
     },
   },
 });
