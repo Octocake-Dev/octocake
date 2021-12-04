@@ -3,7 +3,7 @@
 exports[`Avatar Should match snapshot 1`] = `
 <img
   alt="avatar"
-  class="Avatar-sc-3byqqw-0 hWmiDf"
+  class="c-hutZiQ"
   data-nimg="intrinsic"
   decoding="async"
   src="data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///yH5BAEAAAAALAAAAAABAAEAAAIBRAA7"

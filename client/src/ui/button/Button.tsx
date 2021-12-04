@@ -6,13 +6,8 @@ import StyledButton from "./Button.styles";
 
 import type { ButtonProps } from "@/types/Button";
 
-const Button = ({
-  children,
-  disabled,
-  loading,
-  ...rest
-}: ButtonProps & React.ButtonHTMLAttributes<HTMLButtonElement>) => (
-  <StyledButton loading={loading} disabled={disabled || loading} {...rest}>
+const Button = ({ children, disabled, loading, ...rest }: ButtonProps) => (
+  <StyledButton disabled={disabled || loading} {...rest}>
     {children}
 
     {loading && (

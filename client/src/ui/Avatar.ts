@@ -1,10 +1,10 @@
 import Image from "next/image";
 
-import styled from "styled-components";
+import { styled } from "../../stitches.config";
 
-const Avatar = styled(Image)`
-  border-radius: 10px;
-  background-color: var(--color-primary-300);
-`;
+const Avatar = styled(Image, {
+  borderRadius: "10px",
+  backgroundColor: "$primary300",
+});
 
 export default Avatar;
