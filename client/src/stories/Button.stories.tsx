@@ -36,7 +36,9 @@ export const Sizes = () => (
   </>
 );
 
-export const Loading = () => <Button loading={true}>Loading</Button>;
+export const Loading = () => <Button loading>Loading</Button>;
+
+export const Disabled = () => <Button disabled>Disabled</Button>;
 
 export const WithLink = () => (
   <a
