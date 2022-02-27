@@ -11,7 +11,6 @@
 `src/modules/*` - Pages content.
 `src/pages/*` - All pages.
 `src/stores/*` - Global stores(Zustand stores).
-`src/stories/*` - All stories(Storybook).
 `src/styles/*` - All styles.
 `src/types/*` - All types.
 `src/ui/*` - Some simple components.
