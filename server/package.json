@@ -41,7 +41,7 @@
     "@types/http-errors": "^1.8.1",
     "@types/jsonwebtoken": "^8.5.5",
     "@types/morgan": "^1.9.3",
-    "@types/node": "^16.10.1",
+    "@types/node": "^18.11.9",
     "@types/passport": "^1.0.7",
     "@types/passport-github2": "^1.2.5",
     "@typescript-eslint/eslint-plugin": "^4.32.0",
